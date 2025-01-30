@@ -1,0 +1,18 @@
+,id,name,value
+0,1,Avion court courrier,25.82
+1,2,TGV,0.22999999999999998
+2,3,Intercités,0.58
+3,4,Voiture thermique,19.2
+4,5,Voiture électrique,1.9800000000000002
+5,6,Autocar thermique,2.5
+6,7,Vélo mécanique,0.0
+7,8,Vélo à assistance électrique,0.22300000000000003
+8,9,Bus thermique,10.43
+9,10,Tramway,0.38
+10,11,Métro,0.42
+11,12,Scooter ou moto légère thermique,6.04
+12,13,Moto thermique,16.48
+13,14,RER ou Transilien,0.66
+14,15,TER,2.29
+15,16,Bus électrique,0.95
+16,21,Bus (GNV),11.28
