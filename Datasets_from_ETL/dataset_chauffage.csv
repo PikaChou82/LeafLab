@@ -1,0 +1,8 @@
+,name,slug,ecv
+0,Chauffage au gaz,chauffagegaz,2535.0
+1,Chauffage au fioul,chauffagefioul,3716.05
+2,Chauffage électrique,chauffageelectrique,770.25
+3,Chauffage avec une pompe à chaleur,pompeachaleur,256.75
+4,Chauffage avec un poêle à granulés,poeleagranule,366.59999999999997
+5,Chauffage avec un poêle à bois,poeleabois,598.0
+6,Chauffage via un réseau de chaleur,reseaudechaleur,1213.5500000000002
