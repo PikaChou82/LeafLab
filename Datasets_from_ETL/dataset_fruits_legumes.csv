@@ -1,0 +1,76 @@
+,name,slug,months,ecv,category
+0,Pomme,pomme,[ 1  2  3  4  8  9 10 11 12],0.40819489999999997,fruits
+1,Orange,orange,[1 2 3],0.6776838000000001,fruits
+2,Citron,citron,[1 2],0.7635958,fruits
+3,Betterave,betterave,[ 1  2  3 10 11 12],0.40736649999999996,légumes
+4,Carotte,carotte,[ 1  2  3  9 10 11 12],0.3960665,légumes
+5,Céleri,celeri,[ 1  2  3 10 11 12],0.7157324,légumes
+6,Champignon (morille crue),champignonmorille,[ 1  2  3  4  5  6  7  8  9 10 11 12],6.175009000000001,légumes
+7,Chou,chou,[ 1  2  3 10 11 12],0.8476329999999999,légumes
+8,Chou de Bruxelles,choudebruxelles,[ 1  2  3 10 11 12],0.562147,légumes
+9,Chou-fleur,choufleur,[ 1  2  3  9 10 11 12],0.720705,légumes
+10,Courge,courge,[ 1  9 10 11 12],0.6382,légumes
+11,Cresson,cresson,[ 1  2  3  4  5  6  7  8  9 10 11 12],0.868145,légumes
+12,Endive,endive,[ 1  2  3  4  5 10],0.861009,légumes
+13,Épinard,epinard,[ 1  2  3  4  5  9 10 11 12],0.42256999999999995,légumes
+14,Mangue,mangue,[ 1  2  3  4  5  6  7  8  9 10 11 12],11.655508000000001,fruits
+15,Mâche,mache,[ 1  2 10 11 12],0.868145,légumes
+16,Navet,navet,[ 1  2  3  4  5 10 11 12],0.3961,légumes
+17,Oignon,oignon,[ 1  2  3  4  9 10 11 12],0.4204685,légumes
+18,Panais,panais,[ 1  2  3 10 11 12],0.4942756,légumes
+19,Poireau,poireau,[ 1  2  3  4  9 10 11 12],0.6113778000000001,légumes
+20,Potiron,potiron,[ 1  9 10 11 12],0.6382329999999999,légumes
+21,Salsifis,salsifis,[ 1  2  3 11 12],0.4942756,légumes
+22,Topinambour,topinambour,[ 1  2 11 12],0.49126650000000005,pommes de terre et autres tubercules
+23,Clémentine,clementine,[ 1  2 11 12],1.3019120000000002,fruits
+24,Kiwi,kiwi,[ 1  2  3 11 12],1.0015,fruits
+25,Mandarine,mandarine,[ 1  2 11 12],0.4684038,fruits
+26,Poire,poire,[ 1  2  3  8  9 10 11 12],0.387319,fruits
+27,Ananas,ananas,[ 1  2  3  4  5  6  7  8  9 10 11 12],1.3614345,fruits
+28,Banane,banane,[ 1  2  3  4  5  6  7  8  9 10 11 12],0.908523,fruits
+29,Avocat,avocat,[ 1  2  3  4  5  6  7  8  9 10 11 12],1.5525229999999999,légumes
+30,Carambole,carambole,[ 1 11 12],0.5535079999999999,fruits
+31,Datte,datte,[ 1 10 11 12],2.8927609999999997,fruits
+32,Fruit de la passion,fruitdelapassion,[ 1  2  3  4  5  6  7  8  9 10 11 12],0.937608,fruits
+33,Grenade,grenade,[ 1  2 11 12],0.4985215,fruits
+34,Kaki,kaki,[ 1 10 11 12],0.9495215,fruits
+35,Noix de coco,noixdecoco,[ 1  2 11 12],2.4109410000000002,fruits à coque et graines oléagineuses
+36,Pamplemousse,pamplemousse,[2 3 4 5 6],0.9255958,fruits
+37,Radis,radis,[3 4 5 6],0.3847324,légumes
+38,Asperge,asperge,[4 5 6],1.638878,légumes
+39,Fenouil,fenouil,[ 4  6  7  8  9 10 11],1.018233,légumes
+40,Rhubarbe,rhubarbe,[4 5 6],0.7015215,fruits
+41,Fraise,fraise,[5 6 7],0.51107,fruits
+42,Artichaut,artichaut,[5 6 7 8 9],2.556166,légumes
+43,Concombre,concombre,[ 5  6  7  8  9 10],0.5122949,légumes
+44,Courgette,courgette,[ 5  6  7  8  9 10],0.49850700000000003,légumes
+45,Laitue,laitue,[5 6 7 8 9],0.868145,légumes
+46,Petit pois,petitpois,[5 6 7],0.701761,légumes
+47,Blette,blette,[ 6  7  8  9 10 11],0.5811,légumes
+48,Haricot vert (cru),haricotvert,[ 6  7  8  9 10],0.44645700000000005,légumes
+49,Poivron,poivron,[6 7 8 9],0.7154,légumes
+50,Cassis,cassis,[6 7 8],1.903508,fruits
+51,Groseille,groseille,[6 7 8],1.8945215,fruits
+52,Melon,melon,[6 7 8 9],0.978343,fruits
+53,Pêche,peche,[6 7 8 9],0.5905215,fruits
+54,Cerise,cerise,[6 7],1.7445080000000002,fruits
+55,Abricot,abricot,[6 7 8],1.451508,fruits
+56,Framboise,framboise,[6 7 8],1.5430878,fruits
+57,Aubergine,aubergine,[6 7 8 9],0.47203700000000004,légumes
+58,Tomate,tomate,[6 7 8 9],0.6256,légumes
+59,Pastèque,pasteque,[6 7 8 9],0.6805,fruits
+60,Ail,ail,[ 7  8  9 10 11 12],0.38349300000000003,herbes
+61,Maïs,mais,[7 8 9],0.568793,"pâtes, riz et céréales"
+62,Figue,figue,[ 7  8  9 10],0.611508,fruits
+63,Myrtille,myrtille,[7 8 9],0.9215589,fruits
+64,Prune,prune,[7 8 9],1.0345215,fruits
+65,Mûre,mure,[8 9],1.2475079999999998,fruits
+66,Nectarine,nectarine,[8 9],0.613608,fruits
+67,Noisette,noisette,[ 9 10 11],4.8111999999999995,fruits à coque et graines oléagineuses
+68,Noix,noix,[ 9 10],4.114,fruits à coque et graines oléagineuses
+69,Reine claude,reineclaude,[9],1.043508,fruits
+70,Raisin,raisin,[ 9 10],0.5092949,fruits
+71,Brocoli,brocoli,[ 9 10 11],0.950705,légumes
+72,Échalote,echalote,[10 11 12],0.3935757,légumes
+73,Châtaigne,chataigne,[10 11],1.943945,fruits à coque et graines oléagineuses
+74,Coing,coing,[10],0.5615215,fruits
