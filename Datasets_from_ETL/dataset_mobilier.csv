@@ -1,0 +1,13 @@
+,name,slug,ecv,footprint,footprintDetail
+0,Canapé convertible,canapeconvertible,197.5,197.5,"[{'id': 1, 'value': 119.0} {'id': 2, 'value': 16.3}
+ {'id': 3, 'value': 11.2} {'id': 4, 'value': 51.0}]"
+1,Chaise en bois,chaiseenbois,18.63,18.63,"[{'id': 1, 'value': 4.92} {'id': 2, 'value': 1.78}
+ {'id': 3, 'value': 0.05} {'id': 4, 'value': 11.879999999999999}]"
+2,Table en bois,tableenbois,80.22,80.22,"[{'id': 1, 'value': 23.6} {'id': 2, 'value': 9.39}
+ {'id': 3, 'value': 0.13} {'id': 4, 'value': 47.1}]"
+3,Canapé en textile,canapetextile,179.1,179.1,"[{'id': 1, 'value': 99.5} {'id': 2, 'value': 16.7}
+ {'id': 3, 'value': 13.5} {'id': 4, 'value': 49.4}]"
+4,Armoire,armoire,906.88,906.88,"[{'id': 1, 'value': 118.0} {'id': 2, 'value': 70.7}
+ {'id': 3, 'value': 2.18} {'id': 4, 'value': 716.0}]"
+5,Lit,lit,443.81000000000006,443.81000000000006,"[{'id': 1, 'value': 303.20000000000005} {'id': 2, 'value': 38.28}
+ {'id': 3, 'value': 38.43} {'id': 4, 'value': 63.900000000000006}]"
