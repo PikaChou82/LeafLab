@@ -1,30 +1,26 @@
 ,Category,Name_Category,Name_SubCategory,slug,ecv
 0,1,Numérique,Smartphone,smartphone,85.85
-1,1,Numérique,Ordinateur fixe sans écran (particulier),ordinateurfixeparticulier,299.3
-2,1,Numérique,Ordinateur fixe sans écran (professionnel),ordinateurfixeprofessionnel,258.1
+1,1,Numérique,Ordinateur fixe,ordinateurfixeparticulier,299.3
 3,1,Numérique,Écran d'ordinateur,ecran,91.4
-4,1,Numérique,Tablette,tabletteclassique,61.89999999999999
-5,1,Numérique,Télévision ,television,472.40000000000003
-6,1,Numérique,Ordinateur portable,ordinateurportable,193.00000000000003
+4,1,Numérique,Tablette,tabletteclassique,61.9
+5,1,Numérique,Télévision ,television,472.4
+6,1,Numérique,Ordinateur portable,ordinateurportable,193
 7,1,Numérique,Enceinte connectée,enceintebluetooth,26.5
-8,1,Numérique,Téléphone basique,telephonebasique,23.400000000000002
-9,1,Numérique,Casque de réalité virtuelle,casquevr,72.30000000000001
-10,1,Numérique,Alimentation externe pour ordinateur portable,alimentationordinateur,4.1
-11,1,Numérique,Alimentation externe pour smartphone ou tablette,alimentationsmartphone,0.4
+9,1,Numérique,Casque de réalité virtuelle,casquevr,72.3
 12,1,Numérique,Disque dur externe,disquedur,11.9
 13,1,Numérique,Clef usb,clefusb,2.9
 14,1,Numérique,Box,box,82.0
-15,2,Alimentation,Boeuf,boeuf,28.009169999999997
-16,2,Alimentation,Veau,veau,22.50465333333333
-17,2,Alimentation,Porc,porc,6.671304949999999
-18,2,Alimentation,Canard,canard,8.0609
-19,2,Alimentation,Lapin,lapin,5.782900000000001
+15,2,Alimentation,Boeuf,boeuf,28
+16,2,Alimentation,Veau,veau,22.5
+17,2,Alimentation,Porc,porc,6.6713
+18,2,Alimentation,Canard,canard,8.06
+19,2,Alimentation,Lapin,lapin,5.7829
 20,2,Alimentation,Poulet,poulet,4.56043
 21,2,Alimentation,Crevettes,crevettes,20.345228
-22,2,Alimentation,Moules,moules,5.328231000000001
-23,2,Alimentation,Huitres,huitres,5.328231000000001
-24,2,Alimentation,Cabillaud (cru),cabillaud,12.0864877
-25,2,Alimentation,Lieu jaune ou colin (cru),lieu,12.0864877
+22,2,Alimentation,Moules,moules,5.328231
+23,2,Alimentation,Huitres,huitres,5.328231
+24,2,Alimentation,Cabillaud (cru),cabillaud,12.0864
+25,2,Alimentation,Lieu jaune ou colin (cru),lieu,12.0864
 26,2,Alimentation,Dorade royale,dorade,11.1914877
 27,2,Alimentation,Saumon ou truite d'élevage (cru),saumon,5.55693
 28,2,Alimentation,Thon (cru),thon,4.98343
@@ -32,41 +28,41 @@
 30,2,Alimentation,Beurre,beurre,7.91333
 31,2,Alimentation,Fromage à pâte dure,fromagedure,6.27838
 32,2,Alimentation,Fêta (brebis),feta,6.30563
-33,2,Alimentation,Fromage à pâte molle,fromagemolle,5.144405000000001
+33,2,Alimentation,Fromage à pâte molle,fromagemolle,5.144405
 34,2,Alimentation,Mozarella,mozarella,4.71463
-35,2,Alimentation,Fromage bleu,fromagebleu,6.164963333333335
-36,2,Alimentation,Oeufs,oeuf,1.8780103000000001
+35,2,Alimentation,Fromage bleu,fromagebleu,6.16496
+36,2,Alimentation,Oeufs,oeuf,1.87801
 37,2,Alimentation,Matière grasse végétale,matieregrasse,2.58463
-38,2,Alimentation,Yaourt nature ou yaourt à la grecque,yaourt,1.8947299999999998
-39,2,Alimentation,Fromage blanc 0%,fromageblanc,1.8096299999999998
+38,2,Alimentation,Yaourt nature ou yaourt à la grecque,yaourt,1.89473
+39,2,Alimentation,Fromage blanc 0%,fromageblanc,1.80963
 40,2,Alimentation,Riz,riz,2.01458575
 41,2,Alimentation,Pâtes (sèches),pates,1.9795
 42,2,Alimentation,Blé,ble,1.2262635
-43,2,Alimentation,Boulgour,boulgour,0.9499000000000001
-44,2,Alimentation,Pois chiches,poischiches,0.8985430000000001
+43,2,Alimentation,Boulgour,boulgour,0.9499
+44,2,Alimentation,Pois chiches,poischiches,0.898543
 45,2,Alimentation,Haricots rouges,haricotsrouges,0.858543
-46,2,Alimentation,"Lentilles (blondes, vertes, corail)",lentilles,0.5815429999999999
-47,2,Alimentation,Cheeseburger,cheeseburger,18.833399999999997
-48,2,Alimentation,Kebab,kebab,12.806530000000002
+46,2,Alimentation,"Lentilles (blondes, vertes, corail)",lentilles,0.5815
+47,2,Alimentation,Cheeseburger,cheeseburger,18.8334
+48,2,Alimentation,Kebab,kebab,12.80653
 49,2,Alimentation,Burger au poulet,burgerpoulet,4.3614
 50,2,Alimentation,Pizza quatre fromages,pizza,3.5994
-51,2,Alimentation,Sushis ou makis,sushis,2.6689999999999996
+51,2,Alimentation,Sushis ou makis,sushis,2.669
 52,2,Alimentation,Burger végétarien,burgervegetarien,2.7075
-53,2,Alimentation,Frites (friteuse),frites,1.4569999999999999
-54,2,Alimentation,Tofu nature,tofu,1.0042999999999997
-55,2,Alimentation,Rocher au chocolat,boucheechocolat,10.521899999999999
+53,2,Alimentation,Frites (friteuse),frites,1.457
+54,2,Alimentation,Tofu nature,tofu,1.0043
+55,2,Alimentation,Rocher au chocolat,boucheechocolat,10.5219
 56,2,Alimentation,Pâte à tartiner à la noisette,pateatartiner,9.1169
 57,2,Alimentation,Brownie au chocolat,brownie,8.3569
 58,2,Alimentation,Pain au chocolat ou chocolatine,painauchocolat,5.7291
-59,2,Alimentation,Cookie au pépites de chocolat,cookie,6.272900000000001
+59,2,Alimentation,Cookie au pépites de chocolat,cookie,6.2729
 60,2,Alimentation,Madeleine,madeleine,2.2434
 61,2,Alimentation,Pain aux raisins,painauxraisins,2.5641
-62,2,Alimentation,Chausson aux pommes,chaussonauxpommes,2.0441000000000003
-63,2,Alimentation,Croissant au beurre,croissant,2.9431000000000003
-64,2,Alimentation,Pain de mie,paindemie,1.5591000000000002
+62,2,Alimentation,Chausson aux pommes,chaussonauxpommes,2.0441
+63,2,Alimentation,Croissant au beurre,croissant,2.9431
+64,2,Alimentation,Pain de mie,paindemie,1.5591
 65,2,Alimentation,Bonbons gélifiés,bonbons,1.4869
-66,2,Alimentation,Baguette tradition,baguette,0.7767000000000001
-67,2,Alimentation,Pomme de terre nouvelle,pommedeterre,0.7062605000000001
+66,2,Alimentation,Baguette tradition,baguette,0.7767
+67,2,Alimentation,Pomme de terre nouvelle,pommedeterre,0.70626
 68,2,Alimentation,Repas avec du boeuf,repasavecduboeuf,7.26
 69,2,Alimentation,Repas végétarien,repasvegetarien,0.51
 70,2,Alimentation,Repas végétalien,repasvegetalien,0.39
@@ -75,9 +71,9 @@
 73,2,Alimentation,Repas avec du poulet,repasavecdupoulet,1.58
 74,3,Boisson,Eau du robinet,eaudurobinet,0.000132
 75,3,Boisson,Eau en bouteille,eauenbouteille,0.320735
-76,3,Boisson,Soda,soda,0.49333000000000005
+76,3,Boisson,Soda,soda,0.49333
 77,3,Boisson,Bière,biere,1.34703
-78,3,Boisson,Vin,vin,1.2686300000000001
+78,3,Boisson,Vin,vin,1.26863
 79,3,Boisson,Lait de vache,laitdevache,1.1505
 80,3,Boisson,Boisson au soja,soja,0.4272
 81,3,Boisson,Thé,the,0.043587
@@ -85,60 +81,53 @@
 83,3,Boisson,Lait de vache,laitdevache,1.33
 84,4,Transport,Avion court courrier,avion-courtcourrier,0.25858
 85,4,Transport,Avion moyen courrier,avion-moyencourrier,0.18756
-86,4,Transport,Avion long courrier,avion-longcourrier,0.15195999999999998
-87,4,Transport,TGV,tgv,0.00293
+86,4,Transport,Avion long courrier,avion-longcourrier,0.152
+87,4,Transport,Train / TGV,tgv,0.00293
 88,4,Transport,Intercités,intercites,0.00898
-89,4,Transport,Voiture thermique,voiturethermique,0.21760000000000002
-90,4,Transport,Voiture électrique,voitureelectrique,0.10339999999999999
-91,4,Transport,Autocar thermique,autocar,0.029421306270000003
-92,4,Transport,Marche,marche,0.0
+89,4,Transport,Voiture / moto thermique,voiturethermique,0.2176
+90,4,Transport,Voiture électrique,voitureelectrique,0.1034
+91,4,Transport,Autocar thermique,autocar,0.0294
 93,4,Transport,Vélo mécanique,velo,0.00017
-94,4,Transport,Vélo à assistance électrique,veloelectrique,0.010950000000000001
-95,4,Transport,Bus thermique,busthermique,0.11320000000000001
+94,4,Transport,Vélo à assistance électrique,veloelectrique,0.01095
+95,4,Transport,Bus thermique,busthermique,0.1132
 96,4,Transport,Tramway,tramway,0.00428
-97,4,Transport,Métro,metro,0.0044399999999999995
+97,4,Transport,Métro,metro,0.00444
 98,4,Transport,Scooter ou moto légère thermique,scooter,0.0763
-99,4,Transport,Moto thermique,moto,0.1913
 100,4,Transport,RER ou Transilien,rer,0.00978
 101,4,Transport,TER,ter,0.02769
 102,4,Transport,Bus électrique,buselectrique,0.0217
 103,4,Transport,Trottinette à assistance électrique,trottinette,0.0249
 104,4,Transport,Bus (GNV),busgnv,0.1217
-105,5,Habillement,Jeans,jeans,25.08872880618721
-106,5,Habillement,Polo,polo,10.163529075648208
-107,5,Habillement,T-shirt en coton,tshirtencoton,6.433790554863734
-108,5,Habillement,T-shirt en polyester,tshirtenpolyester,6.211492878123854
+105,5,Habillement,Jeans,jeans,25.0887
+106,5,Habillement,Polo,polo,10.16353
+107,5,Habillement,T-shirt,tshirt,6.4338
 109,5,Habillement,Sweat en coton,sweatencoton,32.49278107847502
-110,5,Habillement,Chemise en coton,chemiseencoton,13.23466182713826
-111,5,Habillement,Chemise en viscose,chemiseenviscose,12.139796272777625
-112,5,Habillement,Paire de chaussures en cuir,chaussuresencuir,14.954494546022259
-113,5,Habillement,Paire de chaussures en tissu,chaussuresentissu,18.519884267564898
-114,5,Habillement,Paire de chaussures de sport,chaussuresdesport,20.125551283507104
-115,5,Habillement,Robe en coton,robeencoton,56.90736582785554
-116,5,Habillement,Robe en polyester,robeenpolyester,58.257205518739376
-117,5,Habillement,Robe en viscose,robeenviscose,52.48152206560145
-118,5,Habillement,Pull en laine,pullenlaine,56.69545613769189
-119,5,Habillement,Pull en acrylique,pullenacrylique,28.96838102563544
-120,5,Habillement,Pull en coton recyclé,pullencotonrecycle,13.19278107847502
-121,5,Habillement,Manteau,manteau,101.42051607966856
-122,5,Habillement,Veste imperméable,vesteimpermeable,41.14715954637288
-123,5,Habillement,Veste simili-cuir,vestesimilicuir,26.825820363170223
-124,6,Électroménager,Bouilloire,bouilloire,40.88403605825422
-125,6,Électroménager,Cafetière à dosettes,cafetieredosette,251.0035526905852
-126,6,Électroménager,Cafetière filtre,cafetierefiltre,197.69817433391722
-127,6,Électroménager,Cafetière expresso,cafetiereexpresso,211.7710842705374
-128,6,Électroménager,Four électrique,fourelectrique,263.06469996
-129,6,Électroménager,Lave-vaisselle,lavevaisselle,467.9982177292116
+110,5,Habillement,Chemise,chemise,13.2347
+112,5,Habillement,Paire de chaussures,chaussures,16
+114,5,Habillement,Paire de chaussures de sport,chaussuresdesport,20.12555
+115,5,Habillement,Robe,robe,55
+118,5,Habillement,Pull en laine,pullenlaine,56.6954561
+119,5,Habillement,Pull en acrylique,pullenacrylique,28.968381
+120,5,Habillement,Pull en coton recyclé,pullencotonrecycle,13.192781
+121,5,Habillement,Manteau,manteau,101.420516
+122,5,Habillement,Veste imperméable,vesteimpermeable,41.14716
+123,5,Habillement,Veste simili-cuir,vestesimilicuir,26.82582
+124,6,Électroménager,Bouilloire,bouilloire,40.884036
+125,6,Électroménager,Cafetière à dosettes,cafetieredosette,251.003553
+126,6,Électroménager,Cafetière filtre,cafetierefiltre,197.698174
+127,6,Électroménager,Cafetière expresso,cafetiereexpresso,211.77108
+128,6,Électroménager,Four électrique,fourelectrique,263.0647
+129,6,Électroménager,Lave-vaisselle,lavevaisselle,468
 130,6,Électroménager,Lave-linge,lavelinge,510.2572583409827
-131,6,Électroménager,Réfrigérateur,refrigirateur,325.46071642401705
+131,6,Électroménager,Réfrigérateur,refrigirateur,325.460716
 132,6,Électroménager,Aspirateur,aspirateur,47.31
-133,6,Électroménager,Climatiseur,climatiseur,413.8812884443126
+133,6,Électroménager,Climatiseur,climatiseur,413.8813
 134,7,Mobilier,Canapé convertible,canapeconvertible,197.5
 135,7,Mobilier,Chaise en bois,chaiseenbois,18.63
 136,7,Mobilier,Table en bois,tableenbois,80.22
 137,7,Mobilier,Canapé en textile,canapetextile,179.1
 138,7,Mobilier,Armoire,armoire,906.88
-139,7,Mobilier,Lit,lit,443.81000000000006
+139,7,Mobilier,Lit,lit,443.81
 140,8,Chauffage,Chauffage au gaz par m²,chauffagegaz,39.0
 141,8,Chauffage,Chauffage au fioul par m²,chauffagefioul,57.17
 142,8,Chauffage,Chauffage électrique par m²,chauffageelectrique,11.85
@@ -155,33 +144,33 @@
 153,9,Fruits et légumes,Laitue,laitue,0.868145
 154,9,Fruits et légumes,Banane,banane,0.908523
 155,9,Fruits et légumes,Mangue,mangue,11.65551
-156,9,Fruits et légumes,Poireau,poireau,0.6113778000000001
+156,9,Fruits et légumes,Poireau,poireau,0.6113778
 157,9,Fruits et légumes,Avocat,avocat,1.552523
 158,9,Fruits et légumes,Fraise,fraise,0.51107
-159,9,Fruits et légumes,Pomme,pomme,0.40819489999999997
-160,9,Fruits et légumes,Orange,orange,0.6776838000000001
+159,9,Fruits et légumes,Pomme,pomme,0.4081949
+160,9,Fruits et légumes,Orange,orange,0.677684
 161,9,Fruits et légumes,Citron,citron,0.7635958
-162,9,Fruits et légumes,Ail,ail,0.38349300000000003
+162,9,Fruits et légumes,Ail,ail,0.383493
 163,9,Fruits et légumes,Artichaut,artichaut,2.556166
 164,9,Fruits et légumes,Asperge,asperge,1.638878
-165,9,Fruits et légumes,Betterave,betterave,0.40736649999999996
+165,9,Fruits et légumes,Betterave,betterave,0.4073665
 166,9,Fruits et légumes,Blette,blette,0.5811
 167,9,Fruits et légumes,Carotte,carotte,0.3960665
 168,9,Fruits et légumes,Céleri,celeri,0.7157324
-169,9,Fruits et légumes,Champignon (morille crue),champignonmorille,6.175009000000001
-170,9,Fruits et légumes,Chou,chou,0.8476329999999999
+169,9,Fruits et légumes,Champignon (morille crue),champignonmorille,6.175009
+170,9,Fruits et légumes,Chou,chou,0.847633
 171,9,Fruits et légumes,Chou de Bruxelles,choudebruxelles,0.562147
 172,9,Fruits et légumes,Chou-fleur,choufleur,0.720705
 173,9,Fruits et légumes,Concombre,concombre,0.5122949
 174,9,Fruits et légumes,Courge,courge,0.6382
-175,9,Fruits et légumes,Courgette,courgette,0.49850700000000003
+175,9,Fruits et légumes,Courgette,courgette,0.498507
 176,9,Fruits et légumes,Cresson,cresson,0.868145
 177,9,Fruits et légumes,Échalote,echalote,0.3935757
 178,9,Fruits et légumes,Endive,endive,0.861009
-179,9,Fruits et légumes,Épinard,epinard,0.42256999999999995
-180,9,Fruits et légumes,Mangue,mangue,11.655508000000001
+179,9,Fruits et légumes,Épinard,epinard,0.42257
+180,9,Fruits et légumes,Mangue,mangue,11.6555
 181,9,Fruits et légumes,Fenouil,fenouil,1.018233
-182,9,Fruits et légumes,Haricot vert (cru),haricotvert,0.44645700000000005
+182,9,Fruits et légumes,Haricot vert (cru),haricotvert,0.446457
 183,9,Fruits et légumes,Laitue,laitue,0.868145
 184,9,Fruits et légumes,Mâche,mache,0.868145
 185,9,Fruits et légumes,Navet,navet,0.3961
@@ -189,15 +178,15 @@
 187,9,Fruits et légumes,Oignon,oignon,0.4204685
 188,9,Fruits et légumes,Panais,panais,0.4942756
 189,9,Fruits et légumes,Petit pois,petitpois,0.701761
-190,9,Fruits et légumes,Poireau,poireau,0.6113778000000001
+190,9,Fruits et légumes,Poireau,poireau,0.6113778
 191,9,Fruits et légumes,Poivron,poivron,0.7154
-192,9,Fruits et légumes,Potiron,potiron,0.6382329999999999
+192,9,Fruits et légumes,Potiron,potiron,0.638233
 193,9,Fruits et légumes,Radis,radis,0.3847324
 194,9,Fruits et légumes,Salsifis,salsifis,0.4942756
-195,9,Fruits et légumes,Topinambour,topinambour,0.49126650000000005
+195,9,Fruits et légumes,Topinambour,topinambour,0.4912665
 196,9,Fruits et légumes,Cassis,cassis,1.903508
 197,9,Fruits et légumes,Châtaigne,chataigne,1.943945
-198,9,Fruits et légumes,Clémentine,clementine,1.3019120000000002
+198,9,Fruits et légumes,Clémentine,clementine,1.301912
 199,9,Fruits et légumes,Pamplemousse,pamplemousse,0.9255958
 200,9,Fruits et légumes,Coing,coing,0.5615215
 201,9,Fruits et légumes,Figue,figue,0.611508
@@ -205,40 +194,40 @@
 203,9,Fruits et légumes,Kiwi,kiwi,1.0015
 204,9,Fruits et légumes,Mandarine,mandarine,0.4684038
 205,9,Fruits et légumes,Melon,melon,0.978343
-206,9,Fruits et légumes,Mûre,mure,1.2475079999999998
+206,9,Fruits et légumes,Mûre,mure,1.247508
 207,9,Fruits et légumes,Nectarine,nectarine,0.613608
 208,9,Fruits et légumes,Myrtille,myrtille,0.9215589
-209,9,Fruits et légumes,Noisette,noisette,4.8111999999999995
+209,9,Fruits et légumes,Noisette,noisette,4.8112
 210,9,Fruits et légumes,Noix,noix,4.114
 211,9,Fruits et légumes,Prune,prune,1.0345215
 212,9,Fruits et légumes,Reine claude,reineclaude,1.043508
 213,9,Fruits et légumes,Rhubarbe,rhubarbe,0.7015215
 214,9,Fruits et légumes,Pêche,peche,0.5905215
-215,9,Fruits et légumes,Cerise,cerise,1.7445080000000002
+215,9,Fruits et légumes,Cerise,cerise,1.744508
 216,9,Fruits et légumes,Abricot,abricot,1.451508
 217,9,Fruits et légumes,Framboise,framboise,1.5430878
 218,9,Fruits et légumes,Poire,poire,0.387319
 219,9,Fruits et légumes,Raisin,raisin,0.5092949
-220,9,Fruits et légumes,Aubergine,aubergine,0.47203700000000004
+220,9,Fruits et légumes,Aubergine,aubergine,0.472037
 221,9,Fruits et légumes,Brocoli,brocoli,0.950705
 222,9,Fruits et légumes,Tomate,tomate,0.6256
 223,9,Fruits et légumes,Ananas,ananas,1.3614345
 224,9,Fruits et légumes,Banane,banane,0.908523
-225,9,Fruits et légumes,Avocat,avocat,1.5525229999999999
-226,9,Fruits et légumes,Carambole,carambole,0.5535079999999999
-227,9,Fruits et légumes,Datte,datte,2.8927609999999997
-228,9,Fruits et légumes,Fruit de la passion,fruitdelapassion,0.937608
-229,9,Fruits et légumes,Grenade,grenade,0.4985215
-230,9,Fruits et légumes,Kaki,kaki,0.9495215
-231,9,Fruits et légumes,Noix de coco,noixdecoco,2.4109410000000002
+225,9,Fruits et légumes,Avocat,avocat,1.5525
+226,9,Fruits et légumes,Carambole,carambole,0.553508
+227,9,Fruits et légumes,Datte,datte,2.892761
+228,9,Fruits et légumes,Fruit de la passion,fruitdelapassion,0.93761
+229,9,Fruits et légumes,Grenade,grenade,0.4985
+230,9,Fruits et légumes,Kaki,kaki,0.9495
+231,9,Fruits et légumes,Noix de coco,noixdecoco,2.410941
 232,9,Fruits et légumes,Pastèque,pasteque,0.6805
-233,10,Usage numérique,Email,email,0.00246181262
-234,10,Usage numérique,Spam,spam,0.00373863698
-235,10,Usage numérique,Stocker un go de donnée,stockagedonnee,0.00023533417
-236,10,Usage numérique,Recherche sur le web,rechercheweb,0.051042269652307
-237,10,Usage numérique,Streaming vidéo,streamingvideo,0.06401675291000002
-238,10,Usage numérique,Visioconférence,visioconference,0.05706336546216
-239,10,Usage numérique,Go de donnée,telechargement,0.00950468087
+233,10,Usage numérique,Email,email,0.00246
+234,10,Usage numérique,Spam,spam,0.00374
+235,10,Usage numérique,Stocker un go de donnée,stockagedonnee,0.000235
+236,10,Usage numérique,Recherche sur le web,rechercheweb,0.05104
+237,10,Usage numérique,Streaming vidéo,streamingvideo,0.06402
+238,10,Usage numérique,Visioconférence,visioconference,0.05706
+239,10,Usage numérique,Go de donnée,telechargement,0.0095
 240,13,Cas pratiques,A/R Paris - New-York en avion,avion-pny,1770.0
 241,13,Cas pratiques,A/R Paris - Berlin en tgv,tgv-paris-berlin,7.26
 242,13,Cas pratiques,A/R Paris - Marseille en tgv,tgv-paris-marseille,4.4
