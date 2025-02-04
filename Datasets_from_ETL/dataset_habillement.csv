@@ -1,20 +1,15 @@
 ,name,slug,ecv,category
-0,Jeans,jeans,25.08872880618721,Bas
-1,Polo,polo,10.163529075648208,Haut
-2,T-shirt en coton,tshirtencoton,6.433790554863734,Haut
-3,T-shirt en polyester,tshirtenpolyester,6.211492878123854,Haut
-4,Sweat en coton,sweatencoton,32.49278107847502,Pulls
-5,Chemise en coton,chemiseencoton,13.23466182713826,Haut
-6,Chemise en viscose,chemiseenviscose,12.139796272777625,Haut
-7,Paire de chaussures en cuir,chaussuresencuir,14.954494546022259,Chaussures
-8,Paire de chaussures en tissu,chaussuresentissu,18.519884267564898,Chaussures
-9,Paire de chaussures de sport,chaussuresdesport,20.125551283507104,Chaussures
-10,Robe en coton,robeencoton,56.90736582785554,Robes
-11,Robe en polyester,robeenpolyester,58.257205518739376,Robes
-12,Robe en viscose,robeenviscose,52.48152206560145,Robes
-13,Pull en laine,pullenlaine,56.69545613769189,Pulls
-14,Pull en acrylique,pullenacrylique,28.96838102563544,Pulls
-15,Pull en coton recyclé,pullencotonrecycle,13.19278107847502,Pulls
-16,Manteau,manteau,101.42051607966856,Manteaux
-17,Veste imperméable,vesteimpermeable,41.14715954637288,Inconnu
-18,Veste simili-cuir,vestesimilicuir,26.825820363170223,Manteaux
+0,Jeans,jeans,25.0887,Bas
+1,Polo,polo,10.1635,Haut
+2,T-shirt,tshirt,6.4338,Haut
+3,Sweat en coton,sweatencoton,32.4928,Pulls
+4,Chemise,chemise,13.2347,Haut
+5,Chaussures,chaussures,16.73,Chaussures
+6,Chaussures de sport,chaussuresdesport,20.13,Chaussures
+7,Robe,robe,55,Robes
+8,Pull en laine,pullenlaine,56.6954,Pulls
+9,Pull en acrylique,pullenacrylique,28.9683,Pulls
+10,Pull en coton recyclé,pullencotonrecycle,13.1928,Pulls
+11,Manteau,manteau,101.4205,Manteaux
+12,Veste imperméable,vesteimpermeable,41.1471,Inconnu
+13,Veste simili-cuir,vestesimilicuir,26.8258,Manteaux
