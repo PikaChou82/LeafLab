@@ -1,12 +1,8 @@
 ,name,slug,ecv
-0,Smartphone,smartphone,85.85
-1,Ordinateur fixe,ordinateurfixeparticulier,299.3
-2,Écran d'ordinateur,ecran,91.4
-3,Tablette,tabletteclassique,61.9
-4,Télévision ,television,472.4
-5,Ordinateur portable,ordinateurportable,193
-6,Enceinte connectée,enceintebluetooth,26.5
-7,Casque de réalité virtuelle,casquevr,72.3
-8,Disque dur externe,disquedur,11.9
-9,Clef usb,clefusb,2.9
-10,Box,box,82.0
+0,Email,email,0.0025
+1,Spam,spam,0.00374
+2,Stocker un Go de donnée,stockagedonnee,0.000235
+3,Recherche sur le web,rechercheweb,0.051
+4,Streaming vidéo,streamingvideo,0.064
+5,Visioconférence,visioconference,0.0571
+6,Go de donnée,telechargement,0.0095
