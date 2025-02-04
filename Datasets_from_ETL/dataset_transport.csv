@@ -1,22 +1,20 @@
 ,id,name,value
 0,1,Avion court courrier,0.25858
 1,2,Avion moyen courrier,0.18756
-2,3,Avion long courrier,0.15195999999999998
-3,4,TGV,0.00293
+2,3,Avion long courrier,0.152
+3,4,Train / TGV,0.00293
 4,5,Intercités,0.00898
-5,6,Voiture thermique,0.21760000000000002
-6,7,Voiture électrique,0.10339999999999999
-7,8,Autocar thermique,0.029421306270000003
-8,9,Marche,0.0
-9,10,Vélo mécanique,0.00017
-10,11,Vélo à assistance électrique,0.010950000000000001
-11,12,Bus thermique,0.11320000000000001
-12,13,Tramway,0.00428
-13,14,Métro,0.0044399999999999995
-14,15,Scooter ou moto légère thermique,0.0763
-15,16,Moto thermique,0.1913
-16,17,RER ou Transilien,0.00978
-17,18,TER,0.02769
-18,19,Bus électrique,0.0217
-19,20,Trottinette à assistance électrique,0.0249
-20,21,Bus (GNV),0.1217
+5,6,Voiture / moto thermique,0.2176
+6,7,Voiture électrique,0.1034
+7,8,Autocar thermique,0.0294
+8,9,Vélo mécanique,0.00017
+9,10,Vélo à assistance électrique,0.01095
+10,11,Bus thermique,0.1132
+11,12,Tramway,0.00428
+12,13,Métro,0.00444
+13,14,Scooter ou moto légère thermique,0.0763
+14,15,RER ou Transilien,0.00978
+15,16,TER,0.02769
+16,17,Bus électrique,0.0217
+17,18,Trottinette à assistance électrique,0.0249
+18,19,Bus (GNV),0.1217
