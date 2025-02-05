@@ -205,18 +205,23 @@ results = pd.DataFrame(liste_to_take)
 results = results.iloc[:,1:]
 results = results[results['Category'] != 2]
 results = results[results['Category'] != 9]
+results = results[results['Category'] != 3]
 
 compteur = 0
-liste_compteur = ['Viandes & Poissons','Céréales & Légumineuses', 'Plats Préparés & Encas', 'Oeufs & Produits Laitiers']
-for dataframe in [proteine_to_take, cereales_to_take, encas_to_take, laitier_to_take]:
+liste_compteur = ['Viandes & Poissons','Céréales & Légumineuses', 'Plats Préparés & Encas', 'Oeufs & Produits Laitiers', 'Boissons']
+for dataframe in [proteine_to_take, cereales_to_take, encas_to_take, laitier_to_take, boissons_to_take]:
     dataframe = pd.DataFrame(dataframe)
     dataframe = dataframe.iloc[:,1:]
     if compteur == 3:
         dataframe = dataframe.rename(columns={'Libellé': 'Name_SubCategory', 'ecv_par_portion': 'ecv'})
     else:
         dataframe = dataframe.rename(columns={'Libellé': 'Name_SubCategory', 'ecv': 'ecv'})
-    dataframe['Name_Category'] = 'Alimentation'
-    dataframe['Category'] = 2
+    if compteur == 4:
+        dataframe['Name_Category'] = 'Boissons'
+        dataframe['Category'] = 3
+    else:        
+        dataframe['Name_Category'] = 'Alimentation'
+        dataframe['Category'] = 2
     dataframe['slug'] = liste_compteur[compteur] 
     dataframe = dataframe[['Category', 'Name_Category', 'Name_SubCategory', 'slug', 'ecv']]
     results= pd.concat([results,dataframe ])
@@ -292,4 +297,3 @@ results['Use_Total'] = results['User'] * results['ecv'] + results['Usage']
 Conso_Totale_Tonnes = results['Use_Total'].sum()/1000
 
 st.title(f"Ma conso moyenne est de {round(Conso_Totale_Tonnes,2)} Tonnes / An !")
-st.write(reponses_alimentation_boisson)
