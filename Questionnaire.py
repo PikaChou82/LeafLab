@@ -2,10 +2,15 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-logo = "https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/BigFoot.png"
-
 # J'indique que je veux prendre la totalité de l'écran
 st.set_page_config(layout="wide")
+
+page_element="""<style>[data-testid="stAppViewContainer"]{background-image: url("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/fond.png");
+  background-size: cover;}</style>"""
+st.markdown(page_element, unsafe_allow_html=True)
+
+
+logo = "https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/BigFoot.png"
 
 # Création des différentes listes
 liste_to_take = pd.read_csv("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Datasets_from_ETL/dataset_generator.csv")
@@ -48,10 +53,10 @@ with col1:
     st.image(logo)
 
 with col2:
-    
+
     # Fonction d'affichage des questions sous forme de liste
     def afficher_section_liste(theme, sous_themes, questions,options, keys, emoji):
-        theme = f"**{theme}**"
+        theme = f"# **{theme}**"
         with st.expander(theme, icon= emoji):  
             for i, sous_theme in enumerate(sous_themes):
                 st.subheader(sous_theme)
@@ -61,7 +66,7 @@ with col2:
 
     # Fonction d'affichage des questions sous forme d'entrée en 1 puis liste en 2 
     def afficher_section_num_liste(theme, sous_themes, questions, options, keys, emoji):
-        theme = f"**{theme}**"
+        theme = f"# **{theme}**"
         with st.expander(theme, icon= emoji):
             for i, sous_theme in enumerate(sous_themes):
                 st.subheader(sous_theme)
@@ -74,7 +79,7 @@ with col2:
 
     # Fonction d'affichage des questions sous forme de tableau pour saisie
     def afficher_section_tableau(theme, sous_themes, questions, options, keys, boolean, emoji):
-        theme = f"**{theme}**"
+        theme = f"# **{theme}**"
         with st.expander(theme, expanded= boolean, icon= emoji):
             for i, sous_theme in enumerate(sous_themes):
                 st.subheader(sous_theme)
@@ -86,7 +91,7 @@ with col2:
 
     # Fonction d'affichage des questions sous forme de liste puis chiffre (*2)
     def afficher_section_liste_chiffre_tableau(theme, sous_themes, questions, options, keys, emoji):
-        theme = f"**{theme}**"
+        theme = f"# **{theme}**"
         with st.expander(theme, icon= emoji):
             for i, sous_theme in enumerate(sous_themes):
                 st.subheader(sous_theme)
@@ -104,7 +109,7 @@ with col2:
     sous_themes_numerique = ["Appareils", "Usage"]
     questions_numerique = [
         "Quels appareils numériques avez-vous acheté neuf ces 12 derniers mois ?",
-        "Quantifiez vos usages du numérique ? (nombre / heures)"
+        "Quantifiez vos usages du numérique ? (en moyenne par semaine, en nombre ou en heures)"
     ]
     options_numerique = [option_appareil_numerique,
         option_usage_numerique
@@ -117,13 +122,13 @@ with col2:
     # Questions Alimentation
     sous_themes_alimentation = ["Viandes & Poissons","Produits Laitiers","Céréales & Légumineuses","Plats Préparés & Snacks", "Légumes", "Fruits", "Fruits Exotiques", "Boissons"]
     questions_alimentation = [
-        "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (Viandes & Poissons)",
-        "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (Produits Laitiers)",
-        "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (Céréales & Légumineuses)",
-        "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (Plats Préparés & Snacks)",
+        "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (en portions)",
+        "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (en portions)",
+        "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (en portions)",
+        "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (en portions)",
         "Combien de légumes consommez-vous par jour ? (en kg en moyenne)",
         "Combien de fruits consommez-vous par jour ? (en kg en moyenne)",
-        "Combien avous consommé de mangues cette année ? (en kg en moyenne)", 
+        "Combien avez-vous consommé de mangues cette année ? (en moyenne)", 
         "Combien de litres de boissons consommez-vous par semaine ?"
     ]
     options_alimentation = [option_consommation_protéine, option_consommation_produits_laitiers, option_consommation_céréales, option_consommation_plats, None, None,None, option_consommation_boisson]
@@ -239,7 +244,7 @@ fruits_legumes = {'Category': [9, 9, 9],
             'Name_SubCategory': ['Fruits', 'Mangues', 'Légumes'],
             'slug': ['Fruits', 'Fruits', 'Légumes'],
             'ecv': [0.99, 11.66, 0.90],
-            'User_2': [reponses_alimentation_fruits,reponses_alimentaiton_mangue,reponses_alimentation_legumes],
+            'User_2': [reponses_alimentation_fruits,reponses_alimentaiton_mangue*0.45,reponses_alimentation_legumes],
             'Usage' : [0,0,0]}
 
 fruits_legumes = pd.DataFrame(fruits_legumes)
