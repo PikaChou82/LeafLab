@@ -1,8 +1,11 @@
 # Librairies
+import matplotlib.pyplot as plt
 import streamlit as st
+import seaborn as sns
 import pandas as pd
-import random
 import numpy as np
+import random
+import base64
 
 # J'indique que je veux prendre la totalité de l'écran
 st.set_page_config(layout="wide")
@@ -363,11 +366,163 @@ elif st.session_state.afficher_bloc == 'résultats':
         for i in range(5) :
             st.write(f"{df2.iloc[list(nombres_aleatoires)].iloc[i,-2]} - {df2.iloc[list(nombres_aleatoires)].iloc[i,-1]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-3]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-9]}.")
 
-    if st.session_state.results_df is not None:  
-        st.subheader("Page Antoine")
-        st.subheader(st.session_state.results_df['Use_Total'].sum())
-        generateur(st.session_state.results_df)
-    else:
-        st.error("Aucun résultat à afficher. Veuillez remplir le questionnaire.")
-    if st.button("Retour au questionnaire"):
-        afficher_questionnaire()
+    if st.session_state.results_df is not None:
+        results = st.session_state.results_df
+        Conso_Totale_Tonnes = results['Use_Total'].sum() / 1000
+        score_alimentation = results[results['Name_Category'] == 'Alimentation']['Use_Total'].sum()
+        score_chauffage = results[results['Name_Category'] == 'Chauffage']['Use_Total'].sum()
+        score_fruits_legumes = results[results['Name_Category'] == 'Fruits & Légumes']['Use_Total'].sum()
+        score_boissons  = results[results['Name_Category'] == 'Boissons']['Use_Total'].sum()
+        score_mobilier = results[results['Name_Category'] == 'Mobilier']['Use_Total'].sum()
+        score_transport = results[results['Name_Category'] == 'Transport']['Use_Total'].sum()
+        score_electromenager = results[results['Name_Category'] == 'Électroménager']['Use_Total'].sum()
+        score_numerique = results[results['Name_Category'] == 'Numérique']['Use_Total'].sum()
+        score_usage_numerique = results[results['Name_Category'] == 'Usage numérique']['Use_Total'].sum()
+        score_habillement = results[results['Name_Category'] == 'Habillement']['Use_Total'].sum()
+
+
+        st.markdown(
+            f"<div style='text-align: center;'>"
+            f"<h3 style='margin-bottom: 0px; color:black;'>Découvrons votre empreinte carbone</h3>"
+            f"<h1 style='color: #55be61; margin-top: 5px; font-size: 48pt;'>{f'{Conso_Totale_Tonnes:.1f}'.replace('.', ',')} tonnes<br> eq. CO₂ par an</h1>"
+            f"<h5 style='color: black; margin-top: 5px; font-style: italic;'>Moyenne française en 2022 : 4,1 tonnes</h5>"
+            f"</div>",
+            unsafe_allow_html=True
+        )
+
+        st.write("")
+        st.write("")
+
+        if "show_details" not in st.session_state:
+            st.session_state.show_details = False
+
+        if st.button("🔍 Détailler mon score par catégorie"):
+            st.session_state.show_details = not st.session_state.show_details
+
+        if st.session_state.show_details:
+            st.success(f"🥗 Alimentation : **{round(score_alimentation,0)}** kg\n"
+                f"🔥 Chauffage : **{round(score_chauffage,0)}** kg\n"
+                f"🍏 Fruits et légumes : **{round(score_fruits_legumes,0)}** kg\n"
+                f"🥛 Boissons : **{round(score_boissons,0)}** kg\n"
+                f"🛏️ Mobilier : **{round(score_mobilier,0)}** kg\n"
+                f"🚗 Transport : **{round(score_transport,0)}** kg\n"
+                f"🔌 Électroménager : **{round(score_electromenager,0)}** kg\n"
+                f"💻 Numérique : **{round(score_numerique,0)}** kg\n"
+                f"💻 Usages du numérique : **{round(score_usage_numerique,0)}** kg\n"
+                f"👕 Habillement : **{round(score_habillement,0)}** kg")
+
+        st.markdown("""
+        <style>
+        div[data-testid="stAlert"] {
+            background-color: #55be61 !important;
+            color: white !important;
+            opacity: 1 !important;
+            text-align: center !important;
+            white-space: pre-wrap !important;
+        }
+        div[data-testid="stAlert"] p {
+            font-size: 20px !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+        st.write("")
+        st.write("")
+
+        st.markdown("""
+        <style>
+        .stButton button {
+            background-color: #55be61 !important;
+            color: white !important;
+            font-size: 22px !important;
+            border: none !important;
+            border-radius: 4px !important;
+            padding: 0.5rem 0.5rem !important;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            cursor: pointer !important;
+        }
+        .stButton button > div > p {
+            font-size: 20px !important;
+            white-space: nowrap !important;
+        }
+        .stButton button:hover {
+            background-color: #46a854 !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+        df = pd.read_csv("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Datas/emissions_co2_pays.csv")
+        df.sort_values(by="Émissions par habitant (tCO2/an - chiffres 2022)", ascending=False, inplace=True)
+        df["Tranche"] = pd.cut(df['Émissions par habitant (tCO2/an - chiffres 2022)'], bins=[0, 4, 8, 999], labels=['< 4', '4-8', '8+'])
+
+        plt.figure(figsize=(10,7))
+        ax = sns.barplot(data=df, y="Pays", x="Émissions par habitant (tCO2/an - chiffres 2022)", hue="Tranche", palette="YlOrBr")
+        ax.legend_.remove()
+        plt.xlabel("Tonnes de CO₂ par habitant")
+        plt.ylabel("")
+
+        ax.set_facecolor("none")
+        plt.gcf().patch.set_facecolor("none")
+
+        ligne = df.loc[(df["Émissions par habitant (tCO2/an - chiffres 2022)"] - Conso_Totale_Tonnes).abs().idxmin()]
+        pays = ligne["Pays"]
+        xfinal = ligne["Émissions par habitant (tCO2/an - chiffres 2022)"]
+
+        ylabels = [label.get_text() for label in ax.get_yticklabels()]
+        yticks = ax.get_yticks()
+        yfinal = yticks[ylabels.index(ligne["Pays"])]
+
+        ax.annotate(f"{round(Conso_Totale_Tonnes,1)} t de CO₂/an\nVous êtes ici",
+                    xy=(xfinal, yfinal),
+                    xytext=(xfinal + 5, yfinal - 0.3),
+                    arrowprops=dict(facecolor="black", arrowstyle="->", lw=2),
+                    fontsize=12, fontweight="bold", color="black")
+
+        plt.title("Émissions de CO₂/an par habitant - chiffres 2022 (source IEA)")
+
+        for i in ax.get_yticklabels():
+            if i.get_text() == "France":
+                i.set_fontweight("bold")
+                i.set_fontsize(12)
+
+        col1, col2, col3 = st.columns([10, 40, 15])
+        with col2:
+            st.pyplot(plt)
+        st.write("")
+
+        st.markdown(
+            f"<h5 style='text-align: center; color: black;'>Vous consommez autant qu'un habitant de : <span style='color: #55be61; font-weight: bold; font-size: 1.3rem;'>{pays}</span></h5>",
+            unsafe_allow_html=True
+        )
+
+        st.write("")
+        st.write("")
+        st.write("")
+
+        st.button("🎯 Découvrir mes recommandations sur-mesure")
+
+        st.markdown("""
+        <style>
+        .stButton button {
+            background-color: #55be61 !important;
+            color: white !important;
+            font-size: 28px !important;
+            border: none !important;
+            border-radius: 4px !important;
+            padding: 1rem 3rem !important;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            cursor: pointer !important;
+        }
+        .stButton button > div > p {
+            font-size: 20px !important;
+            white-space: nowrap !important;
+        }
+        .stButton button:hover {
+            background-color: #46a854 !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
