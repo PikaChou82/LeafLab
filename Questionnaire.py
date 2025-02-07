@@ -668,7 +668,7 @@ elif st.session_state.afficher_bloc == 'résultats':
 elif st.session_state.afficher_bloc == 'chatbot':
 
         
-    GOOGLE_API_KEY = "AIzaSyDPD5csAtlT5yNZPGVlJP5L6hlwhh1Bidc"
+    GOOGLE_API_KEY = ""
     genai.configure(api_key=GOOGLE_API_KEY)
 
     Chatbot_empreinteCarbone = genai.GenerativeModel('gemini-1.5-flash-latest')
