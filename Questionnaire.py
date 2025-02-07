@@ -529,65 +529,65 @@ elif st.session_state.afficher_bloc == 'résultats':
 
 
 elif st.session_state.afficher_bloc == 'accueil':
-  st.markdown("""
-<style>
-.liste123 { display: flex; align-items: center; margin: 10px 0; }
-.cercle { background-color: #888; border-radius: 50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #fff; margin-right: -80px; }
-.liste-texte { color: #000 !important; font-size: 18px; line-height: 1.6; flex: 1; text-align: center; }
-</style>
-""", unsafe_allow_html=True)
-
-colA, colB = st.columns([1, 3])
-with colA: st.image("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/BigFoot.png", width=100)
-with colB:
-    st.markdown("<h1 style='margin-bottom: 0px; color:black;'>Greenify</h1>"
-                "<h4 style='color: #55be61; margin-top: 5px; font-style: italic;'>Connais ton empreinte, réduis ton impact</h4>",
-                unsafe_allow_html=True)
-
-st.write("")
-st.write("")
-st.write("")
-st.write("")
-st.write("")
-st.write("")
-
-col1, col2 = st.columns([3, 1])
-with col1:
     st.markdown("""
-    <div class='liste123'>
-        <div class='cercle'>1</div>
-        <div class='liste-texte'>Un <strong>questionnaire en 10 minutes</strong><br>pour calculer son score carbone</div>
-    </div>""", unsafe_allow_html=True)
+    <style>
+    .liste123 { display: flex; align-items: center; margin: 10px 0; }
+    .cercle { background-color: #888; border-radius: 50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #fff; margin-right: -80px; }
+    .liste-texte { color: #000 !important; font-size: 18px; line-height: 1.6; flex: 1; text-align: center; }
+    </style>
+    """, unsafe_allow_html=True)
+
+    colA, colB = st.columns([1, 3])
+    with colA: st.image("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/BigFoot.png", width=100)
+    with colB:
+        st.markdown("<h1 style='margin-bottom: 0px; color:black;'>Greenify</h1>"
+                    "<h4 style='color: #55be61; margin-top: 5px; font-style: italic;'>Connais ton empreinte, réduis ton impact</h4>",
+                    unsafe_allow_html=True)
+
     st.write("")
-    st.markdown("""
-    <div class='liste123'>
-        <div class='cercle'>2</div>
-        <div class='liste-texte'>Des <strong>conseils clairs</strong><br>sans changer son mode de vie</div>
-    </div>""", unsafe_allow_html=True)
     st.write("")
-    st.markdown("""
-    <div class='liste123'>
-        <div class='cercle'>3</div>
-        <div class='liste-texte'>Un <strong>chatbot IA</strong> et des <strong>ressources gratuites</strong><br>pour aller plus loin</div>
-    </div>""", unsafe_allow_html=True)
-with col2:
     st.write("")
     st.write("")
     st.write("")
     st.write("")
 
-    st.markdown("""
-<style>
-.stButton button {
-    background-color: #55be61 !important; color: white !important;
-    border: none !important; border-radius: 4px !important;
-    padding: 1rem 3.5rem !important; cursor: pointer !important;
-}
-.stButton button > div > p { font-size: 20px !important; white-space: nowrap !important; }
-.stButton button:hover { background-color: #46a854 !important; }
-</style>
-""", unsafe_allow_html=True)
-    
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        st.markdown("""
+        <div class='liste123'>
+            <div class='cercle'>1</div>
+            <div class='liste-texte'>Un <strong>questionnaire en 10 minutes</strong><br>pour calculer son score carbone</div>
+        </div>""", unsafe_allow_html=True)
+        st.write("")
+        st.markdown("""
+        <div class='liste123'>
+            <div class='cercle'>2</div>
+            <div class='liste-texte'>Des <strong>conseils clairs</strong><br>sans changer son mode de vie</div>
+        </div>""", unsafe_allow_html=True)
+        st.write("")
+        st.markdown("""
+        <div class='liste123'>
+            <div class='cercle'>3</div>
+            <div class='liste-texte'>Un <strong>chatbot IA</strong> et des <strong>ressources gratuites</strong><br>pour aller plus loin</div>
+        </div>""", unsafe_allow_html=True)
+    with col2:
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
 
-    if st.button("♻️ Je me lance !"):
-      afficher_questionnaire()
+        st.markdown("""
+    <style>
+    .stButton button {
+        background-color: #55be61 !important; color: white !important;
+        border: none !important; border-radius: 4px !important;
+        padding: 1rem 3.5rem !important; cursor: pointer !important;
+    }
+    .stButton button > div > p { font-size: 20px !important; white-space: nowrap !important; }
+    .stButton button:hover { background-color: #46a854 !important; }
+    </style>
+    """, unsafe_allow_html=True)
+        
+
+        if st.button("♻️ Je me lance !"):
+            afficher_questionnaire()
