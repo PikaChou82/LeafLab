@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import random
 import numpy as np
 
 # J'indique que je veux prendre la totalité de l'écran
@@ -48,7 +49,7 @@ option_consommation_fruits_legumes = list(liste_to_take[liste_to_take['Name_Cate
 option_consommation_boisson = list(boissons_to_take['Libellé'].unique())
 
 # Questionnaire sur 2eme colonne, qui prend les 2/3 de la page (avec l'option [1, 2])
-col1, col2 = st.columns([1, 2])
+col1, col2 = st.columns([2, 5])
 with col1:
     st.image(logo)
 
@@ -56,7 +57,7 @@ with col2:
 
     # Fonction d'affichage des questions sous forme de liste
     def afficher_section_liste(theme, sous_themes, questions,options, keys, emoji):
-        theme = f"# **{theme}**"
+        theme = f"### **{theme}**"
         with st.expander(theme, icon= emoji):  
             for i, sous_theme in enumerate(sous_themes):
                 st.subheader(sous_theme)
@@ -66,7 +67,7 @@ with col2:
 
     # Fonction d'affichage des questions sous forme d'entrée en 1 puis liste en 2 
     def afficher_section_num_liste(theme, sous_themes, questions, options, keys, emoji):
-        theme = f"# **{theme}**"
+        theme = f"### **{theme}**"
         with st.expander(theme, icon= emoji):
             for i, sous_theme in enumerate(sous_themes):
                 st.subheader(sous_theme)
@@ -79,19 +80,19 @@ with col2:
 
     # Fonction d'affichage des questions sous forme de tableau pour saisie
     def afficher_section_tableau(theme, sous_themes, questions, options, keys, boolean, emoji):
-        theme = f"# **{theme}**"
+        theme = f"### **{theme}**"
         with st.expander(theme, expanded= boolean, icon= emoji):
             for i, sous_theme in enumerate(sous_themes):
                 st.subheader(sous_theme)
                 st.write(questions[i])
                 dataset = pd.DataFrame({"Libellé": options[i], "Quantité": [0.0] * len(options[i])})
-                edited_dataset = st.data_editor(dataset,width=800, key=keys[i]) # dataset_editor sert à autoriser la saisie
+                edited_dataset = st.data_editor(dataset,width=1300, key=keys[i]) # dataset_editor sert à autoriser la saisie
                 yield edited_dataset  # Générateur pour retourner une réponse sans sortir de la fonction
 
 
     # Fonction d'affichage des questions sous forme de liste puis chiffre (*2)
     def afficher_section_liste_chiffre_tableau(theme, sous_themes, questions, options, keys, emoji):
-        theme = f"# **{theme}**"
+        theme = f"### **{theme}**"
         with st.expander(theme, icon= emoji):
             for i, sous_theme in enumerate(sous_themes):
                 st.subheader(sous_theme)
@@ -100,7 +101,7 @@ with col2:
                     reponse = st.text_input("Votre réponse ici:", key=keys[i])
                 else:
                     dataset = pd.DataFrame({"Libellé": options[i], "Quantité": [0.0] * len(options[i])})
-                    reponse = st.data_editor(dataset,width=800, key=keys[i]) # dataset_editor sert à autoriser la saisie
+                    reponse = st.data_editor(dataset,width=1300, key=keys[i]) # dataset_editor sert à autoriser la saisie
                 yield reponse  # Générateur pour retourner une réponse sans sortir de la fonction
 
     st.title("J'évalue ma conso")
@@ -126,8 +127,8 @@ with col2:
         "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (en portions)",
         "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (en portions)",
         "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (en portions)",
-        "Combien de légumes consommez-vous par jour ? (en kg en moyenne)",
-        "Combien de fruits consommez-vous par jour ? (en kg en moyenne)",
+        "Combien de légumes consommez-vous par jour ? (en moyenne)",
+        "Combien de fruits consommez-vous par jour ? (en moyenne)",
         "Combien avez-vous consommé de mangues cette année ? (en moyenne)", 
         "Combien de litres de boissons consommez-vous par semaine ?"
     ]
@@ -244,7 +245,7 @@ fruits_legumes = {'Category': [9, 9, 9],
             'Name_SubCategory': ['Fruits', 'Mangues', 'Légumes'],
             'slug': ['Fruits', 'Fruits', 'Légumes'],
             'ecv': [0.99, 11.66, 0.90],
-            'User_2': [reponses_alimentation_fruits,reponses_alimentaiton_mangue*0.45,reponses_alimentation_legumes],
+            'User_2': [reponses_alimentation_fruits*.1*365,reponses_alimentaiton_mangue*0.45,reponses_alimentation_legumes*.2*365],
             'Usage' : [0,0,0]}
 
 fruits_legumes = pd.DataFrame(fruits_legumes)
@@ -302,3 +303,43 @@ results['Use_Total'] = results['User'] * results['ecv'] + results['Usage']
 Conso_Totale_Tonnes = results['Use_Total'].sum()/1000
 
 st.title(f"Ma conso moyenne est de {round(Conso_Totale_Tonnes,2)} Tonnes / An !")
+
+
+# Indication des Unités 
+def unite(x):
+  if 'streaming' in x:
+    return "Heures"
+  elif x == "Alimentation" or x =="Fruits et légumes":
+    return "Kg"
+  elif x == "Transport":
+      return "Km"
+  else :
+    return ""
+
+# Indication des Emojis
+map = { "Alimentation" : "🥗", "Cas pratiques" : "🕑", "Chauffage" : "🔥", "Fruits & Légumes" : "🍏", "Boissons" : "🥛","Mobilier" : "🛏️", "Transport" : "🚗", "Électroménager" : "🔌", "Numérique" : "💻", "Usage numérique" : "💻", "Habillement" : "👕"}
+
+# Application de la Colonne 
+results["Unité"] = results['Name_Category'].apply(unite)
+results["Emoji"] = results['Name_Category'].map(map)
+
+# Calcul des équivalents 
+def calcul_comparative(conso, df):
+  comparative_dataset = pd.DataFrame(df)
+  comparative_dataset['Equivalent'] = comparative_dataset['ecv'].apply(lambda x : round(conso/x,2) if x !=0  else 0)
+  return comparative_dataset
+
+# Générateur d'équivalents 
+def generateur(df, *categories):
+
+    df2 = calcul_comparative(Conso_Totale_Tonnes*1000, df)
+    if not categories:
+      nombres_aleatoires = set()
+      while len(nombres_aleatoires) < 5:
+        nombre = random.randint(1, 123)
+        nombres_aleatoires.add(nombre)
+
+    for i in range(5) :
+      st.subheader(f"{df2.iloc[list(nombres_aleatoires)].iloc[i,-2]} - {df2.iloc[list(nombres_aleatoires)].iloc[i,-1]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-3]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-9]}.")
+
+# pour la page d'après : generateur(results)      
