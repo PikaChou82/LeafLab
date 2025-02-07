@@ -1,0 +1,123 @@
+﻿,Category,Name_Category,Name_SubCategory,slug,ecv,User,Usage,Use_Total
+0,1,Numérique,Smartphone,smartphone,85.85,0,0,0
+1,1,Numérique,Ordinateur fixe,ordinateurfixeparticulier,299.3,0,0,0
+2,1,Numérique,Écran d'ordinateur,ecran,91.4,0,0,0
+3,1,Numérique,Tablette,tabletteclassique,61.9,3,0,185.7
+4,1,Numérique,Télévision ,television,472.4,0,0,0
+5,1,Numérique,Ordinateur portable,ordinateurportable,193,0,0,0
+6,1,Numérique,Enceinte connectée,enceintebluetooth,26.5,0,0,0
+7,1,Numérique,Casque de réalité virtuelle,casquevr,72.3,0,0,0
+8,1,Numérique,Disque dur externe,disquedur,11.9,0,0,0
+9,1,Numérique,Clef usb,clefusb,2.9,4,0,11.6
+10,1,Numérique,Box,box,82,0,0,0
+11,2,Alimentation,Streaming Vidéo (en nombre d'heures),Usage numérique,0.064,0,0,0
+12,2,Alimentation,Recherche sur le Web (en quantité),Usage numérique,0.051,0,0,0
+13,2,Alimentation,Utilisation de Go de donnée (en quantité),Usage numérique,0.0095,52,0,0.494
+14,2,Alimentation,Email (en quantité),Usage numérique,0.00312,0,0,0
+15,2,Alimentation,Stocker un Go de donnée (en quantité),Usage numérique,0.000235,0,0,0
+16,2,Alimentation,Visioconférence (en nombre d'heures),Usage numérique,0.0571,52,0,2.9692
+17,2,Alimentation,"Burger Poulet, Pain au chocolat",Plats Préparés & Encas,5.045249999999999,0,0,0
+18,2,Alimentation,"Cookie, Brownie, Pâte à tartiner",Plats Préparés & Encas,7.915566666666666,0,0,0
+19,2,Alimentation,Sardines,Viandes & Poissons,2.2764877,0,0,0
+20,2,Alimentation,"Dorade, Lieu, Cabillaud",Viandes & Poissons,11.788154366666664,0,0,0
+21,2,Alimentation,"Canard, Porc",Viandes & Poissons,7.366102475,0,0,0
+22,2,Alimentation,"Huitres, Moules, Saumon, Lapin",Viandes & Poissons,5.499073000000001,0,0,0
+23,2,Alimentation,"Thon, Poulet",Viandes & Poissons,4.77193,0,0,0
+24,2,Alimentation,Blé,Céréales & Légumineuses,1.2262635,0,0,0
+25,2,Alimentation,"Pates, Riz",Céréales & Légumineuses,1.997042875,0,0,0
+26,2,Alimentation,"Baguette, Tofu, Frites, Bonbons",Plats Préparés & Encas,1.181225,0,0,0
+27,2,Alimentation,"Haricots rouges, Pois chiches, Boulgour",Céréales & Légumineuses,0.9023286666666668,0,0,0
+28,2,Alimentation,"Pain de mie, Madeleine, Chausson aux pommes, Pain aux raisins, Sushis, Burger végétarien",Plats Préparés & Encas,2.2978666666666667,0,0,0
+29,2,Alimentation,"Maïs, Lentilles",Céréales & Légumineuses,0.5751679999999999,0,0,0
+30,2,Alimentation,Boeuf,Viandes & Poissons,28.00917,0,0,0
+31,2,Alimentation,"Crevettes, Veau",Viandes & Poissons,21.424940666666664,0,0,0
+32,2,Alimentation,"mozzarella, Fromage à pâte molle",Oeufs & Produits Laitiers,0.147885525,0,0,0
+33,2,Alimentation,"Fromage Bleu, Fromage à pâte dure, Fêta",Oeufs & Produits Laitiers,0.2085085,0,0,0
+34,2,Alimentation,"Croissant, Pizza",Plats Préparés & Encas,3.27125,0,0,0
+35,2,Alimentation,Bouchées au chocolat,Plats Préparés & Encas,10.5219,0,0,0
+36,2,Alimentation,Kebab,Plats Préparés & Encas,12.806530000000002,0,0,0
+37,2,Alimentation,Cheeseburger,Plats Préparés & Encas,18.8334,0,0,0
+38,2,Alimentation,"Fromage Blanc, Oeuf, Yaourt",Oeufs & Produits Laitiers,0.1610388726666666,0,0,0
+39,2,Alimentation,Matière grasse,Oeufs & Produits Laitiers,0.1292315,0,0,0
+40,2,Alimentation,Beurre,Oeufs & Produits Laitiers,0.0791333,0,0,0
+41,3,Boissons,Lait de Vache,Boissons,1.1505,0,0,0
+42,3,Boissons,"Boisson au Soja, Soda",Boissons,0.460265,0,0,0
+43,3,Boissons,"Eau du robinet, Thé",Boissons,0.0218595,0,0,0
+44,3,Boissons,Eau en Bouteille,Boissons,0.320735,0,0,0
+45,3,Boissons,"Vin, Bière",Boissons,1.30783,0,0,0
+46,3,Boissons,Café,Boissons,0.635463,0,0,0
+47,4,Transport,Avion court courrier,avion-courtcourrier,0.25858,0,0,0
+48,4,Transport,Voiture / moto thermique,voiturethermique,0.2176,0,0,0
+49,4,Transport,Voiture électrique,voitureelectrique,0.1034,0,0,0
+50,4,Transport,Autocar thermique,autocar,0.0294,0,0,0
+51,4,Transport,Vélo mécanique,velo,0.00017,0,0,0
+52,4,Transport,Vélo à assistance électrique,veloelectrique,0.01095,0,0,0
+53,4,Transport,Bus thermique,busthermique,0.1132,0,0,0
+54,4,Transport,Tramway,tramway,0.00428,0,0,0
+55,4,Transport,Métro,metro,0.00444,0,0,0
+56,4,Transport,Scooter ou moto légère thermique,scooter,0.0763,0,0,0
+57,4,Transport,RER ou Transilien,rer,0.00978,0,0,0
+58,4,Transport,TER,ter,0.02769,0,0,0
+59,4,Transport,Bus électrique,buselectrique,0.0217,0,0,0
+60,4,Transport,Avion moyen courrier,avion-moyencourrier,0.18756,0,0,0
+61,4,Transport,Avion long courrier,avion-longcourrier,0.152,0,0,0
+62,4,Transport,Train / TGV,tgv,0.00293,0,0,0
+63,4,Transport,Intercités,intercites,0.00898,0,0,0
+64,4,Transport,Bus (GNV),busgnv,0.1217,0,0,0
+65,4,Transport,Trottinette à assistance électrique,trottinette,0.0249,0,0,0
+66,5,Habillement,Polo,polo,10.16353,0,0,0
+67,5,Habillement,Jeans,jeans,25.0887,0,0,0
+68,5,Habillement,Veste simili-cuir,vestesimilicuir,26.82582,0,0,0
+69,5,Habillement,Veste imperméable,vesteimpermeable,41.14716,0,0,0
+70,5,Habillement,Manteau,manteau,101.420516,0,0,0
+71,5,Habillement,Pull en coton recyclé,pullencotonrecycle,13.192781,0,0,0
+72,5,Habillement,Pull en acrylique,pullenacrylique,28.968381,0,0,0
+73,5,Habillement,Pull en laine,pullenlaine,56.6954561,0,0,0
+74,5,Habillement,Robe,robe,55,0,0,0
+75,5,Habillement,Paire de chaussures de sport,chaussuresdesport,20.12555,0,0,0
+76,5,Habillement,Paire de chaussures,chaussures,16,0,0,0
+77,5,Habillement,Chemise,chemise,13.2347,0,0,0
+78,5,Habillement,Sweat en coton,sweatencoton,32.49278107847502,0,0,0
+79,5,Habillement,T-shirt,tshirt,6.4338,0,0,0
+80,6,Électroménager,Cafetière expresso,cafetiereexpresso,211.77108,0,0,0
+81,6,Électroménager,Cafetière filtre,cafetierefiltre,197.698174,0,0,0
+82,6,Électroménager,Cafetière à dosettes,cafetieredosette,251.003553,0,0,0
+83,6,Électroménager,Bouilloire,bouilloire,40.884036,0,0,0
+84,6,Électroménager,Réfrigérateur,refrigirateur,325.460716,0,0,0
+85,6,Électroménager,Lave-linge,lavelinge,510.2572583409827,0,0,0
+86,6,Électroménager,Lave-vaisselle,lavevaisselle,468,0,0,0
+87,6,Électroménager,Four électrique,fourelectrique,263.0647,0,0,0
+88,6,Électroménager,Climatiseur,climatiseur,413.8813,0,0,0
+89,6,Électroménager,Aspirateur,aspirateur,47.31,0,,
+90,7,Mobilier,Chaise en bois,chaiseenbois,18.63,0,0,0
+91,7,Mobilier,Canapé convertible,canapeconvertible,197.5,0,0,0
+92,7,Mobilier,Lit,lit,443.81,0,0,0
+93,7,Mobilier,Armoire,armoire,906.88,0,0,0
+94,7,Mobilier,Canapé en textile,canapetextile,179.1,0,0,0
+95,7,Mobilier,Table en bois,tableenbois,80.22,0,0,0
+96,8,Chauffage,Chauffage avec une pompe à chaleur par m²,pompeachaleur,3.95,0,0,0
+97,8,Chauffage,Chauffage électrique par m²,chauffageelectrique,11.85,0,0,0
+98,8,Chauffage,Chauffage au fioul par m²,chauffagefioul,57.17,0,0,0
+99,8,Chauffage,Chauffage au gaz par m²,chauffagegaz,39,,0,
+100,8,Chauffage,Chauffage avec un poêle à bois par m²,poeleabois,9.2,0,0,0
+101,8,Chauffage,Chauffage via un réseau de chaleur par m²,reseaudechaleur,18.67,0,0,0
+102,8,Chauffage,Chauffage avec un poêle à granulés par m²,poeleagranule,5.64,0,0,0
+103,9,Fruits & Légumes,Fruits,Fruits,0.99,0,0,0
+104,9,Fruits & Légumes,Mangues,Fruits,11.66,0,0,0
+105,9,Fruits & Légumes,Légumes,Légumes,0.9,0,0,0
+106,13,Cas pratiques,Journée au ski,ski,48.9,0,0,0
+107,13,Cas pratiques,Remplissage de piscine,piscine,7.54,0,0,0
+108,13,Cas pratiques,Tour de la terre en voiture,terre-voiture,8704,0,0,0
+109,13,Cas pratiques,Marathon des films Harry Potter en streaming,harry-potter,0.63,0,0,0
+110,13,Cas pratiques,Nuit dans un hôtel,hotel,4.3,0,0,0
+111,13,Cas pratiques,Nuit au camping,camping,1.4,0,0,0
+112,13,Cas pratiques,Nuit dans une location saisonnière,location,5.2,0,0,0
+113,13,Cas pratiques,Objectif citoyen pour 2050,2050,2000,0,0,0
+114,13,Cas pratiques,Nuit dans une résidence secondaire,residencesecondaire,7,0,0,0
+115,13,Cas pratiques,A/R Paris - New-York en avion,avion-pny,1770,0,0,0
+116,13,Cas pratiques,A/R Paris - Berlin en tgv,tgv-paris-berlin,7.26,0,0,0
+117,13,Cas pratiques,A/R Paris - Marseille en tgv,tgv-paris-marseille,4.4,0,0,0
+118,13,Cas pratiques,A/R Lille - Nîmes en voiture,voiture-lille-nimes,410,0,0,0
+119,13,Cas pratiques,Empreinte carbone d'un citoyen français,francais,9300,0,0,0
+120,13,Cas pratiques,Game of Thrones en streaming,game-of-thrones,0.0317,0,0,0
+121,13,Cas pratiques,Intégrale de Friends en streaming,friends,7.86,0,0,0
