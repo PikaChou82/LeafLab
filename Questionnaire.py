@@ -48,8 +48,8 @@ option_consommation_boisson = list(boissons_to_take['Libellé'].unique())
 
 # Initialisation des variables d'état
 if 'afficher_bloc' not in st.session_state:
-    st.session_state.afficher_bloc = 'questionnaire'  
-if 'results_df' not in st.session_state:  
+    st.session_state.afficher_bloc = 'accueil'
+if 'results_df' not in st.session_state:
     st.session_state.results_df = None
 
 # Fonctions de navigation
@@ -73,14 +73,14 @@ if st.session_state.afficher_bloc == 'questionnaire':
         # Fonction d'affichage des questions sous forme de liste
         def afficher_section_liste(theme, sous_themes, questions,options, keys, emoji):
             theme = f"### **{theme}**"
-            with st.expander(theme, icon= emoji):  
+            with st.expander(theme, icon= emoji):
                 for i, sous_theme in enumerate(sous_themes):
                     st.subheader(sous_theme)
                     st.write(questions[i])
-                    reponse = st.multiselect("Sélectionnez une ou plusieurs options :", options[i], key=keys[i]) 
+                    reponse = st.multiselect("Sélectionnez une ou plusieurs options :", options[i], key=keys[i])
                     yield reponse  # Générateur pour retourner une réponse sans sortir de la fonction
 
-        # Fonction d'affichage des questions sous forme d'entrée en 1 puis liste en 2 
+        # Fonction d'affichage des questions sous forme d'entrée en 1 puis liste en 2
         def afficher_section_num_liste(theme, sous_themes, questions, options, keys, emoji):
             theme = f"### **{theme}**"
             with st.expander(theme, icon= emoji):
@@ -90,7 +90,7 @@ if st.session_state.afficher_bloc == 'questionnaire':
                     if i == 0:
                         reponse = st.text_input("Votre réponse ici:", key=keys[i])
                     else:
-                        reponse = st.selectbox("Sélectionnez une ou plusieurs options :", options[i], key=keys[i]) 
+                        reponse = st.selectbox("Sélectionnez une ou plusieurs options :", options[i], key=keys[i])
                     yield reponse  # Générateur pour retourner une réponse sans sortir de la fonction
 
         # Fonction d'affichage des questions sous forme de tableau pour saisie
@@ -144,11 +144,11 @@ if st.session_state.afficher_bloc == 'questionnaire':
             "Quel(s) aliment(s) et plat(s) avez-vous consommé cette semaine ? (en portions)",
             "Combien de légumes consommez-vous par jour ? (en moyenne)",
             "Combien de fruits consommez-vous par jour ? (en moyenne)",
-            "Combien avez-vous consommé de mangues cette année ? (en moyenne)", 
+            "Combien avez-vous consommé de mangues cette année ? (en moyenne)",
             "Combien de litres de boissons consommez-vous par semaine ?"
         ]
         options_alimentation = [option_consommation_protéine, option_consommation_produits_laitiers, option_consommation_céréales, option_consommation_plats, None, None,None, option_consommation_boisson]
-        
+
         keys_alimentation = ["consommation_protéines","consommation_produits_laitiers","consommation_céréales","consommation_plats", "nb_legumes","nb_fruits","nb_mangues","consommation_boisson"]
 
         reponses_alimentation = afficher_section_liste_chiffre_tableau("Alimentation", sous_themes_alimentation, questions_alimentation, options_alimentation, keys_alimentation, "🍏")
@@ -161,7 +161,7 @@ if st.session_state.afficher_bloc == 'questionnaire':
             "Avez-vous voyagé au cours des 12 derniers mois (et quelle distance en km) ?"
         ]
         options_transport = [option_transport_quotidien, option_transport_voyage]
-        
+
         keys_transport = ["transport_quotidien", "transport_voyage"]
 
         responses_transport = afficher_section_tableau("Transport", sous_themes_transport, questions_transport, options_transport, keys_transport, False, "🚗")
@@ -241,10 +241,10 @@ if st.session_state.afficher_bloc == 'questionnaire':
         if compteur == 4:
             dataframe['Name_Category'] = 'Boissons'
             dataframe['Category'] = 3
-        else:        
+        else:
             dataframe['Name_Category'] = 'Alimentation'
             dataframe['Category'] = 2
-        dataframe['slug'] = liste_compteur[compteur] 
+        dataframe['slug'] = liste_compteur[compteur]
         dataframe = dataframe[['Category', 'Name_Category', 'Name_SubCategory', 'slug', 'ecv']]
         results= pd.concat([results,dataframe ])
         compteur += 1
@@ -296,7 +296,7 @@ if st.session_state.afficher_bloc == 'questionnaire':
     results =pd.merge(results, reponses_alimentation_produits_laitiers, how = "left", left_on = "Name_SubCategory", right_on= "Libellé_Produits_Laitiers")
 
     results["User"] = (results["Quantité_Num_Appareil"].fillna(0) + results["Quantité_Num_Usage"].fillna(0)*52 + results["Quantité_Alim_Boisson"].fillna(0)*52 +
-    results["Quantité_Habillement"].fillna(0) + results["Quantité_Proteines"].fillna(0) * 0.15 * 52 + results["Quantité_Cereales"].fillna(0) * 0.15 * 52 + 
+    results["Quantité_Habillement"].fillna(0) + results["Quantité_Proteines"].fillna(0) * 0.15 * 52 + results["Quantité_Cereales"].fillna(0) * 0.15 * 52 +
     results["Quantité_Plats"].fillna(0) * 0.45 * 52 + results['Quantité_Produits_Laitiers'].fillna(0) * 52 + results['Quantité_Transport_Quotidien'].fillna(0) *365
     + results['Quantité_Transport_Voyage'].fillna(0) + results['User_2'].fillna(0))
     results.loc[results['Name_SubCategory'] == reponses_chauffage_type, 'User'] = ((reponses_chauffage_superficie)/65)
@@ -320,7 +320,7 @@ if st.session_state.afficher_bloc == 'questionnaire':
 
     st.title(f"Ma conso moyenne est de {round(Conso_Totale_Tonnes,2)} Tonnes / An !")
 
-    # Indication des Unités 
+    # Indication des Unités
     def unite(x):
         if 'streaming' in x:
             return "Heures"
@@ -334,24 +334,24 @@ if st.session_state.afficher_bloc == 'questionnaire':
     # Indication des Emojis
     map = { "Alimentation" : "🥗", "Cas pratiques" : "🕑", "Chauffage" : "🔥", "Fruits & Légumes" : "🍏", "Boissons" : "🥛","Mobilier" : "🛏️", "Transport" : "🚗", "Électroménager" : "🔌", "Numérique" : "💻", "Usage numérique" : "💻", "Habillement" : "👕"}
 
-    # Application de la Colonne 
+    # Application de la Colonne
     results["Unité"] = results['Name_Category'].apply(unite)
     results["Emoji"] = results['Name_Category'].map(map)
 
-    
-    if st.button("Analyser mes résultats"): 
-        st.session_state.results_df = results  
+
+    if st.button("Analyser mes résultats"):
+        st.session_state.results_df = results
         afficher_résultats(results)
-        
+
 elif st.session_state.afficher_bloc == 'résultats':
-    
-# Calcul des équivalents 
+
+# Calcul des équivalents
     def calcul_comparative(conso, df):
         comparative_dataset = pd.DataFrame(df)
         comparative_dataset['Equivalent'] = comparative_dataset['ecv'].apply(lambda x : round(conso/x,2) if x !=0  else 0)
         return comparative_dataset
 
-    # Générateur d'équivalents 
+    # Générateur d'équivalents
     def generateur(df, *categories):
 
         df2 = calcul_comparative(df['Use_Total'].sum(), df)
@@ -526,3 +526,68 @@ elif st.session_state.afficher_bloc == 'résultats':
         }
         </style>
         """, unsafe_allow_html=True)
+
+
+elif st.session_state.afficher_bloc == 'accueil':
+  st.markdown("""
+<style>
+.liste123 { display: flex; align-items: center; margin: 10px 0; }
+.cercle { background-color: #888; border-radius: 50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #fff; margin-right: -80px; }
+.liste-texte { color: #000 !important; font-size: 18px; line-height: 1.6; flex: 1; text-align: center; }
+</style>
+""", unsafe_allow_html=True)
+
+colA, colB = st.columns([1, 3])
+with colA: st.image("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/BigFoot.png", width=100)
+with colB:
+    st.markdown("<h1 style='margin-bottom: 0px; color:black;'>Greenify</h1>"
+                "<h4 style='color: #55be61; margin-top: 5px; font-style: italic;'>Connais ton empreinte, réduis ton impact</h4>",
+                unsafe_allow_html=True)
+
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+
+col1, col2 = st.columns([3, 1])
+with col1:
+    st.markdown("""
+    <div class='liste123'>
+        <div class='cercle'>1</div>
+        <div class='liste-texte'>Un <strong>questionnaire en 10 minutes</strong><br>pour calculer son score carbone</div>
+    </div>""", unsafe_allow_html=True)
+    st.write("")
+    st.markdown("""
+    <div class='liste123'>
+        <div class='cercle'>2</div>
+        <div class='liste-texte'>Des <strong>conseils clairs</strong><br>sans changer son mode de vie</div>
+    </div>""", unsafe_allow_html=True)
+    st.write("")
+    st.markdown("""
+    <div class='liste123'>
+        <div class='cercle'>3</div>
+        <div class='liste-texte'>Un <strong>chatbot IA</strong> et des <strong>ressources gratuites</strong><br>pour aller plus loin</div>
+    </div>""", unsafe_allow_html=True)
+with col2:
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
+
+    st.markdown("""
+<style>
+.stButton button {
+    background-color: #55be61 !important; color: white !important;
+    border: none !important; border-radius: 4px !important;
+    padding: 1rem 3.5rem !important; cursor: pointer !important;
+}
+.stButton button > div > p { font-size: 20px !important; white-space: nowrap !important; }
+.stButton button:hover { background-color: #46a854 !important; }
+</style>
+""", unsafe_allow_html=True)
+    
+
+    if st.button("♻️ Je me lance !"):
+      afficher_questionnaire()
