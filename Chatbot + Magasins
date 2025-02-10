@@ -1,4 +1,4 @@
-#faire "pip install requests" et "pip install folium" en local :)
+#faire "pip install requests", "pip install folium" et "pip install streamlit-folium" en local :)
 #insérer la clé API ligne 23
 
 import google.generativeai as genai
