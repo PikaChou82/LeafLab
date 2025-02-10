@@ -10,6 +10,13 @@ import base64
 import google.generativeai as genai
 import streamlit as st
 import base64
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.neighbors import NearestNeighbors
+import folium
+import streamlit as st
+from streamlit_folium import st_folium
+import requests
 
 #endregion
 
@@ -23,17 +30,28 @@ st.set_page_config(layout="wide")
 ## Initialisation des variables d'état
 if 'afficher_bloc' not in st.session_state:
     st.session_state.afficher_bloc = 'accueil'
+
 if 'results_df' not in st.session_state:
     st.session_state.results_df = None
 
 ## Définition des fonctions de navigation
 def afficher_questionnaire():
     st.session_state.afficher_bloc = 'questionnaire'
+
 def afficher_résultats(results):
     st.session_state.afficher_bloc = 'résultats'
     st.session_state.results_df = results
+
+def afficher_recos(results):
+    st.session_state.afficher_bloc = 'recos'
+    st.session_state.results_df = results
+
 def afficher_chatbot():
     st.session_state.afficher_bloc = 'chatbot'
+
+def afficher_accueil():
+    st.session_state.afficher_bloc = 'accueil'
+
 ## Fond d'écran
 page_element="""<style>[data-testid="stAppViewContainer"]{background-image: url("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/fond.png");
   background-size: cover;}</style>"""
@@ -202,6 +220,15 @@ if st.session_state.afficher_bloc == 'accueil':
     """, unsafe_allow_html=True)
         if st.button("♻️ Je me lance !"):
             afficher_questionnaire()
+    
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
+    col1, col2, col3= st.columns([11,15, 11])
+    with col2:
+        st.subheader(f"💡 Le saviez-vous ? ")
+        st.write(f"{infos.iloc[random.randint(0, 19), 1]}")
 
 #endregion
 
@@ -214,7 +241,6 @@ elif st.session_state.afficher_bloc == 'questionnaire':
     col1, col2 = st.columns([2, 5])
     with col1:
         st.image("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/BigFoot.png", width=300)
-        st.subheader(f"💡 Le saviez-vous ? \n{infos.iloc[random.randint(0, 19), 1]}")
     with col2:
         st.title("J'évalue ma conso")
         
@@ -325,6 +351,9 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         if compteur == 4:
             dataframe['Name_Category'] = 'Boissons'
             dataframe['Category'] = 3
+        if compteur == 5:
+            dataframe['Name_Category'] = 'Usage Numérique'
+            dataframe['Category'] = 10
         else:
             dataframe['Name_Category'] = 'Alimentation'
             dataframe['Category'] = 2
@@ -406,30 +435,51 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         elif x == "Transport":
             return "Km"
         else :
-            return ""
+            return " "
 
     # Indication des Emojis
-    map = { "Alimentation" : "🥗", "Cas pratiques" : "🕑", "Chauffage" : "🔥", "Fruits & Légumes" : "🍏", "Boissons" : "🥛","Mobilier" : "🛏️", "Transport" : "🚗", "Électroménager" : "🔌", "Numérique" : "💻", "Usage numérique" : "💻", "Habillement" : "👕"}
+    map = { "Alimentation" : "🥗", "Cas pratiques" : "🕑", "Chauffage" : "🔥", "Fruits & Légumes" : "🍏", "Boissons" : "🥛","Mobilier" : "🛏️", "Transport" : "🚗", "Électroménager" : "🔌", "Numérique" : "💻", "Usage Numérique" : "💻", "Habillement" : "👕"}
 
     # Application de la Colonne
     results["Unité"] = results['Name_Category'].apply(unite)
     results["Emoji"] = results['Name_Category'].map(map)
+    results.to_csv('resultats.csv')
 
     st.markdown("""
     <style>
     .stButton button {
-        background-color: #55be61 !important; color: white !important;
-        border: none !important; border-radius: 4px !important;
-        padding: 1rem 3.5rem !important; cursor: pointer !important;
+        background-color: #55be61 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 4px !important;
+        padding: 0.75rem 1.5rem !important;
+        cursor: pointer !important;
     }
-    .stButton button > div > p { font-size: 20px !important; white-space: nowrap !important; }
-    .stButton button:hover { background-color: #46a854 !important; }
+    .stButton button > div > p {
+        font-size: 20px !important;
+        white-space: nowrap !important;
+    }
+    .stButton button:hover {
+        background-color: #46a854 !important;
+    }
+    .button-container {
+        display: flex; 
+        justify-content: center; 
+        gap: 1rem; 
+    }
     </style>
+                
     """, unsafe_allow_html=True)
 
-    if st.button("🔍 Analyser mes résultats"):
-        st.session_state.results_df = results
-        afficher_résultats(results)
+    col1,col2, col3, col4, col5 = st.columns([10,10,10,10,10])
+    with col2:
+        if st.button("🔍 Analyser mes résultats"):
+            st.session_state.results_df = results
+            afficher_résultats(results)
+
+    with col4:
+        if st.button("↩ Revenir à l'accueil"):
+            afficher_accueil()
 
 #endregion
 
@@ -440,26 +490,7 @@ elif st.session_state.afficher_bloc == 'questionnaire':
 ## Initialisation de la page
 elif st.session_state.afficher_bloc == 'résultats':
 
-    ## Calcul des équivalents
-    def calcul_comparative(conso, df):
-        comparative_dataset = pd.DataFrame(df)
-        comparative_dataset['Equivalent'] = comparative_dataset['ecv'].apply(lambda x : round(conso/x,2) if x !=0  else 0)
-        return comparative_dataset
-
-    ## Générateur d'équivalents
-    def generateur(df, *categories):
-
-        df2 = calcul_comparative(df['Use_Total'].sum(), df)
-        if not categories:
-            nombres_aleatoires = set()
-            while len(nombres_aleatoires) < 5:
-                nombre = random.randint(1, 123)
-                nombres_aleatoires.add(nombre)
-
-        print(f"Merci ! Voici tes stats :\n")
-        print(f"Pour {df['Use_Total'].sum()} Kg de CO2 on a :\n")
-        for i in range(5) :
-            st.write(f"{df2.iloc[list(nombres_aleatoires)].iloc[i,-2]} - {df2.iloc[list(nombres_aleatoires)].iloc[i,-1]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-3]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-9]}.")
+    results = pd.read_csv('resultats.csv')
    
     if "emojis_2" not in st.session_state: 
         emojis = st.session_state.results_df.iloc[:,-1].unique()
@@ -473,7 +504,7 @@ elif st.session_state.afficher_bloc == 'résultats':
     emojis_2 = st.session_state.emojis_2  
     
     if st.session_state.results_df is not None:
-        results = st.session_state.results_df
+        #results = st.session_state.results_df
         Conso_Totale_Tonnes = results['Use_Total'].sum() / 1000
         score_alimentation = results[results['Name_Category'] == 'Alimentation']['Use_Total'].sum()
         score_chauffage = results[results['Name_Category'] == 'Chauffage']['Use_Total'].sum()
@@ -504,31 +535,34 @@ elif st.session_state.afficher_bloc == 'résultats':
             st.session_state.show_details = not st.session_state.show_details
 
         if st.session_state.show_details:
-            st.success(f"🥗 Alimentation : **{round(score_alimentation,0)}** kg\n"
-                f"🔥 Chauffage : **{round(score_chauffage,0)}** kg\n"
-                f"🍏 Fruits et légumes : **{round(score_fruits_legumes,0)}** kg\n"
-                f"🥛 Boissons : **{round(score_boissons,0)}** kg\n"
-                f"🛏️ Mobilier : **{round(score_mobilier,0)}** kg\n"
-                f"🚗 Transport : **{round(score_transport,0)}** kg\n"
-                f"🔌 Électroménager : **{round(score_electromenager,0)}** kg\n"
-                f"💻 Numérique : **{round(score_numerique,0)}** kg\n"
-                f"💻 Usages du numérique : **{round(score_usage_numerique,0)}** kg\n"
-                f"👕 Habillement : **{round(score_habillement,0)}** kg")  
+            st.success(f"🥗 Alimentation : **{format(round(score_alimentation), ",d").replace(","," ")}** kg\n"
+                f"🔥 Chauffage : **{format(round(score_chauffage), ",d").replace(","," ")}** kg\n"
+                f"🍏 Fruits et légumes : **{format(round(score_fruits_legumes), ",d").replace(","," ")}** kg\n"
+                f"🥛 Boissons : **{format(round(score_boissons), ",d").replace(","," ")}** kg\n"
+                f"🛏️ Mobilier : **{format(round(score_mobilier), ",d").replace(","," ")}** kg\n"
+                f"🚗 Transport : **{format(round(score_transport), ",d").replace(","," ")}** kg\n"
+                f"🔌 Électroménager : **{format(round(score_electromenager), ",d").replace(","," ")}** kg\n"
+                f"💻 Numérique : **{format(round(score_numerique), ",d").replace(","," ")}** kg\n"
+                f"💻 Usages du numérique : **{format(round(score_usage_numerique), ",d").replace(","," ")}** kg\n"
+                f"👕 Habillement : **{format(round(score_habillement), ",d").replace(","," ")}** kg")  
                      
         st.markdown("""
-        <style>
-        div[data-testid="stAlert"] {
-            background-color: #55be61 !important;
-            color: white !important;
-            opacity: 1 !important;
-            text-align: center !important;
-            white-space: pre-wrap !important;
-        }
-        div[data-testid="stAlert"] p {
-            font-size: 20px !important;
-        }
-        </style>
-        """, unsafe_allow_html=True)
+<style>
+div[data-testid="stAlert"] {
+    background-color: #55be61 !important;
+    color: white !important;
+    opacity: 1 !important;
+    text-align: center !important;
+    white-space: pre-wrap !important;
+    width: 600px; 
+    margin: 0 auto; 
+
+div[data-testid="stAlert"] p {
+    font-size: 20px !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
 
         st.write("")
         st.write("")
@@ -605,8 +639,16 @@ elif st.session_state.afficher_bloc == 'résultats':
         st.write("")
         st.write("")
 
-        st.button("🎯 Découvrir mes recommandations sur-mesure")
 
+    col1,col2, col3, col4, col5 = st.columns([10,10,10,10,10])
+    with col2:
+        if st.button("🎯 Découvrir mes recommandations sur-mesure"):
+            afficher_recos(results)
+
+    with col4:
+        if st.button("♻️ Refaire le Questionnaire"):
+            afficher_questionnaire()
+    
         st.markdown("""
         <style>
         .stButton button {
@@ -631,32 +673,6 @@ elif st.session_state.afficher_bloc == 'résultats':
         </style>
         """, unsafe_allow_html=True)
 
-        if st.button("👩🏻‍💼💬 Mon Coach Perso"):
-            afficher_chatbot()
-
-        st.markdown("""
-        <style>
-        .stButton button {
-            background-color: #55be61 !important;
-            color: white !important;
-            font-size: 28px !important;
-            border: none !important;
-            border-radius: 4px !important;
-            padding: 1rem 3rem !important;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            cursor: pointer !important;
-        }
-        .stButton button > div > p {
-            font-size: 20px !important;
-            white-space: nowrap !important;
-        }
-        .stButton button:hover {
-            background-color: #46a854 !important;
-        }
-        </style>
-        """, unsafe_allow_html=True)
 
 #endregion
 
@@ -668,7 +684,7 @@ elif st.session_state.afficher_bloc == 'résultats':
 elif st.session_state.afficher_bloc == 'chatbot':
 
         
-    GOOGLE_API_KEY = "AIzaSyDPD5csAtlT5yNZPGVlJP5L6hlwhh1Bidc"
+    GOOGLE_API_KEY = ""
     genai.configure(api_key=GOOGLE_API_KEY)
 
     Chatbot_empreinteCarbone = genai.GenerativeModel('gemini-1.5-flash-latest')
@@ -701,14 +717,11 @@ elif st.session_state.afficher_bloc == 'chatbot':
         st.session_state.chat_history = []
 
 
-    col1, col2, col3 = st.columns([1, 3, 1])
+    col1, col2, col3 = st.columns([8,2,8])
 
-    with col1 :
-        st.image("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/BigFoot.png", width=100)
-    with col2:
-        st.markdown("<h2 style='text-align: center;'>Posez vos questions<br>à notre chatbot !</h2>", unsafe_allow_html=True)
-
-        user_message = st.chat_input("Votre question ici :")
+    with col1:
+        st.markdown("<h2 style='text-align: center;'>Posez vos questions<br>à notre <span style='color: #55be61;'>chatbot IA</span></h2>", unsafe_allow_html=True)
+        user_message = st.chat_input("✍️ Votre question ici :")
         if user_message:
             st.session_state.chat_history.append({"role": "user", "message": user_message})
             response = st.session_state.chat.send_message(user_message)
@@ -719,5 +732,242 @@ elif st.session_state.afficher_bloc == 'chatbot':
                 st.chat_message("user").write(msg["message"])
             else:
                 st.chat_message("assistant").write(msg["message"])
+
+    with col2:
+        st.write("")
+
+    with col3:
+        st.markdown("<h2 style='text-align: center;'>Découvrez les <span style='color: #55be61;'>magasins éco-responsables</span><br>près de chez vous</h2>", unsafe_allow_html=True)
+        codepostal = st.text_input("📬 Entrez votre code postal :")
+        @st.cache_data
+        def chercher_centre_cp(codepostal):
+            url = "https://nominatim.openstreetmap.org/search"
+            response = requests.get(url, params=
+            {"postalcode": codepostal,"country": "France","format": "json"},
+                headers={"User-Agent": "Mozilla/5.0"})
+            data = response.json()
+            lat = data[0]["lat"]
+            lon = data[0]["lon"]
+            return lat, lon
+
+        @st.cache_data
+        def chercher_supermarche_radius(codepostal, radius=10):
+            centre = chercher_centre_cp(codepostal)
+            lat_centre, lon_centre = centre
+
+            url = "http://overpass-api.de/api/interpreter"
+            overpass_query = f"""
+            [out:json];
+            (
+            node(around:{radius},{lat_centre},{lon_centre})["organic"="yes"];
+            node(around:{radius},{lat_centre},{lon_centre})["organic"="only"];
+            node(around:{radius},{lat_centre},{lon_centre})["shop"="farm"];
+            node(around:{radius},{lat_centre},{lon_centre})["shop"="greengrocer"];
+            node(around:{radius},{lat_centre},{lon_centre})["shop"="health_food"];
+            );
+            out center;
+            """
+            
+            response = requests.get(url, params={"data": overpass_query})
+            
+            data = response.json()
+            magasins = []
+            for element in data["elements"]:
+                    nom = element["tags"].get("name", "Nom inconnu")
+                    lat = element["lat"]
+                    lon = element["lon"]
+                    if nom != "Nom inconnu":
+                        magasins.append((nom, lat, lon))
+
+            return magasins
+
+        if len(codepostal)==5:
+            magasins = chercher_supermarche_radius(codepostal, radius=5000)
+
+            centre = chercher_centre_cp(codepostal)
+            my_map = folium.Map(location=[centre[0], centre[1]], zoom_start=13)
+
+            for nom, lat, lon in magasins:
+                    folium.Marker(
+                        location=[lat, lon],
+                        popup=f"{nom}",
+                        icon=folium.Icon(color="darkblue", icon="shopping-cart")
+                    ).add_to(my_map)
+            st_folium(my_map, width=850, height=450)
+        else:
+            st.write("Veuillez entrer un code postal valide.")
+    
+    
+    col1,col2, col3, col4, col5 = st.columns([10,10,10,10,10])
+    
+    with col2:
+        if st.button("↩ Revenir à mes résultats"):
+            results = pd.read_csv("resultats.csv")
+            afficher_résultats(results)
+
+    with col4:
+        if st.button("♻️ Refaire le Questionnaire"):
+            afficher_questionnaire()
+    
+        st.markdown("""
+        <style>
+        .stButton button {
+            background-color: #55be61 !important;
+            color: white !important;
+            font-size: 28px !important;
+            border: none !important;
+            border-radius: 4px !important;
+            padding: 1rem 3rem !important;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            cursor: pointer !important;
+        }
+        .stButton button > div > p {
+            font-size: 20px !important;
+            white-space: nowrap !important;
+        }
+        .stButton button:hover {
+            background-color: #46a854 !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+#endregion
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#region Section 9 : Bloc Recos
+
+elif st.session_state.afficher_bloc == 'recos':
+
+    results = pd.read_csv('resultats.csv')
+    #results = st.session_state.results_df
+
+    ## Calcul des équivalents
+    def calcul_comparative(conso, df):
+        comparative_dataset = pd.DataFrame(df)
+        comparative_dataset['Equivalent'] = comparative_dataset['ecv'].apply(lambda x : round(conso/x,2) if x !=0  else 0)
+        return comparative_dataset
+
+## Générateur d'équivalents
+    def generateur(df, *categories):
+        df2 = calcul_comparative(df['Use_Total'].sum(), df)
+        if not categories:
+            nombres_aleatoires = set()
+            while len(nombres_aleatoires) < 3:
+                nombre = random.randint(1, 123)
+                nombres_aleatoires.add(nombre)
+
+            Conso = format(round(df['Use_Total'].sum()), ",d")
+
+            st.subheader(f"Comparons ta conso ! Pour {Conso.replace(",", " ")} Kg de CO2 on a :\n")
+
+            col1, col2, col3, col4, col5 = st.columns(5)
+            colonnes = [col2, col3, col4]  
+            for i in range(3):
+                with colonnes[i]: 
+                    st.subheader(f"{df2.iloc[list(nombres_aleatoires)].iloc[i,-2]}")
+                    st.subheader(f"{format(round(df2.iloc[list(nombres_aleatoires)].iloc[i,-1]), ",d").replace(","," ")} {df2.iloc[list(nombres_aleatoires)].iloc[i,-3]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-9]}.")
+
+    generateur(results)
+
+    st.subheader(f"Nos recos :\n")
+    df_result = results
+    df_result.fillna(0, inplace=True)
+
+    scaler = MinMaxScaler()
+    df_result[['ecv', 'Use_Total']] = scaler.fit_transform(df_result[['ecv', 'Use_Total']])
+    top_3 = df_result.nlargest(3, 'Use_Total')
+    knn = NearestNeighbors(n_neighbors=1, metric='euclidean')
+
+    def reco(row):
+        categorie = row['Category']
+        ecv = row['ecv']
+        rech_cat = df_result[(df_result['Category'] == categorie) & (df_result['ecv'] < ecv)]
+
+        if rech_cat.empty:
+            return "Pas de recommandation disponible"
+        knn.fit(rech_cat[['ecv']])
+        distances, indices = knn.kneighbors([[ecv]])
+
+        return rech_cat.iloc[indices[0][0]]['Name_SubCategory']
+
+    top_3['Recommendation'] = top_3.apply(reco, axis=1)
+
+    col1, col2, col3 = st.columns(3)
+
+    for index, row in top_3.iterrows():
+        with col1:  
+            st.write(f"Nom: {row['Name_SubCategory']}")
+            st.write("")
+        with col2: 
+            st.write(f"Use_Total: {round(row['Use_Total'],4)}")
+            st.write(f"ECV: {round(row['ecv'],4)}")
+        with col3: 
+            st.write(f"Recommandation: {row['Recommendation']}")
+            st.write("")
+        st.write("")
+
+    
+
+    st.markdown("""
+    <style>
+    .stButton button {
+        background-color: #55be61 !important;
+        color: white !important;
+        font-size: 28px !important;
+        border: none !important;
+        border-radius: 4px !important;
+        padding: 1rem 3rem !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer !important;
+    }
+    .stButton button > div > p {
+        font-size: 20px !important;
+        white-space: nowrap !important;
+    }
+    .stButton button:hover {
+        background-color: #46a854 !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    col1,col2, col3, col4, col5 = st.columns([10,10,10,10,10])
+    with col2:
+        if st.button("👩🏻‍💼💬 Mon Coach Perso"):
+            afficher_chatbot()
+
+    with col4:
+        if st.button("↩ Revenir à mes résultats"):
+            afficher_résultats(results)
+
+    st.markdown("""
+        <style>
+        .stButton button {
+            background-color: #55be61 !important;
+            color: white !important;
+            font-size: 28px !important;
+            border: none !important;
+            border-radius: 4px !important;
+            padding: 1rem 3rem !important;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            cursor: pointer !important;
+        }
+        .stButton button > div > p {
+            font-size: 20px !important;
+            white-space: nowrap !important;
+        }
+        .stButton button:hover {
+            background-color: #46a854 !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+
 
 #endregion
