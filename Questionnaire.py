@@ -589,8 +589,11 @@ elif st.session_state.afficher_bloc == 'accueil':
     """, unsafe_allow_html=True)
         
 <<<<<<< HEAD
+<<<<<<< HEAD
     GOOGLE_API_KEY = ""
     genai.configure(api_key=GOOGLE_API_KEY)
+=======
+>>>>>>> parent of f9b9b14 (Update Questionnaire.py)
 =======
 >>>>>>> parent of f9b9b14 (Update Questionnaire.py)
 
