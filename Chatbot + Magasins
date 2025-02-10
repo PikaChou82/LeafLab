@@ -53,12 +53,11 @@ if "chat" not in st.session_state:
     st.session_state.chat_history = []
 
 
-col1, col2, col3 = st.columns([8,1,8])
+col1, col2, col3 = st.columns([8,2,8])
 
 with col1:
-    st.markdown("<h2 style='text-align: center;'>Posez vos questions<br>à notre chatbot !</h2>", unsafe_allow_html=True)
-
-    user_message = st.chat_input("Votre question ici :")
+    st.markdown("<h2 style='text-align: center;'>Posez vos questions<br>à notre <span style='color: #55be61;'>chatbot IA</span></h2>", unsafe_allow_html=True)
+    user_message = st.chat_input("✍️ Votre question ici :")
     if user_message:
         st.session_state.chat_history.append({"role": "user", "message": user_message})
         response = st.session_state.chat.send_message(user_message)
@@ -74,7 +73,8 @@ with col2:
   st.write("")
 
 with col3:
-    codepostal = st.text_input("Entrez votre code postal :")
+    st.markdown("<h2 style='text-align: center;'>Découvrez les <span style='color: #55be61;'>magasins éco-responsables</span><br>près de chez vous</h2>", unsafe_allow_html=True)
+    codepostal = st.text_input("📬 Entrez votre code postal :")
     @st.cache_data
     def chercher_centre_cp(codepostal):
       url = "https://nominatim.openstreetmap.org/search"
