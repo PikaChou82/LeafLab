@@ -1,47 +1,47 @@
 ﻿,Category,Name_Category,Name_SubCategory,slug,ecv,User,Usage,Use_Total,Unité,Emoji
 0,1,Numérique,Smartphone,smartphone,85.85,2,0,171.7,,💻
-1,1,Numérique,Ordinateur fixe,ordinateurfixeparticulier,299.3,0,0,0,,💻
+1,1,Numérique,Ordinateur fixe,ordinateurfixeparticulier,299.3,1,0,299.3,,💻
 2,1,Numérique,Écran d'ordinateur,ecran,91.4,1,0,91.4,,💻
-3,1,Numérique,Tablette,tabletteclassique,61.9,0,0,0,,💻
-4,1,Numérique,Télévision ,television,472.4,0,0,0,,💻
+3,1,Numérique,Tablette,tabletteclassique,61.9,1,0,61.9,,💻
+4,1,Numérique,Télévision ,television,472.4,1,0,472.4,,💻
 5,1,Numérique,Ordinateur portable,ordinateurportable,193,1,0,193,,💻
 6,1,Numérique,Enceinte connectée,enceintebluetooth,26.5,1,0,26.5,,💻
-7,1,Numérique,Casque de réalité virtuelle,casquevr,72.3,0,0,0,,💻
-8,1,Numérique,Disque dur externe,disquedur,11.9,0,0,0,,💻
-9,1,Numérique,Clef usb,clefusb,2.9,0,0,0,,💻
+7,1,Numérique,Casque de réalité virtuelle,casquevr,72.3,3,0,216.89999999999998,,💻
+8,1,Numérique,Disque dur externe,disquedur,11.9,1,0,11.9,,💻
+9,1,Numérique,Clef usb,clefusb,2.9,10,0,29,,💻
 10,1,Numérique,Box,box,82,0,0,0,,💻
-11,2,Alimentation,"Eau du robinet, Thé",Boissons,0.0218595,364,0,7.956858,Kg,🥗
-12,2,Alimentation,Eau en Bouteille,Boissons,0.320735,0,0,0,Kg,🥗
-13,2,Alimentation,"Boisson au Soja, Soda",Boissons,0.460265,0,0,0,Kg,🥗
+11,2,Alimentation,"Eau du robinet, Thé",Boissons,0.0218595,52,0,1.136694,Kg,🥗
+12,2,Alimentation,Eau en Bouteille,Boissons,0.320735,364,0,116.74754,Kg,🥗
+13,2,Alimentation,"Boisson au Soja, Soda",Boissons,0.460265,52,0,23.93378,Kg,🥗
 14,2,Alimentation,Café,Boissons,0.635463,52,0,33.044076,Kg,🥗
-15,2,Alimentation,Lait de Vache,Boissons,1.1505,52,0,59.82600000000001,Kg,🥗
-16,2,Alimentation,"Vin, Bière",Boissons,1.30783,52,0,68.00716,Kg,🥗
-17,2,Alimentation,"Burger Poulet, Pain au chocolat",Plats Préparés & Encas,5.045249999999999,0,0,0,Kg,🥗
-18,2,Alimentation,"Cookie, Brownie, Pâte à tartiner",Plats Préparés & Encas,7.915566666666666,0,0,0,Kg,🥗
-19,2,Alimentation,Sardines,Viandes & Poissons,2.2764877,0,0,0,Kg,🥗
-20,2,Alimentation,"Dorade, Lieu, Cabillaud",Viandes & Poissons,11.788154366666664,7.8,0,91.94760405999997,Kg,🥗
-21,2,Alimentation,"Canard, Porc",Viandes & Poissons,7.366102475,15.6,0,114.91119861,Kg,🥗
-22,2,Alimentation,"Huitres, Moules, Saumon, Lapin",Viandes & Poissons,5.499073000000001,0,0,0,Kg,🥗
+15,2,Alimentation,Lait de Vache,Boissons,1.1505,260,0,299.13,Kg,🥗
+16,2,Alimentation,"Vin, Bière",Boissons,1.30783,104,0,136.01432,Kg,🥗
+17,2,Alimentation,"Burger Poulet, Pain au chocolat",Plats Préparés & Encas,5.045249999999999,23.400000000000002,0,118.05884999999999,Kg,🥗
+18,2,Alimentation,"Cookie, Brownie, Pâte à tartiner",Plats Préparés & Encas,7.915566666666666,23.400000000000002,0,185.22426,Kg,🥗
+19,2,Alimentation,Sardines,Viandes & Poissons,2.2764877,7.8,0,17.75660406,Kg,🥗
+20,2,Alimentation,"Dorade, Lieu, Cabillaud",Viandes & Poissons,11.788154366666664,15.6,0,183.89520811999995,Kg,🥗
+21,2,Alimentation,"Canard, Porc",Viandes & Poissons,7.366102475,7.8,0,57.455599305,Kg,🥗
+22,2,Alimentation,"Huitres, Moules, Saumon, Lapin",Viandes & Poissons,5.499073000000001,7.8,0,42.892769400000006,Kg,🥗
 23,2,Alimentation,"Thon, Poulet",Viandes & Poissons,4.77193,78,0,372.21054000000004,Kg,🥗
-24,2,Alimentation,Blé,Céréales & Légumineuses,1.2262635,0,0,0,Kg,🥗
-25,2,Alimentation,"Pates, Riz",Céréales & Légumineuses,1.997042875,109.2,0,218.07708195,Kg,🥗
+24,2,Alimentation,Blé,Céréales & Légumineuses,1.2262635,7.8,0,9.5648553,Kg,🥗
+25,2,Alimentation,"Pates, Riz",Céréales & Légumineuses,1.997042875,101.39999999999999,0,202.500147525,Kg,🥗
 26,2,Alimentation,"Baguette, Tofu, Frites, Bonbons",Plats Préparés & Encas,1.181225,70.2,0,82.921995,Kg,🥗
-27,2,Alimentation,"Haricots rouges, Pois chiches, Boulgour",Céréales & Légumineuses,0.9023286666666668,0,0,0,Kg,🥗
-28,2,Alimentation,"Pain de mie, Madeleine, Chausson aux pommes, Pain aux raisins, Sushis, Burger végétarien",Plats Préparés & Encas,2.2978666666666667,0,0,0,Kg,🥗
-29,2,Alimentation,"Maïs, Lentilles",Céréales & Légumineuses,0.5751679999999999,0,0,0,Kg,🥗
-30,2,Alimentation,Boeuf,Viandes & Poissons,28.00917,0,0,0,Kg,🥗
+27,2,Alimentation,"Haricots rouges, Pois chiches, Boulgour",Céréales & Légumineuses,0.9023286666666668,7.8,0,7.038163600000001,Kg,🥗
+28,2,Alimentation,"Pain de mie, Madeleine, Chausson aux pommes, Pain aux raisins, Sushis, Burger végétarien",Plats Préparés & Encas,2.2978666666666667,23.400000000000002,0,53.77008000000001,Kg,🥗
+29,2,Alimentation,"Maïs, Lentilles",Céréales & Légumineuses,0.5751679999999999,7.8,0,4.486310399999999,Kg,🥗
+30,2,Alimentation,Boeuf,Viandes & Poissons,28.00917,39,0,1092.35763,Kg,🥗
 31,2,Alimentation,"Crevettes, Veau",Viandes & Poissons,21.424940666666664,7.8,0,167.11453719999997,Kg,🥗
-32,2,Alimentation,"mozzarella, Fromage à pâte molle",Oeufs & Produits Laitiers,0.147885525,0,0,0,Kg,🥗
-33,2,Alimentation,"Fromage Bleu, Fromage à pâte dure, Fêta",Oeufs & Produits Laitiers,0.2085085,52,0,10.842442,Kg,🥗
-34,2,Alimentation,"Croissant, Pizza",Plats Préparés & Encas,3.27125,0,0,0,Kg,🥗
-35,2,Alimentation,Bouchées au chocolat,Plats Préparés & Encas,10.5219,0,0,0,Kg,🥗
-36,2,Alimentation,Kebab,Plats Préparés & Encas,12.806530000000002,0,0,0,Kg,🥗
+32,2,Alimentation,"mozzarella, Fromage à pâte molle",Oeufs & Produits Laitiers,0.147885525,52,0,7.6900473,Kg,🥗
+33,2,Alimentation,"Fromage Bleu, Fromage à pâte dure, Fêta",Oeufs & Produits Laitiers,0.2085085,260,0,54.212210000000006,Kg,🥗
+34,2,Alimentation,"Croissant, Pizza",Plats Préparés & Encas,3.27125,23.400000000000002,0,76.54725,Kg,🥗
+35,2,Alimentation,Bouchées au chocolat,Plats Préparés & Encas,10.5219,23.400000000000002,0,246.21246000000002,Kg,🥗
+36,2,Alimentation,Kebab,Plats Préparés & Encas,12.806530000000002,23.400000000000002,0,299.6728020000001,Kg,🥗
 37,2,Alimentation,Cheeseburger,Plats Préparés & Encas,18.8334,23.400000000000002,0,440.7015600000001,Kg,🥗
 38,2,Alimentation,"Fromage Blanc, Oeuf, Yaourt",Oeufs & Produits Laitiers,0.1610388726666666,364,0,58.618149650666645,Kg,🥗
-39,2,Alimentation,Matière grasse,Oeufs & Produits Laitiers,0.1292315,0,0,0,Kg,🥗
-40,2,Alimentation,Beurre,Oeufs & Produits Laitiers,0.0791333,0,0,0,Kg,🥗
-41,4,Transport,Voiture électrique,voitureelectrique,0.1034,1825,0,188.705,Km,🚗
-42,4,Transport,Voiture / moto thermique,voiturethermique,0.2176,3000,0,652.8,Km,🚗
+39,2,Alimentation,Matière grasse,Oeufs & Produits Laitiers,0.1292315,52,0,6.720038,Kg,🥗
+40,2,Alimentation,Beurre,Oeufs & Produits Laitiers,0.0791333,52,0,4.1149316,Kg,🥗
+41,4,Transport,Voiture électrique,voitureelectrique,0.1034,8650,0,894.4100000000001,Km,🚗
+42,4,Transport,Voiture / moto thermique,voiturethermique,0.2176,1825,0,397.12,Km,🚗
 43,4,Transport,Avion court courrier,avion-courtcourrier,0.25858,0,0,0,Km,🚗
 44,4,Transport,Avion moyen courrier,avion-moyencourrier,0.18756,0,0,0,Km,🚗
 45,4,Transport,Avion long courrier,avion-longcourrier,0.152,26000,0,3952,Km,🚗
@@ -50,7 +50,7 @@
 48,4,Transport,Scooter ou moto légère thermique,scooter,0.0763,0,0,0,Km,🚗
 49,4,Transport,RER ou Transilien,rer,0.00978,0,0,0,Km,🚗
 50,4,Transport,Autocar thermique,autocar,0.0294,0,0,0,Km,🚗
-51,4,Transport,Vélo mécanique,velo,0.00017,0,0,0,Km,🚗
+51,4,Transport,Vélo mécanique,velo,0.00017,365,0,0.06205000000000001,Km,🚗
 52,4,Transport,Vélo à assistance électrique,veloelectrique,0.01095,0,0,0,Km,🚗
 53,4,Transport,Bus thermique,busthermique,0.1132,0,0,0,Km,🚗
 54,4,Transport,Tramway,tramway,0.00428,0,0,0,Km,🚗
@@ -59,19 +59,19 @@
 57,4,Transport,Bus (GNV),busgnv,0.1217,0,0,0,Km,🚗
 58,4,Transport,TER,ter,0.02769,0,0,0,Km,🚗
 59,4,Transport,Bus électrique,buselectrique,0.0217,0,0,0,Km,🚗
-60,5,Habillement,T-shirt,tshirt,6.4338,0,0,0,,👕
-61,5,Habillement,Sweat en coton,sweatencoton,32.49278107847502,0,0,0,,👕
-62,5,Habillement,Jeans,jeans,25.0887,0,0,0,,👕
-63,5,Habillement,Polo,polo,10.16353,0,0,0,,👕
+60,5,Habillement,T-shirt,tshirt,6.4338,3,0,19.3014,,👕
+61,5,Habillement,Sweat en coton,sweatencoton,32.49278107847502,1,0,32.49278107847502,,👕
+62,5,Habillement,Jeans,jeans,25.0887,1,0,25.0887,,👕
+63,5,Habillement,Polo,polo,10.16353,2,0,20.32706,,👕
 64,5,Habillement,Pull en acrylique,pullenacrylique,28.968381,0,0,0,,👕
-65,5,Habillement,Pull en laine,pullenlaine,56.6954561,0,0,0,,👕
+65,5,Habillement,Pull en laine,pullenlaine,56.6954561,1,0,56.6954561,,👕
 66,5,Habillement,Robe,robe,55,0,0,0,,👕
 67,5,Habillement,Paire de chaussures de sport,chaussuresdesport,20.12555,0,0,0,,👕
 68,5,Habillement,Veste simili-cuir,vestesimilicuir,26.82582,0,0,0,,👕
 69,5,Habillement,Veste imperméable,vesteimpermeable,41.14716,0,0,0,,👕
-70,5,Habillement,Manteau,manteau,101.420516,0,0,0,,👕
+70,5,Habillement,Manteau,manteau,101.420516,5,0,507.10258000000005,,👕
 71,5,Habillement,Pull en coton recyclé,pullencotonrecycle,13.192781,0,0,0,,👕
-72,5,Habillement,Paire de chaussures,chaussures,16,1,0,16,,👕
+72,5,Habillement,Paire de chaussures,chaussures,16,2,0,32,,👕
 73,5,Habillement,Chemise,chemise,13.2347,0,0,0,,👕
 74,6,Électroménager,Cafetière à dosettes,cafetieredosette,251.003553,0,0,0,,🔌
 75,6,Électroménager,Bouilloire,bouilloire,40.884036,0,0,0,,🔌
@@ -86,8 +86,8 @@
 84,7,Mobilier,Chaise en bois,chaiseenbois,18.63,0,0,0,,🛏️
 85,7,Mobilier,Canapé convertible,canapeconvertible,197.5,0,0,0,,🛏️
 86,7,Mobilier,Canapé en textile,canapetextile,179.1,0,0,0,,🛏️
-87,7,Mobilier,Table en bois,tableenbois,80.22,0,0,0,,🛏️
-88,7,Mobilier,Lit,lit,443.81,0,0,0,,🛏️
+87,7,Mobilier,Table en bois,tableenbois,80.22,1,0,80.22,,🛏️
+88,7,Mobilier,Lit,lit,443.81,1,0,443.81,,🛏️
 89,7,Mobilier,Armoire,armoire,906.88,0,0,0,,🛏️
 90,8,Chauffage,Chauffage au fioul par m²,chauffagefioul,57.17,0,0,0,,🔥
 91,8,Chauffage,Chauffage au gaz par m²,chauffagegaz,39,0,0,0,,🔥
@@ -98,13 +98,13 @@
 96,8,Chauffage,Chauffage avec un poêle à bois par m²,poeleabois,9.2,0,0,0,,🔥
 97,9,Fruits & Légumes,Fruits,Fruits,0.99,73,0,72.27,,🍏
 98,9,Fruits & Légumes,Légumes,Légumes,0.9,219.00000000000003,0,197.10000000000002,,🍏
-99,9,Fruits & Légumes,Mangues,Fruits,11.66,0,0,0,,🍏
-100,10,Usage Numérique,Utilisation de Go de donnée (en quantité),Usage numérique,0.0095,104,0,0.988,,
-101,10,Usage Numérique,Recherche sur le Web (en quantité),Usage numérique,0.051,0,0,0,,
-102,10,Usage Numérique,Email (en quantité),Usage numérique,0.00312,520,0,1.6224,,
+99,9,Fruits & Légumes,Mangues,Fruits,11.66,2.25,0,26.235,,🍏
+100,10,Usage Numérique,Utilisation de Go de donnée (en quantité),Usage numérique,0.0095,520,0,4.9399999999999995,,
+101,10,Usage Numérique,Recherche sur le Web (en quantité),Usage numérique,0.051,208,0,10.607999999999999,,
+102,10,Usage Numérique,Email (en quantité),Usage numérique,0.00312,2600,0,8.112,,
 103,10,Usage Numérique,Stocker un Go de donnée (en quantité),Usage numérique,0.000235,26000,0,6.109999999999999,,
 104,10,Usage Numérique,Streaming Vidéo (en nombre d'heures),Usage numérique,0.064,1300,0,83.2,,
-105,10,Usage Numérique,Visioconférence (en nombre d'heures),Usage numérique,0.0571,0,0,0,,
+105,10,Usage Numérique,Visioconférence (en nombre d'heures),Usage numérique,0.0571,1820,0,103.922,,
 106,13,Cas pratiques,Journée au ski,ski,48.9,0,0,0,,🕑
 107,13,Cas pratiques,Remplissage de piscine,piscine,7.54,0,0,0,,🕑
 108,13,Cas pratiques,Tour de la terre en voiture,terre-voiture,8704,0,0,0,,🕑
