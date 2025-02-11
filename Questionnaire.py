@@ -249,7 +249,7 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         sous_themes_numerique = ["Appareils", "Usage"]
         questions_numerique = [
             "Quels appareils numériques avez-vous acheté neuf ces 12 derniers mois ?",
-            "Quantifiez vos usages du numérique ? (en moyenne par semaine, en nombre ou en heures)"
+            "Quantifiez vos usages du numérique ? (en moyenne par semaine)"
         ]
         options_numerique = [option_appareil_numerique,
             option_usage_numerique
@@ -953,7 +953,7 @@ elif st.session_state.afficher_bloc == 'recos':
             afficher_chatbot()
 
     with col4:
-        if st.button("↩ Revenir à mes résultats"):
+        if st.button("↩️ Revenir à mes résultats"):
             afficher_résultats(results)
 
     st.markdown("""
