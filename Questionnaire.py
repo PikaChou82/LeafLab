@@ -460,7 +460,7 @@ elif st.session_state.afficher_bloc == 'questionnaire':
     results["Category_ML"] = results["Name_SubCategory"].apply(cat_ml)
     results.to_csv('resultats.csv')
 
-    col1,col2, col3, col4, col5 = st.columns([5,10,10,10,5])
+    col1,col2, col3, col4, col5 = st.columns([10,5,10,5,10])
     with col3:
         if st.button("🔍 Découvrir mon résultat"):
             st.session_state.results_df = results
@@ -685,35 +685,33 @@ div[data-testid="stAlert"] p {
         st.write("")
 
 
-    col1,col2, col3, col4, col5 = st.columns([5,10,10,10,5])
+    col1,col2, col3, col4, col5 = st.columns([10,5,10,5,10])
     with col3:
         if st.button("🎯 Découvrir mes recommandations sur-mesure"):
             afficher_recos(results)
         st.markdown("""
-    <style>
-    .stButton button {
-        background-color: #55be61 !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 4px !important;
-        padding: 1.5rem 1.5rem !important;
-        cursor: pointer !important;
-    }
-    .stButton button > div > p {
-        font-size: 20px !important;
-        white-space: nowrap !important;
-    }
-    .stButton button:hover {
-        background-color: #46a854 !important;
-    }
-    .button-container {
-        display: flex; 
-        justify-content: center; 
-        gap: 1rem; 
-    }
-    </style>
-                
-    """, unsafe_allow_html=True)
+        <style>
+        .stButton button {
+            background-color: #55be61 !important;
+            color: white !important;
+            font-size: 28px !important;
+            border: none !important;
+            border-radius: 4px !important;
+            padding: 1rem 3rem !important;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            cursor: pointer !important;
+        }
+        .stButton button > div > p {
+            font-size: 20px !important;
+            white-space: nowrap !important;
+        }
+        .stButton button:hover {
+            background-color: #46a854 !important;
+        }
+        </style>
+                    """, unsafe_allow_html=True)
 
 
     with col5:
@@ -732,6 +730,7 @@ div[data-testid="stAlert"] p {
         background-color: #55be61 !important;
         color: white !important;
         border: none !important;
+        font-size: 15px !important;    
         border-radius: 4px !important;
         padding: 0.75rem 1.5rem !important;
         cursor: pointer !important;
@@ -1003,7 +1002,7 @@ elif st.session_state.afficher_bloc == 'recos':
 
     
 
-    col1,col2, col3, col4, col5 = st.columns([5,10,10,10,5])
+    col1,col2, col3, col4, col5 = st.columns([10,5,10,5,10])
     with col3:
         if st.button("👩🏻‍💼💬 Mon Coach Perso"):
             afficher_chatbot()
