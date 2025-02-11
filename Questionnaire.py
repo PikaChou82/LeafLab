@@ -6,7 +6,6 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 import random
-import base64
 import google.generativeai as genai
 import streamlit as st
 import base64
@@ -17,6 +16,8 @@ import folium
 import streamlit as st
 from streamlit_folium import st_folium
 import requests
+from dotenv import load_dotenv
+import os
 
 #endregion
 
@@ -693,8 +694,8 @@ div[data-testid="stAlert"] p {
 ## Initialisation de la page et de son format
 elif st.session_state.afficher_bloc == 'chatbot':
 
-        
-    GOOGLE_API_KEY = ""
+    load_dotenv()
+    GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
     genai.configure(api_key=GOOGLE_API_KEY)
 
     Chatbot_empreinteCarbone = genai.GenerativeModel('gemini-1.5-flash-latest')
@@ -737,14 +738,15 @@ elif st.session_state.afficher_bloc == 'chatbot':
             response = st.session_state.chat.send_message(user_message)
             st.session_state.chat_history.append({"role": "assistant", "message": response.text})
 
-        for msg in st.session_state.chat_history[-2:]:
-            if msg["role"] == "user":
-                st.chat_message("user").write(msg["message"])
+        for i in st.session_state.chat_history[-2:]:
+            if i["role"] == "user":
+                st.chat_message("user").write(i["message"])
             else:
-                st.chat_message("assistant").write(msg["message"])
+                st.chat_message("assistant").write(i["message"])
 
     with col2:
-        st.write("")
+        st.markdown("<br>" * 22, unsafe_allow_html=True)
+        
 
     with col3:
         st.markdown("<h2 style='text-align: center;'>Découvrez les <span style='color: #55be61;'>magasins éco-responsables</span><br>près de chez vous</h2>", unsafe_allow_html=True)
@@ -756,13 +758,18 @@ elif st.session_state.afficher_bloc == 'chatbot':
             {"postalcode": codepostal,"country": "France","format": "json"},
                 headers={"User-Agent": "Mozilla/5.0"})
             data = response.json()
+            if not data:
+                st.error("Aucune ville trouvée.", icon="❌")
+                return None
             lat = data[0]["lat"]
             lon = data[0]["lon"]
             return lat, lon
 
         @st.cache_data
-        def chercher_supermarche_radius(codepostal, radius=10):
+        def chercher_magasins_rayon(codepostal, radius=10):
             centre = chercher_centre_cp(codepostal)
+            if centre is None:
+                st.stop()
             lat_centre, lon_centre = centre
 
             url = "http://overpass-api.de/api/interpreter"
@@ -777,9 +784,9 @@ elif st.session_state.afficher_bloc == 'chatbot':
             );
             out center;
             """
-            
+
             response = requests.get(url, params={"data": overpass_query})
-            
+
             data = response.json()
             magasins = []
             for element in data["elements"]:
@@ -792,7 +799,7 @@ elif st.session_state.afficher_bloc == 'chatbot':
             return magasins
 
         if len(codepostal)==5:
-            magasins = chercher_supermarche_radius(codepostal, radius=5000)
+            magasins = chercher_magasins_rayon(codepostal, radius=5000)
 
             centre = chercher_centre_cp(codepostal)
             my_map = folium.Map(location=[centre[0], centre[1]], zoom_start=13)
@@ -803,7 +810,7 @@ elif st.session_state.afficher_bloc == 'chatbot':
                         popup=f"{nom}",
                         icon=folium.Icon(color="darkblue", icon="shopping-cart")
                     ).add_to(my_map)
-            st_folium(my_map, width=850, height=450)
+            st_folium(my_map, width=850, height=350)
         else:
             st.write("Veuillez entrer un code postal valide.")
     
@@ -811,7 +818,7 @@ elif st.session_state.afficher_bloc == 'chatbot':
     col1,col2, col3, col4, col5 = st.columns([10,10,10,10,10])
     
     with col2:
-        if st.button("↩ Revenir à mes résultats"):
+        if st.button("↩️ Retour aux résultats"):
             results = pd.read_csv("resultats.csv")
             afficher_résultats(results)
 
@@ -977,7 +984,5 @@ elif st.session_state.afficher_bloc == 'recos':
         }
         </style>
         """, unsafe_allow_html=True)
-
-
 
 #endregion
