@@ -1,6 +1,5 @@
 scikit-learn
 google.generativeai
-random
 requests
 seaborn
 matplotlib
