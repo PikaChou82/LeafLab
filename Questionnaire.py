@@ -818,7 +818,7 @@ elif st.session_state.afficher_bloc == 'chatbot':
     col1,col2, col3, col4, col5 = st.columns([10,10,10,10,10])
     
     with col2:
-        if st.button("↩️ Retour aux résultats"):
+        if st.button("↩ Retour aux résultats"):
             results = pd.read_csv("resultats.csv")
             afficher_résultats(results)
 
