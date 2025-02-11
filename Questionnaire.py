@@ -657,7 +657,7 @@ div[data-testid="stAlert"] p {
             afficher_recos(results)
 
     with col4:
-        if st.button("♻️ Refaire le questionnaire"):
+        if st.button("♻️ Refaire le Questionnaire"):
             afficher_questionnaire()
     
         st.markdown("""
@@ -727,7 +727,6 @@ elif st.session_state.afficher_bloc == 'chatbot':
         st.session_state.chat = Chatbot_empreinteCarbone.start_chat(history=[{'role': 'user', 'parts': [system_prompt]}])
         st.session_state.chat_history = []
 
-
     col1, col2, col3 = st.columns([8,2,8])
 
     with col1:
@@ -747,10 +746,10 @@ elif st.session_state.afficher_bloc == 'chatbot':
     with col2:
         st.markdown("<br>" * 22, unsafe_allow_html=True)
         
-
     with col3:
         st.markdown("<h2 style='text-align: center;'>Découvrez les <span style='color: #55be61;'>magasins éco-responsables</span><br>près de chez vous</h2>", unsafe_allow_html=True)
         codepostal = st.text_input("📬 Entrez votre code postal :")
+        
         @st.cache_data
         def chercher_centre_cp(codepostal):
             url = "https://nominatim.openstreetmap.org/search"
@@ -769,7 +768,7 @@ elif st.session_state.afficher_bloc == 'chatbot':
         def chercher_magasins_rayon(codepostal, radius=10):
             centre = chercher_centre_cp(codepostal)
             if centre is None:
-                st.stop()
+                return None
             lat_centre, lon_centre = centre
 
             url = "http://overpass-api.de/api/interpreter"
@@ -800,56 +799,52 @@ elif st.session_state.afficher_bloc == 'chatbot':
 
         if len(codepostal)==5:
             magasins = chercher_magasins_rayon(codepostal, radius=5000)
+            if magasins is not None:
+                centre = chercher_centre_cp(codepostal)
+                my_map = folium.Map(location=[centre[0], centre[1]], zoom_start=13)
 
-            centre = chercher_centre_cp(codepostal)
-            my_map = folium.Map(location=[centre[0], centre[1]], zoom_start=13)
-
-            for nom, lat, lon in magasins:
-                    folium.Marker(
-                        location=[lat, lon],
-                        popup=f"{nom}",
-                        icon=folium.Icon(color="darkblue", icon="shopping-cart")
-                    ).add_to(my_map)
-            st_folium(my_map, width=850, height=350)
+                for nom, lat, lon in magasins:
+                        folium.Marker(
+                            location=[lat, lon],
+                            popup=f"{nom}",
+                            icon=folium.Icon(color="darkblue", icon="shopping-cart")
+                        ).add_to(my_map)
+                st_folium(my_map, width=850, height=350)
         else:
             st.write("Veuillez entrer un code postal valide.")
-    
-    
-    col1,col2, col3, col4, col5 = st.columns([10,10,10,10,10])
-    
-    with col2:
-        if st.button("↩ Retour aux résultats"):
+        
+    colA, colB, colC, colD, colE = st.columns([10,10,10,10,10])
+    with colB:
+        if st.button("↩️ Retour aux résultats"):
             results = pd.read_csv("resultats.csv")
             afficher_résultats(results)
-
-    with col4:
+    with colD:
         if st.button("♻️ Refaire le Questionnaire"):
             afficher_questionnaire()
+    st.markdown("""
+            <style>
+            .stButton button {
+                background-color: #55be61 !important;
+                color: white !important;
+                font-size: 28px !important;
+                border: none !important;
+                border-radius: 4px !important;
+                padding: 1rem 3rem !important;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                cursor: pointer !important;
+            }
+            .stButton button > div > p {
+                font-size: 20px !important;
+                white-space: nowrap !important;
+            }
+            .stButton button:hover {
+                background-color: #46a854 !important;
+            }
+            </style>
+            """, unsafe_allow_html=True)
     
-        st.markdown("""
-        <style>
-        .stButton button {
-            background-color: #55be61 !important;
-            color: white !important;
-            font-size: 28px !important;
-            border: none !important;
-            border-radius: 4px !important;
-            padding: 1rem 3rem !important;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            cursor: pointer !important;
-        }
-        .stButton button > div > p {
-            font-size: 20px !important;
-            white-space: nowrap !important;
-        }
-        .stButton button:hover {
-            background-color: #46a854 !important;
-        }
-        </style>
-        """, unsafe_allow_html=True)
-
 #endregion
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
