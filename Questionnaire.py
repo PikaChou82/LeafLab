@@ -423,9 +423,6 @@ elif st.session_state.afficher_bloc == 'questionnaire':
 
     results['Usage'] = results.apply(update_usage, axis=1)
     results['Use_Total'] = results['User'] * results['ecv'] + results['Usage']
-    Conso_Totale_Tonnes = results['Use_Total'].sum()/1000
-
-    st.title(f"Ma conso moyenne est de {round(Conso_Totale_Tonnes,2)} Tonnes / An !")
 
     # Indication des Unités
     def unite(x):
@@ -456,7 +453,47 @@ elif st.session_state.afficher_bloc == 'questionnaire':
     results["Category_ML"] = results["Name_SubCategory"].apply(cat_ml)
     results.to_csv('resultats.csv')
 
-    st.markdown("""
+    col1,col2, col3, col4, col5 = st.columns([10,10,10,10,10])
+    with col3:
+        if st.button("🔍 Découvrir mon résultat"):
+            st.session_state.results_df = results
+            afficher_résultats(results)
+        st.markdown("""
+    <style>
+    .stButton button {
+        background-color: #55be61 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 4px !important;
+        padding: 1.5rem 1.5rem !important;
+        cursor: pointer !important;
+    }
+    .stButton button > div > p {
+        font-size: 20px !important;
+        white-space: nowrap !important;
+    }
+    .stButton button:hover {
+        background-color: #46a854 !important;
+    }
+    .button-container {
+        display: flex; 
+        justify-content: center; 
+        gap: 1rem; 
+    }
+    </style>
+                
+    """, unsafe_allow_html=True)
+
+
+    with col5:
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")        
+        if st.button("↩️ Revenir à l'accueil"):
+            afficher_accueil()
+        st.markdown("""
     <style>
     .stButton button {
         background-color: #55be61 !important;
@@ -481,16 +518,6 @@ elif st.session_state.afficher_bloc == 'questionnaire':
     </style>
                 
     """, unsafe_allow_html=True)
-
-    col1,col2, col3, col4, col5 = st.columns([10,10,10,10,10])
-    with col2:
-        if st.button("🔍 Analyser mes résultats"):
-            st.session_state.results_df = results
-            afficher_résultats(results)
-
-    with col4:
-        if st.button("↩ Revenir à l'accueil"):
-            afficher_accueil()
 
 #endregion
 
@@ -815,7 +842,7 @@ elif st.session_state.afficher_bloc == 'chatbot':
         
     colA, colB, colC, colD, colE = st.columns([10,10,10,10,10])
     with colB:
-        if st.button("↩️ Retour aux résultats"):
+        if st.button("↩️ Revenir à mes résultats"):
             results = pd.read_csv("resultats.csv")
             afficher_résultats(results)
     with colD:
@@ -887,29 +914,41 @@ elif st.session_state.afficher_bloc == 'recos':
     st.subheader(f"Nos recos :\n")
     df_result = results
     df_result.fillna(0, inplace=True)
+    df_alim = df_result[(df_result["Name_Category"] == "Alimentation") | (df_result["Name_Category"] == "Fruits & Légumes")]
 
-    scaler = MinMaxScaler()
-    df_result[['ecv', 'Use_Total']] = scaler.fit_transform(df_result[['ecv', 'Use_Total']])
-    top_3 = df_result.nlargest(3, 'Use_Total')
+    total_ecv_FL = df_alim[df_alim['Name_SubCategory'].isin(['Fruits', 'Légumes'])]['Use_Total'].sum()
+
+    if total_ecv_FL < 400:
+        fruits_total = df_alim[df_alim['Name_SubCategory'] == 'Fruits']['Use_Total'].sum()
+        legumes_total = df_alim[df_alim['Name_SubCategory'] == 'Légumes']['Use_Total'].sum()
+
+        if fruits_total < 150:
+            st.write("Recommandation générale : Mangez plus de fruits")
+        if legumes_total < 250:
+            st.write("Recommandation générale : Mangez plus de légumes")
+    
+    df_alim_2 = df_result[df_result["Name_Category"] == "Alimentation"]
+    top_5 = df_alim_2.nlargest(5, 'Use_Total')
     knn = NearestNeighbors(n_neighbors=1, metric='euclidean')
-
     def reco(row):
-        categorie = row['Category']
+        categorie = row['Category_ML']
         ecv = row['ecv']
-        rech_cat = df_result[(df_result['Category'] == categorie) & (df_result['ecv'] < ecv)]
+        rech_cat = df_alim_2[(df_alim_2['Category_ML'] == categorie) & (df_alim_2['ecv'] < ecv)]
 
         if rech_cat.empty:
             return "Pas de recommandation disponible"
+
         knn.fit(rech_cat[['ecv']])
+
         distances, indices = knn.kneighbors([[ecv]])
 
         return rech_cat.iloc[indices[0][0]]['Name_SubCategory']
 
-    top_3['Recommendation'] = top_3.apply(reco, axis=1)
+    top_5['Recommendation'] = top_5.apply(reco, axis=1)
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4, col5 = st.columns(5)
 
-    for index, row in top_3.iterrows():
+    for index, row in top_5.iterrows():
         with col1:  
             st.write(f"Nom: {row['Name_SubCategory']}")
             st.write("")
