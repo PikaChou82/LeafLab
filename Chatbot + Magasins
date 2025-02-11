@@ -8,7 +8,7 @@ import requests
 import folium
 import base64
 
-st.set_page_config(layout="wide") 
+st.set_page_config(layout="wide")
 
 page_element = """
 <style>
@@ -20,7 +20,7 @@ page_element = """
 """
 st.markdown(page_element, unsafe_allow_html=True)
 
-GOOGLE_API_KEY = "rien"
+GOOGLE_API_KEY = "clé à insérer ICI"
 genai.configure(api_key=GOOGLE_API_KEY)
 
 Chatbot_empreinteCarbone = genai.GenerativeModel('gemini-1.5-flash-latest')
@@ -63,14 +63,39 @@ with col1:
         response = st.session_state.chat.send_message(user_message)
         st.session_state.chat_history.append({"role": "assistant", "message": response.text})
 
-    for msg in st.session_state.chat_history[-2:]:
-        if msg["role"] == "user":
-            st.chat_message("user").write(msg["message"])
+    for i in st.session_state.chat_history[-2:]:
+        if i["role"] == "user":
+            st.chat_message("user").write(i["message"])
         else:
-            st.chat_message("assistant").write(msg["message"])
+            st.chat_message("assistant").write(i["message"])
 
 with col2:
-  st.write("")
+    st.markdown("""
+    <style>
+    .stButton button {
+            background-color: #55be61 !important;
+            color: white !important;
+            font-size: 22px !important;
+            border: none !important;
+            border-radius: 4px !important;
+            padding: 0.5rem 0.5rem !important;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            cursor: pointer !important;
+        }
+        .stButton button > div > p {
+            font-size: 20px !important;
+            white-space: nowrap !important;
+        }
+        .stButton button:hover {
+            background-color: #46a854 !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+    st.markdown("<br>" * 22, unsafe_allow_html=True)
+    if st.button("↩️ Retour aux résultats"):
+        st.write("On y va !")
 
 with col3:
     st.markdown("<h2 style='text-align: center;'>Découvrez les <span style='color: #55be61;'>magasins éco-responsables</span><br>près de chez vous</h2>", unsafe_allow_html=True)
@@ -82,13 +107,18 @@ with col3:
       {"postalcode": codepostal,"country": "France","format": "json"},
         headers={"User-Agent": "Mozilla/5.0"})
       data = response.json()
+      if not data:
+      	st.error("Aucune ville trouvée.", icon="❌")
+      	return None
       lat = data[0]["lat"]
       lon = data[0]["lon"]
       return lat, lon
 
     @st.cache_data
-    def chercher_supermarche_radius(codepostal, radius=10):
+    def chercher_magasins_rayon(codepostal, radius=10):
       centre = chercher_centre_cp(codepostal)
+      if centre is None:
+        st.stop()
       lat_centre, lon_centre = centre
 
       url = "http://overpass-api.de/api/interpreter"
@@ -103,9 +133,9 @@ with col3:
       );
       out center;
       """
-    
+
       response = requests.get(url, params={"data": overpass_query})
-    
+
       data = response.json()
       magasins = []
       for element in data["elements"]:
@@ -118,7 +148,7 @@ with col3:
       return magasins
 
     if len(codepostal)==5:
-      magasins = chercher_supermarche_radius(codepostal, radius=5000)
+      magasins = chercher_magasins_rayon(codepostal, radius=5000)
 
       centre = chercher_centre_cp(codepostal)
       my_map = folium.Map(location=[centre[0], centre[1]], zoom_start=13)
@@ -129,6 +159,6 @@ with col3:
                 popup=f"{nom}",
                 icon=folium.Icon(color="darkblue", icon="shopping-cart")
             ).add_to(my_map)
-      st_folium(my_map, width=850, height=450)
+      st_folium(my_map, width=850, height=350)
     else:
       st.write("Veuillez entrer un code postal valide.")
