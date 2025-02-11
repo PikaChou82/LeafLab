@@ -1,4 +1,8 @@
+sklearn
 google.generativeai
+random
+streamlit
+requests
 seaborn
 matplotlib
 pandas
