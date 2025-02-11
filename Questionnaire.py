@@ -880,7 +880,7 @@ elif st.session_state.afficher_bloc == 'recos':
             for i in range(3):
                 with colonnes[i]: 
                     st.subheader(f"{df2.iloc[list(nombres_aleatoires)].iloc[i,-2]}")
-                    st.subheader(f"{format(round(df2.iloc[list(nombres_aleatoires)].iloc[i,-1]), ",d").replace(","," ")} {df2.iloc[list(nombres_aleatoires)].iloc[i,-3]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-9]}.")
+                    st.subheader(f"{format(round(df2.iloc[list(nombres_aleatoires)].iloc[i,-1]), ",d").replace(","," ")} {df2.iloc[list(nombres_aleatoires)].iloc[i,-3]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-10]}.")
 
     generateur(results)
 
