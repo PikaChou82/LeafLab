@@ -443,6 +443,16 @@ elif st.session_state.afficher_bloc == 'questionnaire':
     # Application de la Colonne
     results["Unité"] = results['Name_Category'].apply(unite)
     results["Emoji"] = results['Name_Category'].map(map)
+
+    # Ajout de la colonne Catégorie ML pour le Machine Learning
+    def cat_ml(x):
+        index = results[results['Name_SubCategory'] == x].index[0]
+        if results.loc[index,'Name_Category'] == "Alimentation" or results.loc[index,'Name_Category'] == "Fruits & Légumes" :
+            return results.loc[index,'slug']
+        else:
+            return results.loc[index,'Name_Category']
+        
+    results["Category_ML"] = results["Name_SubCategory"].apply(cat_ml)
     results.to_csv('resultats.csv')
 
     st.markdown("""
@@ -493,7 +503,7 @@ elif st.session_state.afficher_bloc == 'résultats':
     results = pd.read_csv('resultats.csv')
    
     if "emojis_2" not in st.session_state: 
-        emojis = st.session_state.results_df.iloc[:,-1].unique()
+        emojis = st.session_state.results_df.iloc[:,-2].unique()
         nombres_aleatoires = set()
         while len(nombres_aleatoires) < 3:
             nombre = random.randint(1, len(emojis)-1) 
