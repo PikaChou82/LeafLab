@@ -657,7 +657,7 @@ div[data-testid="stAlert"] p {
             afficher_recos(results)
 
     with col4:
-        if st.button("♻️ Refaire le Questionnaire"):
+        if st.button("♻️ Refaire le questionnaire"):
             afficher_questionnaire()
     
         st.markdown("""
