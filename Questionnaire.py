@@ -249,7 +249,7 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         sous_themes_numerique = ["Appareils", "Usage"]
         questions_numerique = [
             "Quels appareils numériques avez-vous acheté neuf ces 12 derniers mois ?",
-            "Quantifiez vos usages du numérique ? (en moyenne par semaine)"
+            "Quantifiez vos usages du numérique ?"
         ]
         options_numerique = [option_appareil_numerique,
             option_usage_numerique
