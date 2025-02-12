@@ -1,7 +1,7 @@
 ,group,ecv,Libellé
-0,1,0.000235,Stocker un Go de donnée (en quantité)
-1,2,0.00312,Email (en quantité)
-2,3,0.0095,Utilisation de Go de donnée (en quantité)
-3,4,0.051,Recherche sur le Web (en quantité)
-4,5,0.0571,Visioconférence (en nombre d'heures)
-5,6,0.064,Streaming Vidéo (en nombre d'heures)
+0,1,0.000235,Stockage de Go de données (en quantité annuelle)
+1,2,0.00312,Email (nombre moyen par semaine)
+2,3,0.0095,Utilisation de Go de donnée (nombre moyen par semaine)
+3,4,0.051,Recherche sur le Web (nombre moyen par semaine)
+4,5,0.0571,Visioconférence (nombre d'heures par semaine)
+5,6,0.064,Streaming Vidéo (nombre d'heures par semaine)
