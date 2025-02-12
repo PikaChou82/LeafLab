@@ -25,8 +25,8 @@ import os
 
 #region Section 2 : Initialisation de la page
 
-## J'indique que je veux prendre la totalité de l'écran 
-st.set_page_config(layout="wide") 
+## J'indique que je veux prendre la totalité de l'écran
+st.set_page_config(layout="wide")
 
 ## Initialisation des variables d'état
 if 'afficher_bloc' not in st.session_state:
@@ -163,13 +163,13 @@ if st.session_state.afficher_bloc == 'accueil':
     st.markdown("""
     <style>
     .liste123 { display: flex; align-items: center; margin: 10px 0; }
-    .cercle { background-color: #888; border-radius: 50%; width: 30px; height: 30px; display: flex; 
+    .cercle { background-color: #888; border-radius: 50%; width: 30px; height: 30px; display: flex;
                 justify-content: center; align-items: right; font-weight: bold; color: #fff; margin-right: 10px; }
     .liste-texte { color: #000 !important; font-size: 18px; line-height: 1.6; flex: 1; text-align: center; width: 500px; }
     </style>
     """, unsafe_allow_html=True)
 
-## Sous-Bloc 1 : Logo & Baseline 
+## Sous-Bloc 1 : Logo & Baseline
     colA, colB, colC = st.columns([4,2.5, 9])
     with colB: st.image("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/BigFoot.png", width=150)
     with colC:
@@ -221,7 +221,7 @@ if st.session_state.afficher_bloc == 'accueil':
     """, unsafe_allow_html=True)
         if st.button("♻️ Je me lance !"):
             afficher_questionnaire()
-    
+
     st.write("")
     st.write("")
     st.write("")
@@ -244,12 +244,12 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         st.image("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/BigFoot.png", width=300)
     with col2:
         st.title("J'évalue ma conso")
-        
+
         # Questions Numérique
         sous_themes_numerique = ["Appareils", "Usage"]
         questions_numerique = [
             "Quels appareils numériques avez-vous acheté neuf ces 12 derniers mois ?",
-            "Quantifiez vos usages du numérique ?"
+            "Quantifiez vos usages du numérique ? (en moyenne par semaine)"
         ]
         options_numerique = [option_appareil_numerique,
             option_usage_numerique
@@ -426,19 +426,19 @@ elif st.session_state.afficher_bloc == 'questionnaire':
             return row['User'] / 52
         else:
             return row['User']
-        
+
     results['User'] = results.apply(update_giga, axis=1)
     results['Usage'] = results.apply(update_usage, axis=1)
     results['Use_Total'] = results['User'] * results['ecv'] + results['Usage']
-    
+
     # Indication des Unités
     def unite(x):
         if 'streaming' in x:
             return "Heures"
         elif x == "Alimentation" or x =="Fruits et légumes":
-            return "Kg"
+            return "kg"
         elif x == "Transport":
-            return "Km"
+            return "km"
         else :
             return " "
 
@@ -456,7 +456,7 @@ elif st.session_state.afficher_bloc == 'questionnaire':
             return results.loc[index,'slug']
         else:
             return results.loc[index,'Name_Category']
-        
+
     results["Category_ML"] = results["Name_SubCategory"].apply(cat_ml)
     results.to_csv('resultats.csv')
 
@@ -483,12 +483,12 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         background-color: #46a854 !important;
     }
     .button-container {
-        display: flex; 
-        justify-content: center; 
-        gap: 1rem; 
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
     }
     </style>
-                
+
     """, unsafe_allow_html=True)
 
 
@@ -497,7 +497,7 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         st.write("")
         st.write("")
         st.write("")
-        st.write("")        
+        st.write("")
         if st.button("↩️ Revenir à l'accueil"):
             afficher_accueil()
         st.markdown("""
@@ -518,12 +518,12 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         background-color: #46a854 !important;
     }
     .button-container {
-        display: flex; 
-        justify-content: center; 
-        gap: 1rem; 
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
     }
     </style>
-                
+
     """, unsafe_allow_html=True)
 
 #endregion
@@ -536,18 +536,18 @@ elif st.session_state.afficher_bloc == 'questionnaire':
 elif st.session_state.afficher_bloc == 'résultats':
 
     results = pd.read_csv('resultats.csv')
-   
-    if "emojis_2" not in st.session_state: 
+
+    if "emojis_2" not in st.session_state:
         emojis = st.session_state.results_df.iloc[:,-2].unique()
         nombres_aleatoires = set()
         while len(nombres_aleatoires) < 3:
-            nombre = random.randint(1, len(emojis)-1) 
+            nombre = random.randint(1, len(emojis)-1)
             nombres_aleatoires.add(nombre)
         nombres_aleatoires = list(nombres_aleatoires)
         st.session_state.emojis_2 = [emojis[nombres_aleatoires[0]], emojis[nombres_aleatoires[1]], emojis[nombres_aleatoires[2]]]
 
-    emojis_2 = st.session_state.emojis_2  
-    
+    emojis_2 = st.session_state.emojis_2
+
     if st.session_state.results_df is not None:
         #results = st.session_state.results_df
         Conso_Totale_Tonnes = results['Use_Total'].sum() / 1000
@@ -589,8 +589,8 @@ elif st.session_state.afficher_bloc == 'résultats':
                 f"🔌 Électroménager : **{format(round(score_electromenager), ",d").replace(","," ")}** kg\n"
                 f"💻 Numérique : **{format(round(score_numerique), ",d").replace(","," ")}** kg\n"
                 f"💻 Usages du numérique : **{format(round(score_usage_numerique), ",d").replace(","," ")}** kg\n"
-                f"👕 Habillement : **{format(round(score_habillement), ",d").replace(","," ")}** kg")  
-                     
+                f"👕 Habillement : **{format(round(score_habillement), ",d").replace(","," ")}** kg")
+
         st.markdown("""
 <style>
 div[data-testid="stAlert"] {
@@ -599,8 +599,8 @@ div[data-testid="stAlert"] {
     opacity: 1 !important;
     text-align: center !important;
     white-space: pre-wrap !important;
-    width: 600px; 
-    margin: 0 auto; 
+    width: 600px;
+    margin: 0 auto;
 
 div[data-testid="stAlert"] p {
     font-size: 20px !important;
@@ -721,8 +721,8 @@ div[data-testid="stAlert"] p {
         st.write("")
         st.write("")
         st.write("")
-        st.write("")        
-        if st.button("♻️ Refaire le Questionnaire"):
+        st.write("")
+        if st.button("♻️ Refaire le questionnaire"):
             afficher_questionnaire()
         st.markdown("""
     <style>
@@ -730,7 +730,7 @@ div[data-testid="stAlert"] p {
         background-color: #55be61 !important;
         color: white !important;
         border: none !important;
-        font-size: 15px !important;    
+        font-size: 15px !important;
         border-radius: 4px !important;
         padding: 0.75rem 1.5rem !important;
         cursor: pointer !important;
@@ -743,12 +743,12 @@ div[data-testid="stAlert"] p {
         background-color: #46a854 !important;
     }
     .button-container {
-        display: flex; 
-        justify-content: center; 
-        gap: 1rem; 
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
     }
     </style>
-                
+
     """, unsafe_allow_html=True)
 
 
@@ -812,11 +812,11 @@ elif st.session_state.afficher_bloc == 'chatbot':
 
     with col2:
         st.markdown("<br>" * 22, unsafe_allow_html=True)
-        
+
     with col3:
         st.markdown("<h2 style='text-align: center;'>Découvrez les <span style='color: #55be61;'>magasins éco-responsables</span><br>près de chez vous</h2>", unsafe_allow_html=True)
         codepostal = st.text_input("📬 Entrez votre code postal :")
-        
+
         @st.cache_data
         def chercher_centre_cp(codepostal):
             url = "https://nominatim.openstreetmap.org/search"
@@ -879,7 +879,7 @@ elif st.session_state.afficher_bloc == 'chatbot':
                 st_folium(my_map, width=850, height=350)
         else:
             st.write("Veuillez entrer un code postal valide.")
-        
+
     colA, colB, colC, colD, colE = st.columns([10,10,10,10,10])
     with colB:
         if st.button("↩️ Revenir à mes résultats"):
@@ -911,7 +911,7 @@ elif st.session_state.afficher_bloc == 'chatbot':
             }
             </style>
             """, unsafe_allow_html=True)
-    
+
 #endregion
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -940,18 +940,26 @@ elif st.session_state.afficher_bloc == 'recos':
 
             Conso = format(round(df['Use_Total'].sum()), ",d")
 
-            st.subheader(f"Comparons ta conso ! Pour {Conso.replace(",", " ")} Kg de CO2 on a :\n")
+
+            st.markdown("""<h1 style="text-align: center;">Recommandations sur-mesure Greenify</h1>""",unsafe_allow_html=True)
+            st.write("")
+            st.write("")
+            st.subheader(f"Comparons ta conso ! Pour {Conso.replace(",", " ")} kg de CO₂ on a :\n")
+            st.write("")
 
             col1, col2, col3, col4, col5 = st.columns(5)
-            colonnes = [col2, col3, col4]  
+            colonnes = [col2, col3, col4]
             for i in range(3):
-                with colonnes[i]: 
-                    st.subheader(f"{df2.iloc[list(nombres_aleatoires)].iloc[i,-2]}")
-                    st.subheader(f"{format(round(df2.iloc[list(nombres_aleatoires)].iloc[i,-1]), ",d").replace(","," ")} {df2.iloc[list(nombres_aleatoires)].iloc[i,-3]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-10]}.")
+                with colonnes[i]:
+                    st.markdown(f"""<h3 style="text-align: center;">{df2.iloc[list(nombres_aleatoires)].iloc[i,-3]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-2]}</h3>""",unsafe_allow_html=True)
+                    st.markdown(f"""<div style="text-align: center;"><h5>{format(round(df2.iloc[list(nombres_aleatoires)].iloc[i,-1]), ",d").replace(",", " ")} {df2.iloc[list(nombres_aleatoires)].iloc[i,-4]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-10]}</h5></div>""",unsafe_allow_html=True)
+
 
     generateur(results)
 
-    st.subheader(f"Nos recos :\n")
+    st.write("")
+    st.write("")
+    st.subheader(f"Nos recommandations :\n")
     df_result = results
     df_result.fillna(0, inplace=True)
     df_alim = df_result[(df_result["Name_Category"] == "Alimentation") | (df_result["Name_Category"] == "Fruits & Légumes")]
@@ -963,10 +971,14 @@ elif st.session_state.afficher_bloc == 'recos':
         legumes_total = df_alim[df_alim['Name_SubCategory'] == 'Légumes']['Use_Total'].sum()
 
         if fruits_total < 150:
-            st.write("Recommandation générale : Mangez plus de fruits")
+            st.markdown("""<h4 style="text-align: center;">Conseil général : 🍉 🍋 Mangez plus de fruits 🥝 🍍</h4>""",unsafe_allow_html=True)
         if legumes_total < 250:
-            st.write("Recommandation générale : Mangez plus de légumes")
-    
+            st.markdown("""<h4 style="text-align: center;">Conseil général : 🥕 🥦 Mangez plus de légumes 🌽 🥗</h4>""",unsafe_allow_html=True)
+
+    st.write("")
+    st.write("")
+    st.write("")
+
     df_alim_2 = df_result[df_result["Name_Category"] == "Alimentation"]
     top_5 = df_alim_2.nlargest(5, 'Use_Total')
     knn = NearestNeighbors(n_neighbors=1, metric='euclidean')
@@ -986,21 +998,34 @@ elif st.session_state.afficher_bloc == 'recos':
 
     top_5['Recommendation'] = top_5.apply(reco, axis=1)
 
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col1, col2, col3, col4, col5 = st.columns([1,2,2,2,1])
 
     for index, row in top_5.iterrows():
-        with col1:  
-            st.write(f"Nom: {row['Name_SubCategory']}")
-            st.write("")
-        with col2: 
-            st.write(f"Use_Total: {round(row['Use_Total'],4)}")
-            st.write(f"ECV: {round(row['ecv'],4)}")
-        with col3: 
-            st.write(f"Recommandation: {row['Recommendation']}")
-            st.write("")
-        st.write("")
+        with st.container():
+            col2, col3, col4 = st.columns(3)
+            with col2:
+                st.markdown("<br>", unsafe_allow_html=True)
+                st.markdown(
+                    f"""<h3>Catégorie : <span style="color: #55be61;">{row['Name_Category']}</span></h3>
+                    <h4>Plutôt que : {row['Name_SubCategory']}</h4>""",
+                    unsafe_allow_html=True
+                )
+            with col3:
+                st.markdown("<br>" * 2, unsafe_allow_html=True)
+                st.markdown(
+                    f"""<h4><strong>Privilégiez :</strong><br>{row['Recommendation']}</h4>""",
+                    unsafe_allow_html=True
+                )
+            with col4:
+                st.markdown("<br>" * 2, unsafe_allow_html=True)
+                st.markdown(
+                    f"""<h4><strong>Pour économiser :</strong><br>
+                    Use_Total : {round(row['Use_Total'], 4)}<br>
+                    ECV : {round(row['ecv'], 4)}</h4>""",
+                    unsafe_allow_html=True
+                )
+        st.markdown('<hr style="border: 2px solid #55be61;">', unsafe_allow_html=True)
 
-    
 
     col1,col2, col3, col4, col5 = st.columns([10,5,10,5,10])
     with col3:
@@ -1024,12 +1049,12 @@ elif st.session_state.afficher_bloc == 'recos':
         background-color: #46a854 !important;
     }
     .button-container {
-        display: flex; 
-        justify-content: center; 
-        gap: 1rem; 
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
     }
     </style>
-                
+
     """, unsafe_allow_html=True)
 
 
@@ -1040,7 +1065,7 @@ elif st.session_state.afficher_bloc == 'recos':
         st.write("")
         st.write("")
         st.write("")
-        st.write("")        
+        st.write("")
         if st.button("↩️ Revenir à mes résultats"):
             afficher_résultats(results)
         st.markdown("""
@@ -1061,12 +1086,12 @@ elif st.session_state.afficher_bloc == 'recos':
         background-color: #46a854 !important;
     }
     .button-container {
-        display: flex; 
-        justify-content: center; 
-        gap: 1rem; 
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
     }
     </style>
-                
+
     """, unsafe_allow_html=True)
 
 #endregion
