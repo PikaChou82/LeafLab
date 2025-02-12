@@ -1,0 +1,74 @@
+﻿Column1;Category;Name_Category;Name_SubCategory;slug;ecv;User;Usage;Use_Total;Unité;Emoji;Category_ML;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+0;1;Numérique;Smartphone;smartphone;85,85;2;0;172; ;💻;Numérique;
+1;1;Numérique;Ordinateur fixe;ordinateurfixeparticulier;299,3;1;0;299; ;💻;Numérique;
+2;1;Numérique;Écran d'ordinateur;ecran;91,4;1;0;91; ;💻;Numérique;
+3;1;Numérique;Tablette;tabletteclassique;61,9;1;0;62; ;💻;Numérique;
+4;1;Numérique;Télévision ;television;472,4;1;0;472; ;💻;Numérique;
+5;1;Numérique;Ordinateur portable;ordinateurportable;193;1;0;193; ;💻;Numérique;
+6;1;Numérique;Enceinte connectée;enceintebluetooth;26,5;1;0;27; ;💻;Numérique;
+7;1;Numérique;Casque de réalité virtuelle;casquevr;72,3;1;0;72; ;💻;Numérique;
+8;1;Numérique;Disque dur externe;disquedur;11,9;1;0;12; ;💻;Numérique;
+9;1;Numérique;Clef usb;clefusb;2,9;1;0;3; ;💻;Numérique;
+10;1;Numérique;Box;box;82;1;0;82; ;💻;Numérique;
+41;4;Transport;Voiture électrique;voitureelectrique;0,1034;3650;0;377;Km;🚗;Transport;Certains de vos déplacements pourraient-ils être faits de manière plus écologique, comme à pied ou à vélo ?
+42;4;Transport;Voiture / moto thermique;voiturethermique;0,2176;1825;0;397;Km;🚗;Transport;Certains de vos déplacements pourraient-ils être faits de manière plus écologique, comme à pied ou à vélo ?
+43;4;Transport;Avion court courrier;avion-courtcourrier;0,2586;0;0;0;Km;🚗;Transport;Si vous utilisez ce moyen de transport pour vos vacances, envisagez des destinations agréables nécessitant un mode de transport écologique, même si cela signifie voyager moins loin
+44;4;Transport;Avion moyen courrier;avion-moyencourrier;0,1876;0;0;0;Km;🚗;Transport;Si vous utilisez ce moyen de transport pour vos vacances, envisagez des destinations agréables nécessitant un mode de transport écologique, même si cela signifie voyager moins loin
+45;4;Transport;Avion long courrier;avion-longcourrier;0,152;0;0;0;Km;🚗;Transport;Si vous utilisez ce moyen de transport pour vos vacances, envisagez des destinations agréables nécessitant un mode de transport écologique, même si cela signifie voyager moins loin
+46;4;Transport;Train / TGV;tgv;0,0029;0;0;0;Km;🚗;Transport;
+47;4;Transport;Intercités;intercites;0,009;0;0;0;Km;🚗;Transport;
+48;4;Transport;Scooter ou moto légère thermique;scooter;0,0763;0;0;0;Km;🚗;Transport;Certains de vos déplacements pourraient-ils être faits de manière plus écologique, comme à pied ou à vélo ?
+49;4;Transport;RER ou Transilien;rer;0,0098;0;0;0;Km;🚗;Transport;
+50;4;Transport;Autocar thermique;autocar;0,0294;0;0;0;Km;🚗;Transport;
+51;4;Transport;Vélo mécanique;velo;0,0002;0;0;0;Km;🚗;Transport;
+52;4;Transport;Vélo à assistance électrique;veloelectrique;0,011;0;0;0;Km;🚗;Transport;
+53;4;Transport;Bus thermique;busthermique;0,1132;0;0;0;Km;🚗;Transport;Certains de vos déplacements pourraient-ils être faits de manière plus écologique, comme à pied ou à vélo ?
+54;4;Transport;Tramway;tramway;0,0043;0;0;0;Km;🚗;Transport;
+55;4;Transport;Métro;metro;0,0044;0;0;0;Km;🚗;Transport;
+56;4;Transport;Trottinette à assistance électrique;trottinette;0,0249;0;0;0;Km;🚗;Transport;
+57;4;Transport;Bus (GNV);busgnv;0,1217;1825;0;222;Km;🚗;Transport;
+58;4;Transport;TER;ter;0,0277;0;0;0;Km;🚗;Transport;
+59;4;Transport;Bus électrique;buselectrique;0,0217;0;0;0;Km;🚗;Transport;
+60;5;Habillement;T-shirt;tshirt;6,4338;3;0;19; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+61;5;Habillement;Sweat en coton;sweatencoton;32,4928;1;0;32; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+62;5;Habillement;Jeans;jeans;25,0887;2;0;50; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+63;5;Habillement;Polo;polo;10,1635;1;0;10; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+64;5;Habillement;Pull en acrylique;pullenacrylique;28,9684;0;0;0; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+65;5;Habillement;Pull en laine;pullenlaine;56,6955;2;0;113; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+66;5;Habillement;Robe;robe;55;1;0;55; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+67;5;Habillement;Paire de chaussures de sport;chaussuresdesport;20,1256;2;0;40; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+68;5;Habillement;Veste simili-cuir;vestesimilicuir;26,8258;0;0;0; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+69;5;Habillement;Veste imperméable;vesteimpermeable;41,1472;0;0;0; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+70;5;Habillement;Manteau;manteau;101,4205;4;0;406; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+71;5;Habillement;Pull en coton recyclé;pullencotonrecycle;13,1928;0;0;0; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+72;5;Habillement;Paire de chaussures;chaussures;16;1;0;16; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+73;5;Habillement;Chemise;chemise;13,2347;1;0;13; ;👕;Habillement;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+74;6;Électroménager;Cafetière à dosettes;cafetieredosette;251,0036;0;0;0; ;🔌;Électroménager;Si vous pensez à changer de cafetière, regardez leur empreinte carbone…
+75;6;Électroménager;Bouilloire;bouilloire;40,884;0;0;0; ;🔌;Électroménager;
+76;6;Électroménager;Cafetière expresso;cafetiereexpresso;211,7711;0;0;0; ;🔌;Électroménager;
+77;6;Électroménager;Cafetière filtre;cafetierefiltre;197,6982;1;27,1831351;225; ;🔌;Électroménager;
+78;6;Électroménager;Lave-vaisselle;lavevaisselle;468;0;21,943837;22; ;🔌;Électroménager;
+79;6;Électroménager;Four électrique;fourelectrique;263,0647;0;6,29728333;6; ;🔌;Électroménager;
+80;6;Électroménager;Réfrigérateur;refrigirateur;325,4607;0;8,83240334;9; ;🔌;Électroménager;
+81;6;Électroménager;Lave-linge;lavelinge;510,2573;0;21,6932702;22; ;🔌;Électroménager;
+82;6;Électroménager;Climatiseur;climatiseur;413,8813;0;18,2596505;18; ;🔌;Électroménager;
+83;6;Électroménager;Aspirateur;aspirateur;47,31;0;0;0; ;🔌;Électroménager;
+84;7;Mobilier;Chaise en bois;chaiseenbois;18,63;1;0;19; ;🛏️;Mobilier;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+85;7;Mobilier;Canapé convertible;canapeconvertible;197,5;0;0;0; ;🛏️;Mobilier;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+86;7;Mobilier;Canapé en textile;canapetextile;179,1;0;0;0; ;🛏️;Mobilier;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+87;7;Mobilier;Table en bois;tableenbois;80,22;0;0;0; ;🛏️;Mobilier;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+88;7;Mobilier;Lit;lit;443,81;0;0;0; ;🛏️;Mobilier;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+89;7;Mobilier;Armoire;armoire;906,88;1;0;907; ;🛏️;Mobilier;Avez-vous vraiment besoin de cet achat ? Avez-vous considéré la seconde main et recyclé vos anciens vêtements/mobiliers ?
+90;8;Chauffage;Chauffage au fioul par m²;chauffagefioul;57,17;0;0;0; ;🔥;Chauffage;Il serait opportun d'étudier une solution de chauffage plus écologique et économique
+91;8;Chauffage;Chauffage au gaz par m²;chauffagegaz;39;0;0;0; ;🔥;Chauffage;Il serait opportun d'étudier une solution de chauffage plus écologique et économique
+92;8;Chauffage;Chauffage avec une pompe à chaleur par m²;pompeachaleur;3,95;2,769230769;0;11; ;🔥;Chauffage;
+93;8;Chauffage;Chauffage électrique par m²;chauffageelectrique;11,85;0;0;0; ;🔥;Chauffage;Si vous pensez à changer de type de chauffage, étudiez les solutions réduisant votre empreinte carbone
+94;8;Chauffage;Chauffage via un réseau de chaleur par m²;reseaudechaleur;18,67;0;0;0; ;🔥;Chauffage;Il pourrait être judicieux d'étudier une solution de chauffage plus écologique et économique
+95;8;Chauffage;Chauffage avec un poêle à granulés par m²;poeleagranule;5,64;0;0;0; ;🔥;Chauffage;
+96;8;Chauffage;Chauffage avec un poêle à bois par m²;poeleabois;9,2;0;0;0; ;🔥;Chauffage;Si vous pensez à changer de type de chauffage, étudiez les solutions réduisant votre empreinte carbone
+100;10;Usage Numérique;Utilisation de Go de donnée (en quantité);Usage numérique;0,0095;520;0;5; ;💻;Usage Numérique;Avez-vous pensé que vos Go de données utilisés traduisent le temps que vous ne passez pas avec votre famille, vos amis, ou à vous détendre
+101;10;Usage Numérique;Recherche sur le Web (en quantité);Usage numérique;0,051;260;0;13; ;💻;Usage Numérique;Toutes vos recherches sur Internet sont-elles vraiment nécessaires ?
+102;10;Usage Numérique;Email (en quantité);Usage numérique;0,0031;520;0;2; ;💻;Usage Numérique;Tous les emails que vous envoyez sont-ils absolument nécessaires ?
+103;10;Usage Numérique;Stocker un Go de donnée (en quantité);Usage numérique;0,0002;26000;0;6; ;💻;Usage Numérique;Avez-vous vraiment besoin de tout cet espace de stockage ? Supprimez-vous régulièrement les fichiers/mails inutiles et obsolètes ?
+104;10;Usage Numérique;Streaming Vidéo (en nombre d'heures);Usage numérique;0,064;1300;0;83; ;💻;Usage Numérique;Avez-vous pensé que le temps de streaming traduit le temps que vous ne passez pas avec votre famille, vos amis, ou à vous détendre
+105;10;Usage Numérique;Visioconférence (en nombre d'heures);Usage numérique;0,0571;1820;0;104; ;💻;Usage Numérique;Avez-vous vraiment besoin de tout ce temps de visio ?
