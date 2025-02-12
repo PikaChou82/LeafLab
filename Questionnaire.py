@@ -179,9 +179,7 @@ if st.session_state.afficher_bloc == 'accueil':
     st.write("")
     st.write("")
     st.write("")
-    st.write("")
-    st.write("")
-    st.write("")
+
 
 ## Sous-Bloc 2 : Explications & Envoi au Questionnaire
     col1, col2, col3= st.columns([11,15, 13])
@@ -222,8 +220,6 @@ if st.session_state.afficher_bloc == 'accueil':
         if st.button("♻️ Je me lance !"):
             afficher_questionnaire()
 
-    st.write("")
-    st.write("")
     st.write("")
     st.write("")
     col1, col2, col3= st.columns([11,15, 11])
