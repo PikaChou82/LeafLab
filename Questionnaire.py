@@ -458,6 +458,11 @@ elif st.session_state.afficher_bloc == 'questionnaire':
 
     col1,col2, col3, col4, col5 = st.columns([10,5,10,5,10])
     with col3:
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
         if st.button("🔍 Découvrir mon résultat"):
             st.session_state.results_df = results
             afficher_résultats(results)
@@ -940,7 +945,7 @@ elif st.session_state.afficher_bloc == 'recos':
             st.markdown("""<h1 style="text-align: center;">Recommandations sur-mesure Greenify</h1>""",unsafe_allow_html=True)
             st.write("")
             st.write("")
-            st.subheader(f"Comparons ta conso ! Pour {Conso.replace(",", " ")} kg de CO₂ on a :\n")
+            st.subheader(f"Comparons ta conso ! Tes {Conso.replace(",", " ")} kg de CO₂ correspondent à :\n")
             st.write("")
 
             col1, col2, col3, col4, col5 = st.columns(5)
@@ -955,7 +960,8 @@ elif st.session_state.afficher_bloc == 'recos':
 
     st.write("")
     st.write("")
-    st.subheader(f"Nos recommandations :\n")
+    st.subheader(f"Nos recommandations :")
+    st.write("")
     df_result = results
     df_result.fillna(0, inplace=True)
     df_alim = df_result[(df_result["Name_Category"] == "Alimentation") | (df_result["Name_Category"] == "Fruits & Légumes")]
@@ -971,13 +977,11 @@ elif st.session_state.afficher_bloc == 'recos':
         if legumes_total < 250:
             st.markdown("""<h4 style="text-align: center;">Conseil général : 🥕 🥦 Mangez plus de légumes 🌽 🥗</h4>""",unsafe_allow_html=True)
 
-    st.write("")
-    st.write("")
-    st.write("")
 
     df_alim_2 = df_result[df_result["Name_Category"] == "Alimentation"]
-    top_5 = df_alim_2.nlargest(5, 'Use_Total')
+    top_N = df_alim.nlargest(3, 'Use_Total')
     knn = NearestNeighbors(n_neighbors=1, metric='euclidean')
+    
     def reco(row):
         categorie = row['Category_ML']
         ecv = row['ecv']
@@ -992,35 +996,42 @@ elif st.session_state.afficher_bloc == 'recos':
 
         return rech_cat.iloc[indices[0][0]]['Name_SubCategory']
 
-    top_5['Recommendation'] = top_5.apply(reco, axis=1)
+    top_N['Recommendation'] = top_N.apply(reco, axis=1)
+
+    ecv_gain_total = 0
+    for index, row in top_N.iterrows():
+      ecv_reco = df_result.loc[(df_result['Name_SubCategory'] == row['Recommendation'])]['ecv'].values[0]
+      ecv_ecart = ecv_reco - row['ecv']
+      ecv_gain = ecv_ecart * row['User'] # Usage est déjà un total ce qui fait que Use_Total = (ecv * User) + Usage
+      ecv_gain_total += ecv_gain
+    st.write("")
+    st.write("")
+    st.markdown(f"""<h4 style="text-align: center;">Économisez jusqu’à <span style="color: #55be61;">{abs(round(ecv_gain_total))} kg de CO₂ </span>sur l’année sans changer votre mode de vie !</h4>""", unsafe_allow_html=True)
+    st.write("")
+    st.write("")
 
     col1, col2, col3, col4, col5 = st.columns([1,2,2,2,1])
 
-    for index, row in top_5.iterrows():
-        with st.container():
+    for index, row in top_N.iterrows():
+      ecv_reco = df_result.loc[(df_result['Name_SubCategory'] == row['Recommendation'])]['ecv'].values[0]
+      ecv_ecart = ecv_reco - row['ecv']
+      ecv_gain = ecv_ecart * row['User'] # Usage est déjà un total ce qui fait que Use_Total = (ecv * User) + Usage
+      with st.container():
             col2, col3, col4 = st.columns(3)
             with col2:
                 st.markdown("<br>", unsafe_allow_html=True)
                 st.markdown(
                     f"""<h3>Catégorie : <span style="color: #55be61;">{row['Name_Category']}</span></h3>
-                    <h4>Plutôt que : {row['Name_SubCategory']}</h4>""",
-                    unsafe_allow_html=True
-                )
+                    <h4>Plutôt que : {row['Name_SubCategory']}</h4>""",unsafe_allow_html=True)
             with col3:
                 st.markdown("<br>" * 2, unsafe_allow_html=True)
                 st.markdown(
-                    f"""<h4><strong>Privilégiez :</strong><br>{row['Recommendation']}</h4>""",
-                    unsafe_allow_html=True
-                )
+                    f"""<h4><strong>Privilégiez :</strong><br>{row['Recommendation']}</h4>""",unsafe_allow_html=True)
             with col4:
                 st.markdown("<br>" * 2, unsafe_allow_html=True)
-                st.markdown(
-                    f"""<h4><strong>Pour économiser :</strong><br>
-                    Use_Total : {round(row['Use_Total'], 4)}<br>
-                    ECV : {round(row['ecv'], 4)}</h4>""",
-                    unsafe_allow_html=True
-                )
-        st.markdown('<hr style="border: 2px solid #55be61;">', unsafe_allow_html=True)
+                st.markdown(f"""<h4><strong>Pour économiser :</strong><br><span style="color: #55be61;">{abs(round(ecv_gain))} kg de CO₂</span> sur l'année</h4>""",unsafe_allow_html=True)
+
+      st.markdown('<hr style="border: 2px solid #55be61;">',unsafe_allow_html=True)
 
 
     col1,col2, col3, col4, col5 = st.columns([10,5,10,5,10])
