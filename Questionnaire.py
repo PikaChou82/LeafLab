@@ -97,6 +97,9 @@ option_consommation_alimentation = list(alim_to_take['name'].unique())
 option_consommation_alimentation.remove("Fruits et légumes")
 option_consommation_fruits_legumes = list(liste_to_take[liste_to_take['Name_Category'] == 'Fruits et légumes']['Name_SubCategory'].unique())
 option_consommation_boisson = list(boissons_to_take['Libellé'].unique())
+liste_joker = pd.read_csv("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Datas/Commentaires.csv", sep = ";")
+liste_joker = liste_joker.loc[:,['Name_Category','Name_SubCategory','Commentaires']]
+liste_joker = liste_joker.drop_duplicates()
 
 #endregion
 
@@ -1033,8 +1036,34 @@ elif st.session_state.afficher_bloc == 'recos':
 
       st.markdown('<hr style="border: 2px solid #55be61;">',unsafe_allow_html=True)
 
+    df_nonalim = df_result[df_result["Name_Category"] != "Alimentation"]
+    df_nonalim = df_nonalim[df_nonalim["Name_Category"] != "Fruits & Légumes"]
+    Best = pd.merge(df_nonalim, liste_joker, left_on= "Name_SubCategory", right_on= "Name_SubCategory", how = "left")
+    Best = Best.dropna(subset=['Commentaires'])
+    Best_N = Best.nlargest(5, ['Use_Total'])
+    Best_N = Best_N.reset_index()
+    
+    if "faire_plus" not in st.session_state:
+        st.session_state.faire_plus = False
+
+
 
     col1,col2, col3, col4, col5 = st.columns([10,5,10,5,10])
+    with col1:
+        if st.button(f"Je veux en faire plus !"):
+          st.session_state.faire_plus = not st.session_state.faire_plus
+        if st.session_state.faire_plus:
+          st.markdown("""<h2 style="text-align: center; font-size: 24px;">Découvrez nos conseils pour d'autres catégories</h2>""",unsafe_allow_html=True)  
+          with st.success("Sélectionnez une option :"):
+              option_joker = st.selectbox("",list(Best_N["Name_SubCategory"].unique()))
+              ligne = Best_N[Best_N['Name_SubCategory'] == option_joker].index[0]
+              st.markdown(
+                    f"""<h4>💡 {Best_N.iloc[ligne,-1]}</h4>""",unsafe_allow_html=True)
+          st.write("")
+          st.write("")
+          st.write("")
+          st.write("")
+
     with col3:
         if st.button("👩🏻‍💼💬 Mon Coach Perso"):
             afficher_chatbot()
@@ -1066,13 +1095,6 @@ elif st.session_state.afficher_bloc == 'recos':
 
 
     with col5:
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
         if st.button("↩️ Revenir à mes résultats"):
             afficher_résultats(results)
         st.markdown("""
