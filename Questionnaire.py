@@ -163,47 +163,36 @@ def afficher_section_liste_chiffre_tableau(theme, sous_themes, questions, option
 
 ## Initialisation de la page et de son format
 if st.session_state.afficher_bloc == 'accueil':
-    st.markdown("""
-    <style>
+    st.markdown("""<style>
     .liste123 { display: flex; align-items: center; margin: 10px 0; }
     .cercle { background-color: #888; border-radius: 50%; width: 30px; height: 30px; display: flex;
                 justify-content: center; align-items: right; font-weight: bold; color: #fff; margin-right: 10px; }
-    .liste-texte { color: #000 !important; font-size: 18px; line-height: 1.6; flex: 1; text-align: center; width: 500px; }
-    </style>
-    """, unsafe_allow_html=True)
+    .liste-texte { color: #000 !important; font-size: 18px; line-height: 1.6; flex: 1; text-align: center; width: 500px; }</style>""", unsafe_allow_html=True)
 
 ## Sous-Bloc 1 : Logo & Baseline
     colA, colB, colC = st.columns([4,2.5, 9])
     with colB: st.image("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Images/BigFoot.png", width=150)
     with colC:
         st.markdown("<h1 style='margin-bottom: 0px; color:black;'>Greenify</h1>"
-                    "<h4 style='color: #55be61; margin-top: 5px; font-style: italic;'>Connais ton empreinte, réduis ton impact</h4>",
-                    unsafe_allow_html=True)
+                    "<h4 style='color: #55be61; margin-top: 5px; font-style: italic;'>Connais ton empreinte, réduis ton impact</h4>",unsafe_allow_html=True)
     st.write("")
     st.write("")
     st.write("")
-
 
 ## Sous-Bloc 2 : Explications & Envoi au Questionnaire
     col1, col2, col3= st.columns([11,15, 13])
     with col2:
-        st.markdown("""
-        <div class='liste123' style='display: grid; grid-template-columns: auto 1fr; align-items: right;'>
+        st.markdown("""<div class='liste123' style='display: grid; grid-template-columns: auto 1fr; align-items: right;'>
             <div class='cercle'>1</div>
-            <div class='liste-texte'>Un <strong>questionnaire en 10 minutes</strong><br>pour calculer son score carbone</div>
-        </div>""", unsafe_allow_html=True)
+            <div class='liste-texte'>Un <strong>questionnaire en 10 minutes</strong><br>pour calculer son score carbone</div></div>""", unsafe_allow_html=True)
         st.write("")
-        st.markdown("""
-        <div class='liste123' style='display: grid; grid-template-columns: auto 1fr; align-items: center;'>
+        st.markdown("""<div class='liste123' style='display: grid; grid-template-columns: auto 1fr; align-items: center;'>
             <div class='cercle'>2</div>
-            <div class='liste-texte'>Des <strong>conseils clairs</strong><br>sans changer son mode de vie</div>
-        </div>""", unsafe_allow_html=True)
+            <div class='liste-texte'>Des <strong>conseils clairs</strong><br>sans changer son mode de vie</div></div>""", unsafe_allow_html=True)
         st.write("")
-        st.markdown("""
-        <div class='liste123' style='display: grid; grid-template-columns: auto 1fr; align-items: center;'>
+        st.markdown("""<div class='liste123' style='display: grid; grid-template-columns: auto 1fr; align-items: center;'>
             <div class='cercle'>3</div>
-            <div class='liste-texte'>Un <strong>chatbot IA</strong> et des <strong>ressources gratuites</strong><br>pour aller plus loin</div>
-        </div>""", unsafe_allow_html=True)
+            <div class='liste-texte'>Un <strong>chatbot IA</strong> et des <strong>ressources gratuites</strong><br>pour aller plus loin</div></div>""", unsafe_allow_html=True)
     with col3:
         st.write("")
         st.write("")
@@ -214,15 +203,11 @@ if st.session_state.afficher_bloc == 'accueil':
     .stButton button {
         background-color: #55be61 !important; color: white !important;
         border: none !important; border-radius: 4px !important;
-        padding: 1rem 3.5rem !important; cursor: pointer !important;
-    }
+        padding: 1rem 3.5rem !important; cursor: pointer !important;}
     .stButton button > div > p { font-size: 20px !important; white-space: nowrap !important; }
-    .stButton button:hover { background-color: #46a854 !important; }
-    </style>
-    """, unsafe_allow_html=True)
+    .stButton button:hover { background-color: #46a854 !important; }</style>""", unsafe_allow_html=True)
         if st.button("♻️ Je me lance !"):
             afficher_questionnaire()
-
     st.write("")
     st.write("")
     col1, col2, col3= st.columns([11,15, 11])
@@ -248,11 +233,9 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         sous_themes_numerique = ["Appareils", "Usage"]
         questions_numerique = [
             "Quels appareils numériques avez-vous acheté neuf ces 12 derniers mois ?",
-            "Quantifiez vos usages du numérique ? (en moyenne par semaine)"
-        ]
+            "Quantifiez vos usages du numérique ? (en moyenne par semaine)"]
         options_numerique = [option_appareil_numerique,
-            option_usage_numerique
-        ]
+            option_usage_numerique]
         keys_numerique = ["numerique_appareils", "numerique_usage"]
         reponses_numerique = afficher_section_tableau("Numérique", sous_themes_numerique, questions_numerique, options_numerique, keys_numerique, True, "💻")
         reponses_numerique_appareil, reponses_numerique_usage = tuple(reponses_numerique)
@@ -267,8 +250,7 @@ elif st.session_state.afficher_bloc == 'questionnaire':
             "Combien de légumes consommez-vous par jour ? (en moyenne)",
             "Combien de fruits consommez-vous par jour ? (en moyenne)",
             "Combien avez-vous consommé de mangues cette année ? (en moyenne)",
-            "Combien de litres de boissons consommez-vous par semaine ?"
-        ]
+            "Combien de litres de boissons consommez-vous par semaine ?"]
         options_alimentation = [option_consommation_protéine, option_consommation_produits_laitiers, option_consommation_céréales, option_consommation_plats, None, None,None, option_consommation_boisson]
         keys_alimentation = ["consommation_protéines","consommation_produits_laitiers","consommation_céréales","consommation_plats", "nb_legumes","nb_fruits","nb_mangues","consommation_boisson"]
         reponses_alimentation = afficher_section_liste_chiffre_tableau("Alimentation", sous_themes_alimentation, questions_alimentation, options_alimentation, keys_alimentation, "🍏")
@@ -278,8 +260,7 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         sous_themes_transport = ["Au quotidien", "Mes voyages"]
         questions_transport = [
             "Quel(s) moyen(s) de transport utilisez-vous au quotidien (et quelle distance en km) ?",
-            "Avez-vous voyagé au cours des 12 derniers mois (et quelle distance en km) ?"
-        ]
+            "Avez-vous voyagé au cours des 12 derniers mois (et quelle distance en km) ?"]
         options_transport = [option_transport_quotidien, option_transport_voyage]
         keys_transport = ["transport_quotidien", "transport_voyage"]
         responses_transport = afficher_section_tableau("Transport", sous_themes_transport, questions_transport, options_transport, keys_transport, False, "🚗")
@@ -288,10 +269,8 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         # Questions Habillement
         sous_themes_habillement = ["Achat"]
         questions_habillement = [
-            "Quel(s) type(s) de vêtements avez-vous acheté au cours des 12 derniers mois ?"
-        ]
-        options_habillement = [option_achat_habillement
-        ]
+            "Quel(s) type(s) de vêtements avez-vous acheté au cours des 12 derniers mois ?"]
+        options_habillement = [option_achat_habillement]
         keys_habillement = ["habillement_achat"]
         reponses_habillement = afficher_section_tableau("Habillement", sous_themes_habillement, questions_habillement, options_habillement, keys_habillement, False, "👕")
         reponses_habillement_achat = tuple(reponses_habillement)
@@ -300,11 +279,9 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         sous_themes_electromenager = ["Usage", "Appareil"]
         questions_electromenager = [
             "Quel(s) électroménager(s) avez-vous utilisé cette année ?",
-            "Quel(s) appareil(s) d'électroménager avez-vous acheté au cours des 12 derniers mois ?"
-        ]
+            "Quel(s) appareil(s) d'électroménager avez-vous acheté au cours des 12 derniers mois ?"]
         options_electromenager = [ option_usage_electromenager,
-            option_appareils_electromenager
-        ]
+            option_appareils_electromenager]
         keys_electromenager = ["electromenager_usage", "electromenager_appareil"]
         reponses_electromenager = afficher_section_liste("Electroménager", sous_themes_electromenager, questions_electromenager, options_electromenager, keys_electromenager, "🔌")
         reponses_electromenager_usage, reponses_electromenager_appareils = tuple(reponses_electromenager)
@@ -312,8 +289,7 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         # Questions Mobilier
         sous_themes_mobilier = ["Achat"]
         questions_mobilier = [
-            "Quel(s) type(s) de mobilier acheté au cours des 12 derniers mois ?"
-        ]
+            "Quel(s) type(s) de mobilier acheté au cours des 12 derniers mois ?"]
         options_mobilier = [option_achat_mobilier]
         keys_mobilier = ["mobilier_achat"]
         reponses_mobilier = afficher_section_liste("Mobilier", sous_themes_mobilier, questions_mobilier, options_mobilier, keys_mobilier, "🛏️")
@@ -323,11 +299,9 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         sous_themes_chauffage = ["Logement", "Type de Chauffage"]
         questions_chauffage = [
             "Quelle est la taille de votre logement ? (en m²)",
-            "Quel mode de chauffage est présent dans votre logement ?"
-        ]
+            "Quel mode de chauffage est présent dans votre logement ?"]
         options_chauffage = [ None,
-            option_usage_chauffage
-        ]
+            option_usage_chauffage]
         keys_chauffage = ["chauffage_taille", "chauffage_type"]
         reponses_chauffage = afficher_section_num_liste("Chauffage", sous_themes_chauffage, questions_chauffage, options_chauffage, keys_chauffage,"🔥")
         reponses_chauffage_superficie, reponses_chauffage_type = tuple(reponses_chauffage)
@@ -469,31 +443,17 @@ elif st.session_state.afficher_bloc == 'questionnaire':
         if st.button("🔍 Découvrir mon résultat"):
             st.session_state.results_df = results
             afficher_résultats(results)
-        st.markdown("""
-    <style>
-    .stButton button {
-        background-color: #55be61 !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 4px !important;
-        padding: 1.5rem 1.5rem !important;
-        cursor: pointer !important;
-    }
+        st.markdown("""<style>
+    .stButton button {background-color: #55be61 !important;
+        color: white !important;border: none !important;
+        border-radius: 4px !important;padding: 1.5rem 1.5rem !important;
+        cursor: pointer !important;}
     .stButton button > div > p {
         font-size: 20px !important;
-        white-space: nowrap !important;
-    }
+        white-space: nowrap !important;}
     .stButton button:hover {
-        background-color: #46a854 !important;
-    }
-    .button-container {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-    }
-    </style>
-
-    """, unsafe_allow_html=True)
+        background-color: #46a854 !important;}
+    .button-container {display: flex;justify-content: center;gap: 1rem;}</style>""", unsafe_allow_html=True)
 
 
     with col5:
@@ -506,29 +466,12 @@ elif st.session_state.afficher_bloc == 'questionnaire':
             afficher_accueil()
         st.markdown("""
     <style>
-    .stButton button {
-        background-color: #55be61 !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 4px !important;
-        padding: 0.75rem 1.5rem !important;
-        cursor: pointer !important;
-    }
-    .stButton button > div > p {
-        font-size: 20px !important;
-        white-space: nowrap !important;
-    }
-    .stButton button:hover {
-        background-color: #46a854 !important;
-    }
-    .button-container {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-    }
-    </style>
-
-    """, unsafe_allow_html=True)
+    .stButton button {background-color: #55be61 !important;
+        color: white !important;border: none !important;border-radius: 4px !important;
+        padding: 0.75rem 1.5rem !important;cursor: pointer !important;}
+    .stButton button > div > p {font-size: 20px !important;white-space: nowrap !important;}
+    .stButton button:hover {background-color: #46a854 !important;}
+    .button-container {display: flex;justify-content: center;gap: 1rem;}</style>""", unsafe_allow_html=True)
 
 #endregion
 
@@ -571,9 +514,7 @@ elif st.session_state.afficher_bloc == 'résultats':
             f"<h3 style='margin-bottom: 0px; color:black;'>Découvrons votre empreinte carbone</h3>"
             f"<h1 style='color: #55be61; margin-top: 5px; font-size: 48pt;'>{f'{Conso_Totale_Tonnes:.1f}'.replace('.', ',')} tonnes<br> eq. CO₂ par an</h1>"
             f"<h5 style='color: black; margin-top: 5px; font-style: italic;'>Moyenne française en 2022 : 4,1 tonnes</h5>"
-            f"</div>",
-            unsafe_allow_html=True
-        )
+            f"</div>",unsafe_allow_html=True)
         st.write("")
         st.write("")
 
@@ -595,50 +536,20 @@ elif st.session_state.afficher_bloc == 'résultats':
                 f"💻 Usages du numérique : **{format(round(score_usage_numerique), ",d").replace(","," ")}** kg\n"
                 f"👕 Habillement : **{format(round(score_habillement), ",d").replace(","," ")}** kg")
 
-        st.markdown("""
-<style>
-div[data-testid="stAlert"] {
-    background-color: #55be61 !important;
-    color: white !important;
-    opacity: 1 !important;
-    text-align: center !important;
-    white-space: pre-wrap !important;
-    width: 600px;
-    margin: 0 auto;
+        st.markdown("""<style>div[data-testid="stAlert"] {background-color: #55be61 !important;
+    color: white !important;opacity: 1 !important;text-align: center !important;
+    white-space: pre-wrap !important;width: 600px;margin: 0 auto;
 
-div[data-testid="stAlert"] p {
-    font-size: 20px !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
+div[data-testid="stAlert"] p {font-size: 20px !important;}</style>""", unsafe_allow_html=True)
         st.write("")
         st.write("")
-
-        st.markdown("""
-        <style>
-        .stButton button {
-            background-color: #55be61 !important;
-            color: white !important;
-            font-size: 22px !important;
-            border: none !important;
-            border-radius: 4px !important;
-            padding: 0.5rem 0.5rem !important;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            cursor: pointer !important;
-        }
-        .stButton button > div > p {
-            font-size: 20px !important;
-            white-space: nowrap !important;
-        }
-        .stButton button:hover {
-            background-color: #46a854 !important;
-        }
-        </style>
-        """, unsafe_allow_html=True)
+        st.markdown("""<style>
+        .stButton button {background-color: #55be61 !important;color: white !important;
+            font-size: 22px !important;border: none !important;
+            border-radius: 4px !important;padding: 0.5rem 0.5rem !important;
+            display: block;margin-left: auto;margin-right: auto;cursor: pointer !important;}
+        .stButton button > div > p {font-size: 20px !important;white-space: nowrap !important;}
+        .stButton button:hover {background-color: #46a854 !important;}</style>""", unsafe_allow_html=True)
 
         df = pd.read_csv("https://raw.githubusercontent.com/PikaChou82/LeafLab/refs/heads/main/Datas/emissions_co2_pays.csv")
         df.sort_values(by="Émissions par habitant (tCO2/an - chiffres 2022)", ascending=False, inplace=True)
@@ -680,9 +591,7 @@ div[data-testid="stAlert"] p {
         st.write("")
 
         st.markdown(
-            f"<h5 style='text-align: center; color: black;'>Vous consommez autant qu'un habitant de : <span style='color: #55be61; font-weight: bold; font-size: 1.3rem;'>{pays}</span></h5>",
-            unsafe_allow_html=True
-        )
+            f"<h5 style='text-align: center; color: black;'>Vous consommez autant qu'un habitant de : <span style='color: #55be61; font-weight: bold; font-size: 1.3rem;'>{pays}</span></h5>",unsafe_allow_html=True)
 
         st.write("")
         st.write("")
@@ -696,27 +605,14 @@ div[data-testid="stAlert"] p {
         st.markdown("""
         <style>
         .stButton button {
-            background-color: #55be61 !important;
-            color: white !important;
-            font-size: 28px !important;
-            border: none !important;
-            border-radius: 4px !important;
-            padding: 1rem 3rem !important;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            cursor: pointer !important;
-        }
-        .stButton button > div > p {
-            font-size: 20px !important;
-            white-space: nowrap !important;
-        }
-        .stButton button:hover {
-            background-color: #46a854 !important;
-        }
-        </style>
-                    """, unsafe_allow_html=True)
-
+            background-color: #55be61 !important;color: white !important;
+            font-size: 28px !important;border: none !important;
+            border-radius: 4px !important;padding: 1rem 3rem !important;
+            display: block;margin-left: auto;margin-right: auto;
+            cursor: pointer !important;}
+        .stButton button > div > p {font-size: 20px !important;
+            white-space: nowrap !important;}
+        .stButton button:hover {background-color: #46a854 !important;}</style>""", unsafe_allow_html=True)
 
     with col5:
         st.write("")
@@ -730,31 +626,13 @@ div[data-testid="stAlert"] p {
             afficher_questionnaire()
         st.markdown("""
     <style>
-    .stButton button {
-        background-color: #55be61 !important;
-        color: white !important;
-        border: none !important;
-        font-size: 15px !important;
-        border-radius: 4px !important;
-        padding: 0.75rem 1.5rem !important;
-        cursor: pointer !important;
-    }
-    .stButton button > div > p {
-        font-size: 20px !important;
-        white-space: nowrap !important;
-    }
-    .stButton button:hover {
-        background-color: #46a854 !important;
-    }
-    .button-container {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-    }
-    </style>
-
-    """, unsafe_allow_html=True)
-
+    .stButton button {background-color: #55be61 !important;color: white !important;
+        border: none !important;font-size: 15px !important;
+        border-radius: 4px !important;padding: 0.75rem 1.5rem !important;
+        cursor: pointer !important;}
+    .stButton button > div > p {font-size: 20px !important;white-space: nowrap !important;}
+    .stButton button:hover {background-color: #46a854 !important;}
+    .button-container {display: flex;justify-content: center;gap: 1rem;}</style>""", unsafe_allow_html=True)
 
 #endregion
 
@@ -815,7 +693,7 @@ elif st.session_state.afficher_bloc == 'chatbot':
                 st.chat_message("assistant").write(i["message"])
 
     with col2:
-        st.markdown("<br>" * 22, unsafe_allow_html=True)
+        st.markdown("<br>"*22, unsafe_allow_html=True)
 
     with col3:
         st.markdown("<h2 style='text-align: center;'>Découvrez les <span style='color: #55be61;'>magasins éco-responsables</span><br>près de chez vous</h2>", unsafe_allow_html=True)
@@ -845,27 +723,22 @@ elif st.session_state.afficher_bloc == 'chatbot':
             url = "http://overpass-api.de/api/interpreter"
             overpass_query = f"""
             [out:json];
-            (
-            node(around:{radius},{lat_centre},{lon_centre})["organic"="yes"];
+            (node(around:{radius},{lat_centre},{lon_centre})["organic"="yes"];
             node(around:{radius},{lat_centre},{lon_centre})["organic"="only"];
             node(around:{radius},{lat_centre},{lon_centre})["shop"="farm"];
             node(around:{radius},{lat_centre},{lon_centre})["shop"="greengrocer"];
-            node(around:{radius},{lat_centre},{lon_centre})["shop"="health_food"];
-            );
-            out center;
-            """
+            node(around:{radius},{lat_centre},{lon_centre})["shop"="health_food"];);out center;"""
 
             response = requests.get(url, params={"data": overpass_query})
 
             data = response.json()
             magasins = []
-            for element in data["elements"]:
-                    nom = element["tags"].get("name", "Nom inconnu")
-                    lat = element["lat"]
-                    lon = element["lon"]
+            for i in data["elements"]:
+                    nom = i["tags"].get("name", "Nom inconnu")
+                    lat = i["lat"]
+                    lon = i["lon"]
                     if nom != "Nom inconnu":
                         magasins.append((nom, lat, lon))
-
             return magasins
 
         if len(codepostal)==5:
@@ -875,11 +748,8 @@ elif st.session_state.afficher_bloc == 'chatbot':
                 my_map = folium.Map(location=[centre[0], centre[1]], zoom_start=13)
 
                 for nom, lat, lon in magasins:
-                        folium.Marker(
-                            location=[lat, lon],
-                            popup=f"{nom}",
-                            icon=folium.Icon(color="darkblue", icon="shopping-cart")
-                        ).add_to(my_map)
+                        folium.Marker(location=[lat, lon],popup=f"{nom}",
+                                      icon=folium.Icon(color="darkblue", icon="shopping-cart")).add_to(my_map)
                 st_folium(my_map, width=850, height=350)
         else:
             st.write("Veuillez entrer un code postal valide.")
@@ -895,26 +765,14 @@ elif st.session_state.afficher_bloc == 'chatbot':
     st.markdown("""
             <style>
             .stButton button {
-                background-color: #55be61 !important;
-                color: white !important;
-                font-size: 28px !important;
-                border: none !important;
-                border-radius: 4px !important;
-                padding: 1rem 3rem !important;
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                cursor: pointer !important;
-            }
-            .stButton button > div > p {
-                font-size: 20px !important;
-                white-space: nowrap !important;
-            }
-            .stButton button:hover {
-                background-color: #46a854 !important;
-            }
-            </style>
-            """, unsafe_allow_html=True)
+                background-color: #55be61 !important;color: white !important;
+                font-size: 28px !important;border: none !important;
+                border-radius: 4px !important;padding: 1rem 3rem !important;
+                display: block;margin-left: auto;
+                margin-right: auto;cursor: pointer !important;}
+            .stButton button > div > p {font-size: 20px !important;
+                white-space: nowrap !important;}
+            .stButton button:hover {background-color: #46a854 !important;}</style>""", unsafe_allow_html=True)
 
 #endregion
 
@@ -957,7 +815,6 @@ elif st.session_state.afficher_bloc == 'recos':
                 with colonnes[i]:
                     st.markdown(f"""<h3 style="text-align: center;">{df2.iloc[list(nombres_aleatoires)].iloc[i,-3]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-2]}</h3>""",unsafe_allow_html=True)
                     st.markdown(f"""<div style="text-align: center;"><h5>{format(round(df2.iloc[list(nombres_aleatoires)].iloc[i,-1]), ",d").replace(",", " ")} {df2.iloc[list(nombres_aleatoires)].iloc[i,-4]} {df2.iloc[list(nombres_aleatoires)].iloc[i,-10]}</h5></div>""",unsafe_allow_html=True)
-
 
     generateur(results)
 
@@ -1056,9 +913,8 @@ elif st.session_state.afficher_bloc == 'recos':
           st.markdown("""<h2 style="text-align: center; font-size: 24px;">Découvrez nos conseils pour d'autres catégories</h2>""",unsafe_allow_html=True)  
           with st.success("Sélectionnez une option :"):
               option_joker = st.selectbox("",list(Best_N["Name_SubCategory"].unique()))
-              ligne = Best_N[Best_N['Name_SubCategory'] == option_joker].index[0]
-              st.markdown(
-                    f"""<h4>💡 {Best_N.iloc[ligne,-1]}</h4>""",unsafe_allow_html=True)
+          ligne = Best_N[Best_N['Name_SubCategory'] == option_joker].index[0]
+          st.markdown(f"""<h4>💡 {Best_N.iloc[ligne,-1]}</h4>""",unsafe_allow_html=True)
           st.write("")
           st.write("")
           st.write("")
@@ -1069,29 +925,12 @@ elif st.session_state.afficher_bloc == 'recos':
             afficher_chatbot()
         st.markdown("""
     <style>
-    .stButton button {
-        background-color: #55be61 !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 4px !important;
-        padding: 1.5rem 1.5rem !important;
-        cursor: pointer !important;
-    }
-    .stButton button > div > p {
-        font-size: 20px !important;
-        white-space: nowrap !important;
-    }
-    .stButton button:hover {
-        background-color: #46a854 !important;
-    }
-    .button-container {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-    }
-    </style>
-
-    """, unsafe_allow_html=True)
+    .stButton button {background-color: #55be61 !important;color: white !important;
+        border: none !important;border-radius: 4px !important;
+        padding: 1.5rem 1.5rem !important;cursor: pointer !important;}
+    .stButton button > div > p {font-size: 20px !important;white-space: nowrap !important;}
+    .stButton button:hover {background-color: #46a854 !important;}
+    .button-container {display: flex;justify-content: center;gap: 1rem;}</style>""", unsafe_allow_html=True)
 
 
     with col5:
@@ -1100,27 +939,11 @@ elif st.session_state.afficher_bloc == 'recos':
         st.markdown("""
     <style>
     .stButton button {
-        background-color: #55be61 !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 4px !important;
-        padding: 0.75rem 1.5rem !important;
-        cursor: pointer !important;
-    }
-    .stButton button > div > p {
-        font-size: 20px !important;
-        white-space: nowrap !important;
-    }
-    .stButton button:hover {
-        background-color: #46a854 !important;
-    }
-    .button-container {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-    }
-    </style>
-
-    """, unsafe_allow_html=True)
+        background-color: #55be61 !important;color: white !important;
+        border: none !important;border-radius: 4px !important;
+        padding: 0.75rem 1.5rem !important;cursor: pointer !important;}
+    .stButton button > div > p {font-size: 20px !important;white-space: nowrap !important;}
+    .stButton button:hover {background-color: #46a854 !important;}
+    .button-container {display: flex;justify-content: center;gap: 1rem;}</style>""", unsafe_allow_html=True)
 
 #endregion
